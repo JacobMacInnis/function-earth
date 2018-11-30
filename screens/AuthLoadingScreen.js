@@ -4,10 +4,11 @@ import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 
 // Import Screens
-import FunctionEarthHome from './FunctionEarthHome';
 import LoginScreen from './LoginScreen';
 import RegistrationScreen from './RegistrationScreen';
 import UserLocation from './UserLocation';
+import FunctionEarthHome from './FunctionEarthHome';
+import EntryScreen from './EntriesScreen';
 import OtherScreen from './OtherScreen';
 
 
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const AppStack = createStackNavigator({ Home: FunctionEarthHome, Other: OtherScreen });
+const AppStack = createStackNavigator({ Home: FunctionEarthHome, EntryScreen: EntryScreen, Other: OtherScreen });
 
 const AuthStack = createStackNavigator({ Login: LoginScreen, Registration: RegistrationScreen, UserLocation: UserLocation });
 

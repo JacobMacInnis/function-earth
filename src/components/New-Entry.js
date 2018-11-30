@@ -2,37 +2,30 @@ import React from 'react';
 import { View, Text, Button } from 'react-native';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
+import { entries } from '../actions/entries';
 
 
 class NewEntry extends React.Component {
-  newEntry(entry) {
-    console.log(entry);
-  }
+  newEntry = type => {
+    this.props.dispatch(entries(type))
+  };
   render() {
+    let types = ['Earth', 'Ocean', 'Animals', 'Humanity'];
+    let buttons = types.map((type, i) =>  {
+      return (
+        <Button
+          key={i} 
+          title={type} 
+          onPress={() => this.newEntry(type)}
+          accessibilityLabel={type} 
+        />
+      );
+    });
     return (
       <View>
         <Text>New Entry</Text>
         <Text>Today I Helped...</Text>
-        <Button 
-          title='Earth' 
-          onPress={() => this.newEntry('earth')}
-          accessibilityLabel='earth' 
-        />
-        <Button 
-          title='Ocean'  
-          onPress={() => this.newEntry('ocean')}
-          accessibilityLabel='ocean' 
-        />
-        <Button 
-          title='Animals'  
-          onPress={() => this.newEntry('animal')}
-          accessibilityLabel='animal' 
-        />
-        <Button 
-          title='Humanity' 
-          onPress={() => this.newEntry('humanity')}
-          accessibilityLabel='humanity' 
-        />
+        {buttons}
       </View>
     );
   }
@@ -41,7 +34,8 @@ class NewEntry extends React.Component {
 const mapStateToProps = state => ({
   stats: state.stats.stats,
   statsError: state.stats.error,
-  statsLoading: state.stats.loading
+  statsLoading: state.stats.loading,
+  entryType: state.entries.type
 });
 
 export default requiresLogin()(connect(mapStateToProps)(NewEntry));

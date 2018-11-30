@@ -1,6 +1,7 @@
 import React from 'react';
 import { AsyncStorage, Image, Text, Button, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
+
 // Components
 import MyImpact from '../src/components/My-Impact';
 import NewEntry from '../src/components/New-Entry';
@@ -12,8 +13,10 @@ class FunctionEarthHome extends React.Component {
     if (!this.props.loggedIn || this.props.error) {
       this.props.navigation.navigate('Auth');
     }
+    if (this.props.entryType !== null && this.props.newEntry) {
+      this.props.navigation.navigate('EntryScreen');
+    }
   }
-  
   render() {
     const loadAuthToken = () => {
       return AsyncStorage.getItem('authToken');
@@ -53,7 +56,9 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
   loggedIn: state.auth.currentUser !== null,
   error: state.auth.error,
-  authState: state.auth
+  authState: state.auth,
+  entryType: state.entries.type,
+  newEntry: state.entries.openEntryScreen
 });
 
 export default connect(mapStateToProps)(FunctionEarthHome);

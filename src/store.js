@@ -9,12 +9,14 @@ import registrationReducer from './reducers/registration';
 import locationReducer from './reducers/location';
 import authReducer from './reducers/auth';
 import statsReducer from './reducers/stats';
+import entriesReducer from './reducers/entries';
 
 const rootReducer = combineReducers({
     registration: registrationReducer,
     location: locationReducer,
     auth: authReducer,
     stats: statsReducer,
+    entries: entriesReducer,
     form: formReducer
 });
 const store = createStore(rootReducer, applyMiddleware(thunk));

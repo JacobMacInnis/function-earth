@@ -26,7 +26,7 @@ class NewEntry extends React.Component {
       );
     });
     return (
-      <View style={{width: 300, borderWidth: 2, borderColor: '#666699', borderRadius: '15', alignItems: 'center', marginTop: 10}}>
+      <View style={{width: 300, borderWidth: 2, borderColor: '#666699', borderRadius: 15, alignItems: 'center', marginTop: 10}}>
         <Text style={{fontSize: 20, fontWeight: 'bold'}}>New Entry</Text>
         <Text style={{fontSize: 17}}>Today I Helped...</Text>
         {buttons}

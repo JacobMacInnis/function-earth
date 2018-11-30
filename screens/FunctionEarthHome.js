@@ -1,7 +1,9 @@
 import React from 'react';
 import { AsyncStorage, Image, Text, Button, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-
+// Components
+import MyImpact from '../src/components/My-Impact';
+import NewEntry from '../src/components/New-Entry';
 class FunctionEarthHome extends React.Component {
   static navigationOptions = {
     title: 'My Function Earth',
@@ -20,9 +22,11 @@ class FunctionEarthHome extends React.Component {
       <View style={styles.container}>
         <View style={styles.loginLogoContainer}>
           <Image source={require('./../src/assets/images/function-earth-logo.png')} 
-            style={{width: 200, height: 200}} />
+            style={{width: 100, height: 100}} />
           <Text style={styles.loginTitle}>Function Earth</Text>
         </View>
+        <MyImpact />
+        <NewEntry />
         <Button title="Show me more of the app" onPress={this._showMoreApp} />
         <Button title="Actually, sign me out :)" onPress={this._signOutAsync} />
       </View>

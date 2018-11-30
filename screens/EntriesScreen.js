@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TextInput, StyleSheet } from 'react-native';
-import { Button } from 'react-native-elements';
+import { View, Text, Image, Button, TextInput, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import requiresLogin from '../src/components/requires-login';
 

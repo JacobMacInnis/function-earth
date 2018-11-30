@@ -64,7 +64,7 @@ Humanity does things that ensure a healthier and lasting planet on a daily basis
 <h2 align="center">
 	ORIGINAL WIREFRAME DESIGNS
 </h2>
-<img alt="Function Earth Wireframes" src="https://github.com/JacobMacInnis/function-earth/blob/master/assets/images/FunctionEarthWF.jpg?raw=true" width="800">
+<div align='center'><img alt="Function Earth Wireframes" src="https://github.com/JacobMacInnis/function-earth/blob/master/assets/images/FunctionEarthWF.jpg?raw=true" width="800"></div>
 
 
 

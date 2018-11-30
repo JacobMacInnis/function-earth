@@ -1,5 +1,6 @@
 import {
-  ENTRIES
+  ENTRIES,
+  LEAVE_ENTRY_SCREEN
 } from '../actions/entries';
 
 const initialState = {
@@ -13,6 +14,11 @@ export default function reducer(state = initialState, action) {
           type: action.entry,
           openEntryScreen: true
       });
+  } else if (action.type === LEAVE_ENTRY_SCREEN) {
+    return Object.assign({}, state, {
+        type: null,
+        openEntryScreen: false
+    });
   } else {
     return state;
   }

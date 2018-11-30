@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Image, Button, TextInput, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import requiresLogin from '../src/components/requires-login';
+import {leaveEntryScreen} from '../src/actions/entries';
 
 const examples = {
   Earth: 'eg. built a compost bin in back yard',
@@ -24,24 +25,26 @@ class EntriesScreen extends React.Component {
       stateRegion: this.state.stateRegion,
       entry: this.state.entry
     };
-    console.log(entry)
+  }
+  componentWillUnmount() {
+    this.props.dispatch(leaveEntryScreen());
   }
   render() {
     return (
-      <View style={{flex: 1}}>
-        <View style={{flex: 1, backgroundColor: 'powderblue'}}>
+      <View style={{flex: 2, backgroundColor: 'white'}}>
+        <View style={{flex: 2}}>
           <Image source={require('../src/assets/images/function-earth-logo.png')} 
-            style={{alignSelf: 'center', marginTop: 3, width: 75, height: 75}} />
+            style={{alignSelf: 'center', marginTop: 3, width: 100, height: 100}} />
         </View>
-        <View style={{flex: 1, backgroundColor: 'skyblue'}}>
+        <View style={{flex: 1}}>
           <Text style={{alignSelf: 'center', fontSize: 40, fontWeight: 'bold'}}>Function Earth</Text>
         </View>
-        <View style={{flex: 1, backgroundColor: 'steelblue'}}>
+        <View style={{flex: 1, justifyContent: 'center'}}>
           <Text style={{alignSelf: 'center', fontSize: 25, fontWeight: 'bold'}}>New <Text style={{color: 'blue', borderRadius: 4,
     borderWidth: 0.5,
     borderColor: 'black',}}>{this.props.entryType}</Text> Entry</Text>
         </View>
-        <View style={{flex: 1, backgroundColor: 'powderblue', alignSelf: 'center'}}>
+        <View style={{flex: 2, backgroundColor: 'powderblue', alignSelf: 'center'}}>
           <Text style={{ fontSize: 18}}>Country</Text>
           <TextInput
             value={this.state.country}
@@ -49,23 +52,23 @@ class EntriesScreen extends React.Component {
             onChangeText={country => this.setState({country})}
           />
         </View>
-        <View style={{flex: 1, backgroundColor: 'skyblue'}}>
+        <View style={{flex: 2, backgroundColor: 'skyblue'}}>
           <Text>State/Region</Text>
           <TextInput
             onChangeText={stateRegion => this.setState({stateRegion})}
             value={this.state.stateRegion}
           />
         </View>
-        <View style={{flex: 1, backgroundColor: 'steelblue'}}>
+        <View style={{flex: 2, backgroundColor: 'steelblue'}}>
           <Text>Today I helped preserve our {this.props.entryType}. I...</Text>
         </View>
-        <View style={{flex: 2}}>
+        <View style={{flex: 4}}>
           <TextInput
             onChangeText={entry => this.setState({entry})}
             value={this.state.entry}
           />
         </View>
-        <View style={{flex: 1, backgroundColor: 'skyblue'}}>
+        <View style={{flex: 2, backgroundColor: 'skyblue'}}>
           <Button
             title='Log My Action'
             onPress={() => this.logNewEntry()}

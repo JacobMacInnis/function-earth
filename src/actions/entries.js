@@ -2,8 +2,11 @@ export const ENTRIES = 'ENTRIES';
 export const entries = entry => ({
   type: ENTRIES,
   entry
-})
-
+});
+export const LEAVE_ENTRY_SCREEN = 'LEAVE_ENTRY_SCREEN';
+export const leaveEntryScreen = () => ({
+  type: LEAVE_ENTRY_SCREEN
+});
 //container
 ////logo        1
 ////header      1

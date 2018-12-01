@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import requiresLogin from '../src/components/requires-login';
-import {leaveEntryScreen} from '../src/actions/entries';
+import {leaveEntryScreen, newEntry} from '../src/actions/entries';
 
 const examples = {
   Earth: 'eg. built a compost bin in back yard',
@@ -20,12 +20,12 @@ class EntriesScreen extends React.Component {
     };
   }
   logNewEntry() {
-    let entry = {
+    let newEntry = {
       country: this.state.country,
       stateRegion: this.state.stateRegion,
       entry: this.state.entry
     };
-    console.log(entry);
+    this.props.dispatch(newEntry(newEntry));
   }
   componentWillUnmount() {
     this.props.dispatch(leaveEntryScreen());

@@ -31,7 +31,7 @@ export const newEntry = entry => (dispatch, getState) => {
   dispatch(newEntryRequest());
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/entry`, {
-          method: 'GET',
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${authToken}`

@@ -1,6 +1,5 @@
 import { API_BASE_URL } from './../config';
 
-
 export const STATS_REQUEST = 'STATS_REQUEST';
 export const statsRequest = () => ({
     type: STATS_REQUEST

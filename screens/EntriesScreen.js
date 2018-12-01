@@ -25,6 +25,7 @@ class EntriesScreen extends React.Component {
       stateRegion: this.state.stateRegion,
       entry: this.state.entry
     };
+    console.log(entry);
   }
   componentWillUnmount() {
     this.props.dispatch(leaveEntryScreen());
@@ -36,7 +37,7 @@ class EntriesScreen extends React.Component {
           <Image source={require('../src/assets/images/function-earth-logo.png')} 
             style={{alignSelf: 'center', marginTop: 3, width: 100, height: 100}} />
         </View>
-        <View style={{flex: 1}}>
+        <View style={{flex: 2, justifyContent: 'center'}}>
           <Text style={{alignSelf: 'center', fontSize: 40, fontWeight: 'bold'}}>Function Earth</Text>
         </View>
         <View style={{flex: 1, justifyContent: 'center'}}>
@@ -62,16 +63,19 @@ class EntriesScreen extends React.Component {
             value={this.state.stateRegion}
           />
         </View>
-        <View style={{flex: 2, backgroundColor: 'steelblue'}}>
-          <Text>Today I helped preserve our {this.props.entryType}. I...</Text>
+        <View style={{flex: 1, marginLeft: 20, marginRight: 20}}>
+          <Text style={{fontSize: 22}}>Today I helped preserve our {this.props.entryType}. I...</Text>
         </View>
-        <View style={{flex: 4}}>
+        <View style={{flex: 6, alignItems: 'center'}}>
           <TextInput
+            style={{ width: 360, borderWidth: 1, borderRadius: 10, height: 240,   fontSize: 18}}
+            multiline={true}
+            textAlign={'center'}
             onChangeText={entry => this.setState({entry})}
             value={this.state.entry}
           />
         </View>
-        <View style={{flex: 2, alignItems: 'center'}}>
+        <View style={{flex: 3, alignItems: 'center'}}>
           <TouchableOpacity
           style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: 60, width: 200, margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: 'green'}} 
           onPress={() => this.logNewEntry()}

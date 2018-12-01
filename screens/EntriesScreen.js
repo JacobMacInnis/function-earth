@@ -20,12 +20,12 @@ class EntriesScreen extends React.Component {
     };
   }
   logNewEntry() {
-    let newEntry = {
+    let entry = {
       country: this.state.country,
       stateRegion: this.state.stateRegion,
       entry: this.state.entry
     };
-    this.props.dispatch(newEntry(newEntry));
+    this.props.dispatch(newEntry(entry));
   }
   componentWillUnmount() {
     this.props.dispatch(leaveEntryScreen());

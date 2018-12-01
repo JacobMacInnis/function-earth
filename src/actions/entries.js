@@ -27,7 +27,7 @@ export const newEntryError = error => ({
     error
 });
 
-export const newEntry = newEntry => (dispatch, getState) => {
+export const newEntry = entry => (dispatch, getState) => {
   dispatch(newEntryRequest());
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/entry`, {
@@ -36,7 +36,7 @@ export const newEntry = newEntry => (dispatch, getState) => {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${authToken}`
           },
-          body: JSON.stringify(newEntry)
+          body: JSON.stringify(entry)
       })
       .then(res => res.json())
       .then((res) => {

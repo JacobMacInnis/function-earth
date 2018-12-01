@@ -3,6 +3,7 @@ import { View, Text, Image, TouchableOpacity, TextInput, StyleSheet, Alert } fro
 import { connect } from 'react-redux';
 import requiresLogin from '../src/components/requires-login';
 import {leaveEntryScreen, newEntry} from '../src/actions/entries';
+import colorsObj from '../assets/colors/colorsObj';
 
 const examples = {
   Earth: 'eg. built a compost bin in back yard',
@@ -60,7 +61,7 @@ class EntriesScreen extends React.Component {
           <Text style={{alignSelf: 'center', fontSize: 40, fontWeight: 'bold'}}>Function Earth</Text>
         </View>
         <View style={{flex: 1, justifyContent: 'center'}}>
-          <Text style={{alignSelf: 'center', fontSize: 25, fontWeight: 'bold'}}>New <Text style={{color: 'blue', borderRadius: 4,
+          <Text style={{alignSelf: 'center', fontSize: 25, fontWeight: 'bold'}}>New <Text style={{color: colorsObj[this.props.entryType], borderRadius: 4,
     borderWidth: 0.5,
     borderColor: 'black',}}>{this.props.entryType}</Text> Entry</Text>
         </View>
@@ -96,11 +97,11 @@ class EntriesScreen extends React.Component {
         </View>
         <View style={{flex: 3, alignItems: 'center'}}>
           <TouchableOpacity
-          style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: 60, width: 200, margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: 'green'}} 
+          style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: 60, width: 200, margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: colorsObj[this.props.entryType]}} 
           onPress={() => this.logNewEntry()}
           accessibilityLabel='log entry button' 
           >
-            <Text style={{fontSize: 25, alignSelf: 'center', color: 'white'}}>Log My Action</Text>
+            <Text style={{fontSize: 25, alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Log My Action</Text>
           </TouchableOpacity>
         </View>
         {alert}

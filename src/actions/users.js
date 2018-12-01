@@ -64,6 +64,9 @@ export const registerUser = user => dispatch => {
 };
 export const userLocation = values => (dispatch, getState) => {
   dispatch(locationRequest);
+  if (values.hasOwnProperty('city') === false) {
+      values.city = 'none';
+  }
     const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/users/stats`, {
       method: 'POST',

@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, TextInput, StyleSheet, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import requiresLogin from '../src/components/requires-login';
+import { getStats }  from '../src/actions/stats';
 import {leaveEntryScreen, newEntry} from '../src/actions/entries';
 import colorsObj from '../assets/colors/colorsObj';
 
@@ -16,23 +17,32 @@ class EntriesScreen extends React.Component {
     super(props);
     this.state = {
       country: this.props.country,
-      stateRegion: this.props.state,
+      stateRegion: this.props.stateRegion,
       entry: examples[this.props.entryType],
       alertType: null,
       alertMessage: null
     };
   }
   logNewEntry() {
-    
     if (this.state.entry === examples[this.props.entryType]) {
       this.setState({alertType: 'Invalid', alertMessage: 'Entry must be unique'})
     } else {
       let Entry = {
+        entryType: this.props.entryType,
         country: this.state.country,
         stateRegion: this.state.stateRegion,
         entry: this.state.entry
       };
-      this.props.dispatch(newEntry(Entry));
+      const dispatchEntry = new Promise((resolve,reject) => {
+        resolve(this.props.dispatch(newEntry(Entry)))
+      });
+      dispatchEntry
+      .then(() => {
+        this.props.dispatch(getStats());
+      })
+      .then(() => {
+        this.props.navigation.navigate('Home');
+      })
     }
   }
   componentWillUnmount() {
@@ -116,7 +126,8 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
   entryType: state.entries.type,
   country: state.stats.stats.country,
-  state: state.stats.stats.state
+  stateRegion: state.stats.stats.stateRegion,
+  stats: state.stats.stats
 });
 
 export default requiresLogin()(connect(mapStateToProps)(EntriesScreen));

@@ -30,7 +30,7 @@ export const newEntryError = error => ({
 export const newEntry = entry => (dispatch, getState) => {
   dispatch(newEntryRequest());
   const authToken = getState().auth.authToken;
-  return fetch(`${API_BASE_URL}/entry`, {
+  return fetch(`${API_BASE_URL}/entries`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

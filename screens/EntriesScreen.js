@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableOpacity, TextInput, StyleSheet, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import requiresLogin from '../src/components/requires-login';
 import {leaveEntryScreen, newEntry} from '../src/actions/entries';
@@ -16,21 +16,40 @@ class EntriesScreen extends React.Component {
     this.state = {
       country: this.props.country,
       stateRegion: this.props.state,
-      entry: examples[this.props.entryType]
+      entry: examples[this.props.entryType],
+      alertType: null,
+      alertMessage: null
     };
   }
   logNewEntry() {
-    let entry = {
-      country: this.state.country,
-      stateRegion: this.state.stateRegion,
-      entry: this.state.entry
-    };
-    this.props.dispatch(newEntry(entry));
+    
+    if (this.state.entry === examples[this.props.entryType]) {
+      this.setState({alertType: 'Invalid', alertMessage: 'Entry must be unique'})
+    } else {
+      let Entry = {
+        country: this.state.country,
+        stateRegion: this.state.stateRegion,
+        entry: this.state.entry
+      };
+      this.props.dispatch(newEntry(Entry));
+    }
   }
   componentWillUnmount() {
     this.props.dispatch(leaveEntryScreen());
   }
   render() {
+    let alert = false;
+    if (this.state.alertType !== null) {
+      alert = Alert.alert(
+        `${this.state.alertType}`,
+        `${this.state.alertMessage}`,
+        [
+          {text: 'OK', onPress: () => this.setState({
+            alertType: null, alertMessage: null
+          })}
+        ]
+      )
+    }
     return (
       <View style={{flex: 2, backgroundColor: 'white'}}>
         <View style={{flex: 2}}>
@@ -84,6 +103,7 @@ class EntriesScreen extends React.Component {
             <Text style={{fontSize: 25, alignSelf: 'center', color: 'white'}}>Log My Action</Text>
           </TouchableOpacity>
         </View>
+        {alert}
       </View>
     );
   }

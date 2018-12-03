@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StatusBar, StyleSheet, ActivityIndicator, AsyncStorage } from 'react-native';
-import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator, createSwitchNavigator, createDrawerNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 
 // Import Screens
@@ -9,8 +9,9 @@ import RegistrationScreen from './RegistrationScreen';
 import UserLocation from './UserLocation';
 import FunctionEarthHome from './FunctionEarthHome';
 import EntryScreen from './EntriesScreen';
+import GlobalStatsScreen from './GlobalStatsScreen';
 import OtherScreen from './OtherScreen';
-
+import MyStatsScreen from './MyStatsScreen';
 
 class AuthLoadingScreen extends React.Component {
   componentDidMount() {
@@ -44,10 +45,18 @@ const styles = StyleSheet.create({
   },
 });
 
-const AppStack = createStackNavigator({ Home: FunctionEarthHome, EntryScreen: EntryScreen, Other: OtherScreen });
+const AppStack = createStackNavigator({ 
+  Home: FunctionEarthHome, 
+  EntryScreen: EntryScreen, 
+  GlobalStats: GlobalStatsScreen,
+  MyStats: MyStatsScreen, 
+  Other: OtherScreen });
 
-const AuthStack = createStackNavigator({ Login: LoginScreen, Registration: RegistrationScreen, UserLocation: UserLocation });
-
+const AuthStack = createStackNavigator({ 
+  Login: LoginScreen, 
+  Registration: RegistrationScreen, 
+  UserLocation: UserLocation 
+});
 
 export default connect(mapStateToProps)(createSwitchNavigator(
   {

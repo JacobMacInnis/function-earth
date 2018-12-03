@@ -1,13 +1,19 @@
 import React from 'react';
 import { AsyncStorage, Image, Text, Button, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
+import { offMenu } from '../src/actions/hamburgerMenu';
 
 // Components
 import MyImpact from '../src/components/My-Impact';
 import NewEntry from '../src/components/New-Entry';
+import HamburgerMenu from '../src/components/HamburgerMenu';
+import LinkScreen from './LinkScreen';
 class FunctionEarthHome extends React.Component {
   static navigationOptions = {
-    title: 'My Function Earth',
+    headerRight: (
+      <HamburgerMenu />
+    ),
+    title: 'Function Earth'
   };
   componentDidUpdate() {
     if (!this.props.loggedIn || this.props.error) {
@@ -21,6 +27,11 @@ class FunctionEarthHome extends React.Component {
     const loadAuthToken = () => {
       return AsyncStorage.getItem('authToken');
     };
+    if (this.props.HamburgerMenuActive) {
+      return (
+        <LinkScreen signOutAsync={this._signOutAsync} navigation={this.props.navigation}/>
+      )
+    }
     return (
       <View style={styles.container}>
         <View style={styles.loginLogoContainer}>
@@ -30,8 +41,6 @@ class FunctionEarthHome extends React.Component {
         </View>
         <MyImpact />
         <NewEntry />
-        <Button title="Show me more of the app" onPress={this._showMoreApp} />
-        <Button title="Actually, sign me out :)" onPress={this._signOutAsync} />
       </View>
     );
   }
@@ -42,6 +51,7 @@ class FunctionEarthHome extends React.Component {
 
   _signOutAsync = async () => {
     await AsyncStorage.clear();
+    this.props.dispatch(offMenu());
     this.props.navigation.navigate('Auth');
   };
 }
@@ -58,7 +68,8 @@ const mapStateToProps = state => ({
   error: state.auth.error,
   authState: state.auth,
   entryType: state.entries.type,
-  newEntry: state.entries.openEntryScreen
+  newEntry: state.entries.openEntryScreen,
+  HamburgerMenuActive: state.hamburgerMenu.active
 });
 
 export default connect(mapStateToProps)(FunctionEarthHome);

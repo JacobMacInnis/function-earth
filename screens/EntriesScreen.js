@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, TextInput, StyleSheet, Alert } from 'react-native';
 import { connect } from 'react-redux';
+import Oceans from '../src/components/Oceans';
 import requiresLogin from '../src/components/requires-login';
 import { getStats }  from '../src/actions/stats';
 import {leaveEntryScreen, newEntry} from '../src/actions/entries';
@@ -20,7 +21,8 @@ class EntriesScreen extends React.Component {
       stateRegion: this.props.stateRegion,
       entry: examples[this.props.entryType],
       alertType: null,
-      alertMessage: null
+      alertMessage: null,
+      ocean: ''
     };
   }
   logNewEntry() {
@@ -31,7 +33,8 @@ class EntriesScreen extends React.Component {
         entryType: this.props.entryType,
         country: this.state.country,
         stateRegion: this.state.stateRegion,
-        entry: this.state.entry
+        entry: this.state.entry,
+        ocean: this.state.ocean
       };
       const dispatchEntry = new Promise((resolve,reject) => {
         resolve(this.props.dispatch(newEntry(Entry)))
@@ -43,11 +46,16 @@ class EntriesScreen extends React.Component {
       .then(() => {
         this.props.navigation.navigate('Home');
       })
-    }
-  }
+    };
+  };
+  oceanPressed(ocean) {
+    this.setState({
+      ocean: ocean
+    });
+  };
   componentWillUnmount() {
     this.props.dispatch(leaveEntryScreen());
-  }
+  };
   render() {
     let alert = false;
     if (this.state.alertType !== null) {
@@ -71,20 +79,15 @@ class EntriesScreen extends React.Component {
           <Text style={{alignSelf: 'center', fontSize: 40, fontWeight: 'bold'}}>Function Earth</Text>
         </View>
         <View style={{flex: 1, justifyContent: 'center'}}>
-          <Text style={{alignSelf: 'center', fontSize: 25, fontWeight: 'bold'}}>New <Text style={{color: colorsObj[this.props.entryType], borderRadius: 4,
-    borderWidth: 0.5,
-    borderColor: 'black',}}>{this.props.entryType}</Text> Entry</Text>
+          <Text style={{alignSelf: 'center', fontSize: 25, fontWeight: 'bold'}}>New <Text style={{color: colorsObj[this.props.entryType], borderRadius: 4, borderWidth: 0.5, borderColor: 'black',}}>{this.props.entryType}</Text> Entry</Text>
         </View>
-        <View style={{flex: 2, alignItems: 'center'}}>
-          <Text style={{ fontSize: 18}}>Country</Text>
+        {this.props.entryType === 'Ocean' ? <View style={{flex: 4, alignItems: 'center'}}><Oceans oceanPressed={(ocean) => this.oceanPressed(ocean)}/></View> : <View style={{flex: 2, alignItems: 'center'}}><Text style={{ fontSize: 18}}>Country</Text>
           <TextInput
             value={this.state.country}
             style={{ width: 200, borderWidth: 1, borderRadius: 10, height: 50, fontSize: 16}}
             textAlign={'center'}
-            onChangeText={country => this.setState({country})}
-          />
-        </View>
-        <View style={{flex: 2, alignItems: 'center'}}>
+            onChangeText={country => this.setState({country})}/></View>}
+        {this.props.entryType !== 'Ocean' ? <View style={{flex: 2, alignItems: 'center'}}>
           <Text style={{fontSize: 18}}>State/Region</Text>
           <TextInput
             style={{ width: 200, borderWidth: 1, borderRadius: 10, height: 50,   fontSize: 16}}
@@ -92,7 +95,7 @@ class EntriesScreen extends React.Component {
             onChangeText={stateRegion => this.setState({stateRegion})}
             value={this.state.stateRegion}
           />
-        </View>
+        </View> : <Text></Text>}
         <View style={{flex: 1, marginLeft: 20, marginRight: 20}}>
           <Text style={{fontSize: 22}}>Today I helped preserve our {this.props.entryType}. I...</Text>
         </View>

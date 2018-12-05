@@ -8,7 +8,6 @@ class HamburgerMenu extends React.Component {
     this.props.dispatch(toggleMenu());
   }
   render() {
-    console.log(this.props)
     return (
       <TouchableOpacity
       style={{height: 25, width: 45, margin: 10, justifyContent: 'center'}} 

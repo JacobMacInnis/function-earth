@@ -1,43 +1,34 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { connect } from 'react-redux';
-import requiresLogin from './requires-login';
-import { getStats }  from '../actions/stats';
 
-class MyImpact extends React.Component {
-  componentDidMount() {
-    this.props.dispatch(getStats());
-  }
+export default class GlobalImpact extends React.Component {
+  
   render() {
-    let myStats = <Text>Loading</Text>;
-    if (this.props.statsLoading === false && this.props.statsError === null && this.props.stats !== {}) {
-      let stats = this.props.stats;
-      myStats = <View style={{height: 135}}>
+    let myStats = <View style={{height: 135}}>
                   <View style={{flex: 1,flexWrap: 'nowrap',flexDirection: 'row', height: 10, padding: 2}}>
                   <Text style={{flex: 2, fontSize: 18}}>Earth:</Text> 
-                  <Text style={{flex: 1, textAlign: 'right', fontSize: 18}}>{stats.earthPoints}</Text>
+                  <Text style={{flex: 1, textAlign: 'right', fontSize: 18}}>{this.props.earth}</Text>
                 </View>
                 <View style={{flex: 1,flexWrap: 'nowrap',flexDirection: 'row', height: 10, padding: 2}}>
                   <Text style={{flex: 2, fontSize: 18}}>Ocean:</Text> 
-                  <Text style={{flex: 1, textAlign: 'right', fontSize: 18}}>{stats.oceanPoints}</Text>
+                  <Text style={{flex: 1, textAlign: 'right', fontSize: 18}}>{this.props.ocean}</Text>
                 </View>
                 <View style={{flex: 1,flexWrap: 'nowrap',flexDirection: 'row', height: 10, padding: 2}}>
                   <Text style={{flex: 2, fontSize: 18}}>Animal:</Text> 
-                  <Text style={{flex: 1, textAlign: 'right', fontSize: 18}}>{stats.animalPoints}</Text>
+                  <Text style={{flex: 1, textAlign: 'right', fontSize: 18}}>{this.props.animal}</Text>
                 </View>
                 <View style={{flex: 1,flexWrap: 'nowrap',flexDirection: 'row', height: 10, padding: 2}}>
                   <Text style={{flex: 2, fontSize: 18}}>Humanity:</Text> 
-                  <Text style={{flex: 1, textAlign: 'right', fontSize: 18}}>{stats.humanityPoints}</Text>
+                  <Text style={{flex: 1, textAlign: 'right', fontSize: 18}}>{this.props.humanity}</Text>
                 </View>
                 <View style={{flex: 1,flexWrap: 'nowrap',flexDirection: 'row', borderWidth: 1, borderRadius: 10, height: 15, padding: 2}}>
-                  <Text style={{flex: 2, fontSize: 20, fontWeight: 'bold'}}>Total Impact:</Text> 
-                  <Text style={{flex: 1, textAlign: 'right', fontSize: 20, fontWeight: 'bold'}}>{stats.totalPoints}</Text>
+                  <Text style={{flex: 2, fontSize: 20, fontWeight: 'bold'}}>Total {this.props.title}:</Text> 
+                  <Text style={{flex: 1, textAlign: 'right', fontSize: 20, fontWeight: 'bold'}}>{this.props.all}</Text>
                 </View>
               </View>
-    }
     return (
       <View style={{borderWidth: 1, borderRadius: 10, padding: 10, width: 250}}>
-        <Text style={{fontSize: 20, fontWeight: 'bold', alignSelf: 'center'}}>My Impact</Text>
+        <Text style={{fontSize: 20, fontWeight: 'bold', alignSelf: 'center'}}>Global {this.props.title}</Text>
         {myStats}
       </View>
     );
@@ -55,11 +46,3 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start'
   },
 });
-
-const mapStateToProps = state => ({
-  stats: state.stats.stats,
-  statsError: state.stats.error,
-  statsLoading: state.stats.loading
-});
-
-export default requiresLogin()(connect(mapStateToProps)(MyImpact));

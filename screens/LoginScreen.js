@@ -30,7 +30,7 @@ class Login extends React.Component {
           <Text style={styles.loginTitle}>Function Earth</Text>
         </View>
         <View style={styles.loginDescriptionContainer}>
-          <Text style={styles.loginDescription}>You already do good things to preserve our planet. But whose keeping track of it. Get points for doing good and lets compete for fast tracking environmental and global progress. </Text>
+          <Text style={styles.loginDescription}>You already do good things to preserve our planet. Function Earth tracks your efforts to protect our environment and global progress.</Text>
         </View>
         <View 
           title="login-form"

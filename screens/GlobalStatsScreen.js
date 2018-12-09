@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { globalStats } from '../src/actions/globalStats';
 import GlobalImpact from '../src/components/Impact-Container';
 import OceanImpact from '../src/components/Ocean-Impact';
+import TopUserImpact from '../src/components/Top-User-Impact';
 
 class GlobalStatsScreen extends React.Component {
   componentWillMount() {
@@ -11,6 +12,7 @@ class GlobalStatsScreen extends React.Component {
   }
   render() {
     if (this.props.loading == false && this.props.globalStats !== null) {
+      console.log(this.props.globalStats.topUsers.topUsers[4].totalPoints, 'TOP USERS')
       return (
         <ScrollView>
         <View style={styles.container}>
@@ -55,6 +57,23 @@ class GlobalStatsScreen extends React.Component {
               southern={this.props.globalStats.oceans.southern.entryCount}
               points={this.props.globalStats.oceanEntryCount}
               title={'Entries'}
+            />
+          </View>
+          <View style={{marginBottom: 10}}>
+            <TopUserImpact
+              // Top Users Total
+              fiveUser={this.props.globalStats.topUsers.topUsers[0].username}
+              five={this.props.globalStats.topUsers.topUsers[0].totalPoints}
+              fourUser={this.props.globalStats.topUsers.topUsers[1].username}
+              four={this.props.globalStats.topUsers.topUsers[1].totalPoints}
+              threeUser={this.props.globalStats.topUsers.topUsers[2].username}
+              three={this.props.globalStats.topUsers.topUsers[2].totalPoints}
+              twoUser={this.props.globalStats.topUsers.topUsers[3].username}
+              two={this.props.globalStats.topUsers.topUsers[3].totalPoints}
+              oneUser={this.props.globalStats.topUsers.topUsers[4].username}
+              one={this.props.globalStats.topUsers.topUsers[4].totalPoints}
+              title={'Top Users'}
+              
             />
           </View>
         </View>

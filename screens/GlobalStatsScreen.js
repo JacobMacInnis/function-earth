@@ -12,7 +12,6 @@ class GlobalStatsScreen extends React.Component {
   }
   render() {
     if (this.props.loading == false && this.props.globalStats !== null) {
-      console.log(this.props.globalStats.topUsers.topUsers[4].totalPoints, 'TOP USERS')
       return (
         <ScrollView>
         <View style={styles.container}>

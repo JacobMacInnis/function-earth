@@ -15,10 +15,12 @@ class UserCreation extends React.Component {
         if (this.props.loggedIn && this.props.locationCreated) {
           this.props.navigation.navigate('App')
         }
-      })  
+      }) 
+      .catch(err => {
+        console.log(err);
+      }) 
   } 
   render() {
-    console.log(this.props.locationError)
     let Location = <Text style={styles.locationText}>Set Your Location</Text>;
     if (this.props.locationLoading) {
       Location = <Text style={styles.locationText}>Loading</Text>

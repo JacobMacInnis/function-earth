@@ -26,41 +26,41 @@ class MyStatsScreen extends React.Component {
   render() {
     let recentEntries = this.props.stats.recentEntries;
     let recent = recentEntries.map((entry, index) => {
-      return (<Entries key={index} type={entry.type} entry={entry.entry} country={entry.country} stateRegion={entry.stateRegion} color={colors[entry.type]} timeStamp={entry.timeStamp}></Entries>);
+      return (<Entries key={index} index={index} type={entry.type} entry={entry.entry} country={entry.country} stateRegion={entry.stateRegion} color={colors[entry.type]} timeStamp={entry.timeStamp}></Entries>);
     });
     let entries = this.props.stats[`${this.state.type}Entries`];
     let selected = entries.map((entry, index) => {
-      return (<Entries key={index} type={this.state.type} entry={entry.entry} country={entry.country} stateRegion={entry.stateRegion} color={colors[this.state.type]} timeStamp={entry.timeStamp}></Entries>);
+      return (<Entries key={index} index={index} type={this.state.type} entry={entry.entry} country={entry.country} stateRegion={entry.stateRegion} color={colors[this.state.type]} timeStamp={entry.timeStamp}></Entries>);
     })
     console.log(this.props.stats)
     return (
       <View style={styles.container}>
         <Text style={{fontSize: 40}}>My Stats</Text>
         <MyStats />
-        <View style={{borderTopWidth: 1, borderBottomWidth: 1, marginTop: 10}}>
+        <View style={{marginTop: 10}}>
           <Text style={{fontSize: 30, alignSelf: 'center'}}>Recent Entries</Text>
           <View 
             style={{ height: 200, alignSelf: "stretch"}}>
             <View style={{height: 180, marginTop: 10}}>
               <ScrollView
                 scrollEventThrottle={16}
-                horizontal="true"
-                showsHorizontalScrollIndicator="false">
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}>
                 {recent}
               </ScrollView>
             </View>
           </View>
         </View>
         <View style={{marginTop: 10}}>
-          <MyStatsButtons buttonPress={string => this.buttonPress(string)}/>
+          <MyStatsButtons pressed={this.state.type} buttonPress={string => this.buttonPress(string)}/>
         </View>
         <View 
             style={{ height: 200, alignSelf: "stretch"}}>
             <View style={{height: 180, marginTop: 10}}>
               <ScrollView
                 scrollEventThrottle={16}
-                horizontal="true"
-                showsHorizontalScrollIndicator="false">
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}>
                 {selected}
               </ScrollView>
             </View>

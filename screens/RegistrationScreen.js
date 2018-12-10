@@ -21,6 +21,9 @@ class Registration extends React.Component {
         if (this.props.loggedIn) {
         this.props.navigation.navigate('UserLocation');
         }
+      })
+      .catch(err => {
+        console.log(err);
       })  
   }
   render() {

@@ -19,7 +19,10 @@ class Login extends React.Component {
         if (this.props.loggedIn) {
           this.props.navigation.navigate('App');
         };
-      }); 
+      })
+      .catch(err => {
+        console.log(err)
+      });
   };
   render() {
     return (

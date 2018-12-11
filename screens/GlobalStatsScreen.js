@@ -1,10 +1,9 @@
 import React from 'react';
-import { Text, Image, View, StyleSheet, StatusBar, ScrollView } from 'react-native';
+import { Text, Image, View, StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { globalStats } from '../src/actions/globalStats';
-import GlobalImpact from '../src/components/Impact-Container';
-import OceanImpact from '../src/components/Ocean-Impact';
-import TopUserImpact from '../src/components/Top-User-Impact';
+import GlobalScroll from '../src/components/GlobalScroll';
+import GlobalRecent from '../src/components/GlobalRecent';
 
 class GlobalStatsScreen extends React.Component {
   componentWillMount() {
@@ -13,70 +12,28 @@ class GlobalStatsScreen extends React.Component {
   render() {
     if (this.props.loading == false && this.props.globalStats !== null) {
       return (
-        <ScrollView>
         <View style={styles.container}>
-          <Text style={{fontSize: 40}}>Global Stats</Text>
-          <View style={{marginBottom: 10}}>
-            <GlobalImpact 
-              earth={this.props.globalStats.earthPoints}
-              ocean={this.props.globalStats.oceanPoints}
-              animal={this.props.globalStats.animalPoints}
-              humanity={this.props.globalStats.humanityPoints}
-              all={this.props.globalStats.points}
-              title={'Impact'}
-              />
+          <View style={{flex: 7, borderBottomWidth: 1}}>
+            <Text style={{fontSize: 40, alignSelf: 'center', marginTop: 5}}>Global Stats</Text>
+            <View style={{flex:1, flexDirection: 'row', alignItems: 'center'}}>
+            <GlobalScroll globalStats={this.props.globalStats}/>
+            </View>
           </View>
-          <View style={{marginBottom: 10}}>
-            <GlobalImpact 
-              earth={this.props.globalStats.earthEntryCount}
-              ocean={this.props.globalStats.oceanEntryCount}
-              animal={this.props.globalStats.animalEntryCount}
-              humanity={this.props.globalStats.humanityEntryCount}
-              all={this.props.globalStats.entryCount}
-              title={'Entries'}
-              />
-          </View>
-          <View style={{marginBottom: 10}}>
-            <OceanImpact
-              artic={this.props.globalStats.oceans.artic.points}
-              atlantic={this.props.globalStats.oceans.atlantic.points}
-              indian={this.props.globalStats.oceans.indian.points}
-              pacific={this.props.globalStats.oceans.pacific.points}
-              southern={this.props.globalStats.oceans.southern.points}
-              points={this.props.globalStats.oceanPoints}
-              title={'Impact'}
-            />
-          </View>
-          <View style={{marginBottom: 10}}>
-            <OceanImpact
-              artic={this.props.globalStats.oceans.artic.entryCount}
-              atlantic={this.props.globalStats.oceans.atlantic.entryCount}
-              indian={this.props.globalStats.oceans.indian.entryCount}
-              pacific={this.props.globalStats.oceans.pacific.entryCount}
-              southern={this.props.globalStats.oceans.southern.entryCount}
-              points={this.props.globalStats.oceanEntryCount}
-              title={'Entries'}
-            />
-          </View>
-          <View style={{marginBottom: 10}}>
-            <TopUserImpact
-              // Top Users Total
-              fiveUser={this.props.globalStats.topUsers.topUsers[0].username}
-              five={this.props.globalStats.topUsers.topUsers[0].totalPoints}
-              fourUser={this.props.globalStats.topUsers.topUsers[1].username}
-              four={this.props.globalStats.topUsers.topUsers[1].totalPoints}
-              threeUser={this.props.globalStats.topUsers.topUsers[2].username}
-              three={this.props.globalStats.topUsers.topUsers[2].totalPoints}
-              twoUser={this.props.globalStats.topUsers.topUsers[3].username}
-              two={this.props.globalStats.topUsers.topUsers[3].totalPoints}
-              oneUser={this.props.globalStats.topUsers.topUsers[4].username}
-              one={this.props.globalStats.topUsers.topUsers[4].totalPoints}
-              title={'Top Users'}
-              
-            />
+          <View style={{flex: 9}}>
+            <ScrollView>
+              <Text style={styles.titles}>Recent Entries</Text>
+              <GlobalRecent globalStats={this.props.globalStats}/>
+              <Text style={styles.titles}>Recent Earth</Text>
+              <GlobalRecent globalStats={this.props.globalStats}/>
+              <Text style={styles.titles}>Recent </Text>
+              <GlobalRecent globalStats={this.props.globalStats}/>
+              <Text style={styles.titles}>Recent Earth</Text>
+              <GlobalRecent globalStats={this.props.globalStats}/>
+              <Text style={styles.titles}>Recent Earth</Text>
+              <GlobalRecent globalStats={this.props.globalStats}/>
+            </ScrollView>
           </View>
         </View>
-        </ScrollView>
       );
     } else {
       return (
@@ -92,7 +49,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    alignItems: 'center'
+    alignItems: 'center',
+  },
+  titles: {
+    fontSize: 30, 
+    alignSelf:'center', 
+    marginBottom: 8,
+    marginTop: 8
   }
 });
 

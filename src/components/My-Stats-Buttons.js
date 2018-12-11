@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-
-let types = [{ title: "EARTH", action: 'earth', color: 'green', pressed: '#b3ffb3'}, { title: "OCEAN", action: 'ocean', color: 'blue', pressed: '#ccccff'}, { title: "ANIMAL", action: 'animal', color: 'orange', pressed: '#ffe4b3'}, {title: 'HUMANITY', action: 'humanity', color: '#ff0066', pressed: '#ffcce0'}];
+import {types} from './helpers/types';
 class MyStatsButtons extends Component {
   onPress = string => {
     this.props.buttonPress(string);
   }
   render() {
-    let buttons = types.map((button, index) => {
-      let action = button.action;
+    const buttons = types.map((button, index) => {
+    const action = button.action;
       return (
         <TouchableOpacity
           key={index}

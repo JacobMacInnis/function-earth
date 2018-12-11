@@ -37,7 +37,7 @@ class FunctionEarthHome extends React.Component {
         <View style={styles.loginLogoContainer}>
           <Image source={require('./../src/assets/images/function-earth-logo.png')} 
             style={{alignSelf: 'center', width: 100, height: 100, marginTop: 10}} />
-          <Text style={{fontSize: 40, fontWeight: 'bold', borderBottomWidth: 2}}>Function Earth</Text>
+          <Text style={{fontSize: 40, fontWeight: 'bold'}}>Function Earth</Text>
         </View>
         <MyImpact />
         <NewEntry />

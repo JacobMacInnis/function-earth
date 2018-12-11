@@ -1,0 +1,1 @@
+export const types = [{ title: "EARTH", action: 'earth', color: 'green', pressed: '#b3ffb3'}, { title: "OCEAN", action: 'ocean', color: 'blue', pressed: '#ccccff'}, { title: "ANIMAL", action: 'animal', color: 'orange', pressed: '#ffe4b3'}, {title: 'HUMANITY', action: 'humanity', color: '#ff0066', pressed: '#ffcce0'}];

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 // Import Components
 import LoginForm from './../src/components/Login-Form';
-
+import { DismissKeyboard } from '../src/components/DismissKeyboard';
 // Import Actions
 import { login } from './../src/actions/auth';
 
@@ -26,6 +26,7 @@ class Login extends React.Component {
   };
   render() {
     return (
+      <DismissKeyboard>
       <View style={styles.loginContainer}>
         <View style={styles.loginLogoContainer}>
           <Image source={require('./../src/assets/images/function-earth-logo.png')} 
@@ -45,6 +46,7 @@ class Login extends React.Component {
           />     
         </View> 
       </View>
+      </DismissKeyboard>
     );
   }
 }

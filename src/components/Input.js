@@ -23,18 +23,17 @@ export default function Input(props) {
         );
     }
   return (
-    
     <View style={[styles.inputContainer, validationStyles]}>
       <View>{error}{warning}</View>
-      <TextInput
-        {...inputProps}
-        onChangeText={input.onChange}
-        onBlur={input.onBlur}
-        onFocus={input.onFocus}
-        value={input.value}
-        style={styles.input}
-        underlineColorAndroid='transparent'
-      />
+        <TextInput
+          {...inputProps}
+          onChangeText={input.onChange}
+          onBlur={input.onBlur}
+          onFocus={input.onFocus}
+          value={input.value}
+          style={styles.input}
+          underlineColorAndroid='transparent'
+        />
     </View>
   );
 }
@@ -54,5 +53,9 @@ const styles = StyleSheet.create({
   },
   invalid: {
     borderColor: '#F55E64'
-  }
+  },
+  form: {
+    flex: 1,
+    justifyContent: 'space-between',
+  },
 });

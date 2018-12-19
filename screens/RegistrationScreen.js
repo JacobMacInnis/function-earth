@@ -3,8 +3,10 @@ import { View, Text, Button, Image, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
 // Import Components
+import { DismissKeyboard } from '../src/components/DismissKeyboard';
+import KeyboardShift from '../src/components/KeyboardShift';
 import RegistrationForm from './../src/components/Registration-Form';
-
+// Import Actions
 import { registerUser }  from './../src/actions/users';
 import { login } from './../src/actions/auth';
 
@@ -40,24 +42,30 @@ class Registration extends React.Component {
       }}>{this.props.registrationError.message}</Text>
     }
     return (
-      <View style={styles.registrationContainer}>
-        <View style={styles.registrationLogoContainer}>
-          <Image source={require('./../src/assets/images/function-earth-logo.png')} 
-            style={{width: 150, height: 150}} />
-          {/* <Text style={styles.loginTitle}>Function Earth</Text> */}
-        </View>
-        {<Text style={styles.registrationText}>{Registration}</Text>}
-        <View style={styles.registrationForm}>
-          <RegistrationForm
-            onSubmit={(values) => this.onSubmitRegistration(values)}/>
-        </View>
-        <View style={styles.backButton}>
-          <Button
-            title="Already Signed Up? Login"
-            onPress={() => this.props.navigation.goBack()}
-          />
-        </View>
-      </View>
+      <KeyboardShift>
+        {() => (
+        <DismissKeyboard>
+          <View style={styles.registrationContainer}>
+            <View style={styles.registrationLogoContainer}>
+              <Image source={require('./../src/assets/images/function-earth-logo.png')} 
+                style={{width: 150, height: 150}} />
+              {/* <Text style={styles.loginTitle}>Function Earth</Text> */}
+            </View>
+            {<Text style={styles.registrationText}>{Registration}</Text>}
+            <View style={styles.registrationForm}>
+              <RegistrationForm
+                onSubmit={(values) => this.onSubmitRegistration(values)}/>
+            </View>
+            <View style={styles.backButton}>
+              <Button
+                title="Already Signed Up? Login"
+                onPress={() => this.props.navigation.goBack()}
+              />
+            </View>
+          </View>
+        </DismissKeyboard>
+      )}
+    </KeyboardShift>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AsyncStorage, Image, Text, Button, View, StyleSheet } from 'react-native';
+import { AsyncStorage, Image, Text, Button, View, StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { offMenu } from '../src/actions/hamburgerMenu';
 
@@ -33,15 +33,17 @@ class FunctionEarthHome extends React.Component {
       )
     }
     return (
-      <View style={styles.container}>
-        <View style={styles.loginLogoContainer}>
-          <Image source={require('./../src/assets/images/function-earth-logo.png')} 
-            style={{alignSelf: 'center', width: 100, height: 100, marginTop: 10}} />
-          <Text style={{fontSize: 40, fontWeight: 'bold'}}>Function Earth</Text>
+      <ScrollView>
+        <View style={styles.container}>
+          <View style={styles.loginLogoContainer}>
+            <Image source={require('./../src/assets/images/function-earth-logo.png')} 
+              style={{alignSelf: 'center', width: 100, height: 100, marginTop: 10}} />
+            <Text style={{fontSize: 40, fontWeight: 'bold'}}>Function Earth</Text>
+          </View>
+          <MyImpact />
+          <NewEntry />
         </View>
-        <MyImpact />
-        <NewEntry />
-      </View>
+      </ScrollView>
     );
   }
 

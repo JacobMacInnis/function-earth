@@ -12,6 +12,7 @@ import EntryScreen from './EntriesScreen';
 import GlobalStatsScreen from './GlobalStatsScreen';
 import OtherScreen from './OtherScreen';
 import MyStatsScreen from './MyStatsScreen';
+import TestScreen from './TestScreen';
 
 class AuthLoadingScreen extends React.Component {
   componentDidMount() {
@@ -50,7 +51,8 @@ const AppStack = createStackNavigator({
   EntryScreen: EntryScreen, 
   GlobalStats: GlobalStatsScreen,
   MyStats: MyStatsScreen, 
-  Other: OtherScreen });
+  Other: OtherScreen,
+  Test: TestScreen });
 
 const AuthStack = createStackNavigator({ 
   Login: LoginScreen, 

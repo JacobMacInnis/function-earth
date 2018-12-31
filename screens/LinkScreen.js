@@ -26,6 +26,9 @@ class LinkScreen extends Component {
         <TouchableOpacity onPress={() => this._showMoreApp()}>
           <Text style={styles.buttons}>FE Chat</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Test')}>
+          <Text style={styles.buttons}>TestScreen</Text>
+        </TouchableOpacity>
         <TouchableOpacity onPress={this.props.signOutAsync}>
           <Text style={styles.buttons}>Log Out</Text>
         </TouchableOpacity>

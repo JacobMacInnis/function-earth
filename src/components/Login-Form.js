@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { reduxForm, focus } from 'redux-form';
 import { connect } from 'react-redux';
 
@@ -28,7 +29,7 @@ export class LoginForm extends React.Component {
           <Text style={{ fontSize: 18}}>Username</Text>
           <TextInput
             value={this.state.username}
-            style={{ width: 200, borderWidth: 1, borderRadius: 10, height: 50, fontSize: 16}}
+            style={{ borderWidth: 1, borderRadius: 10, height: hp('5%'), width: wp('60%'), fontSize: 16}}
             textAlign={'center'}
             onChangeText={username => this.setState({username})}/>
         </View>
@@ -36,13 +37,13 @@ export class LoginForm extends React.Component {
           <Text style={{ fontSize: 18}}>Password</Text>
           <TextInput
             value={this.state.password}
-            style={{ width: 200, borderWidth: 1, borderRadius: 10, height: 50, fontSize: 16}}
+            style={{ borderWidth: 1, borderRadius: 10, height: hp('5%'), width: wp('60%'), fontSize: 16}}
             textAlign={'center'}
             onChangeText={password => this.setState({password})}/>
         </View>
         <View style={{alignItems: 'center'}}>
           <TouchableOpacity
-            style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: 60, width: 200, margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: 'green'}} 
+            style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('5%'), width: wp('60%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: 'green'}} 
             title="login" 
             onPress={() => this.props.onSubmit(values)} 
           >
@@ -53,6 +54,8 @@ export class LoginForm extends React.Component {
     );
   }
 }
+//     width: wp('84.5%'),
+//     height: hp('17%')
 const mapStateToProps = state => ({
   loginError: state.auth.error
 });

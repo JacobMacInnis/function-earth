@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import RF from "react-native-responsive-fontsize"
 import { reduxForm, focus } from 'redux-form';
 import { connect } from 'react-redux';
 
@@ -17,7 +18,7 @@ export class LoginForm extends React.Component {
     if (this.props.loginError) {
       error = (
         <View title="form-error" aria-live="polite" style={{alignItems: 'center'}}>
-          <Text style={{color:'red'}}>{this.props.loginError.message}</Text>
+          <Text style={{color:'red', fontSize: RF(3)}}>{this.props.loginError.message}</Text>
         </View>
       );
     }

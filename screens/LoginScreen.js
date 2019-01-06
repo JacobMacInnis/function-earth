@@ -1,6 +1,7 @@
 import React from 'react';
 import { View,Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import RF from "react-native-responsive-fontsize"
 import { connect } from 'react-redux';
 
 // Import Components
@@ -48,9 +49,11 @@ class Login extends React.Component {
         {() => (
         <DismissKeyboard>
           <View style={styles.loginContainer}>
+            {/* <View style={styles.aboveLogo}></View> */}
             <View style={styles.loginLogoContainer}>
               <Image source={require('./../src/assets/images/function-earth-logo.png')} 
-                style={{width: 200, height: 200}} />
+                style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
+                resizeMode="contain"/>
               <Text style={styles.loginTitle}>Function Earth</Text>
             </View>
             <View style={styles.loginDescriptionContainer}>
@@ -91,7 +94,8 @@ const styles = StyleSheet.create({
     flex: 3,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    marginTop: 10
   },
   loginTitle: {
     marginTop: 5,
@@ -99,13 +103,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   loginDescriptionContainer: {
-    flex: 2,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   loginDescription: {
     textAlign: 'center',
-    fontSize: 25,
+    fontSize: RF(2.3),
     margin: 10
   },
   loginForm: {

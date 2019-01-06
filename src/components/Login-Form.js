@@ -14,25 +14,20 @@ export class LoginForm extends React.Component {
     }
   }
   render() {
-    let error;
-    if (this.props.loginError) {
-      error = (
-        <View title="form-error" aria-live="polite" style={{alignItems: 'center'}}>
-          <Text style={{color:'red', fontSize: RF(3)}}>{this.props.loginError.message}</Text>
-        </View>
-      );
-    }
     let values = {username: this.state.username, password: this.state.password};
     return (
       <View title="login-form">
-        {error}
+        <View title="form-error" aria-live="polite" style={{alignItems: 'center'}}>
+          <Text style={{color:'red', fontSize: RF(3)}}>{this.props.loginError ? this.props.loginError.message : ''}</Text>
+        </View>
         <View style={{ alignItems: 'center'}}>
           <Text style={{ fontSize: 18}}>Username</Text>
           <TextInput
             value={this.state.username}
             style={{ borderWidth: 1, borderRadius: 10, height: hp('5%'), width: wp('60%'), fontSize: 16}}
             textAlign={'center'}
-            onChangeText={username => this.setState({username})}/>
+            onChangeText={username => this.setState({username})}
+          />
         </View>
         <View style={{alignItems: 'center'}}>
           <Text style={{ fontSize: 18}}>Password</Text>
@@ -40,7 +35,9 @@ export class LoginForm extends React.Component {
             value={this.state.password}
             style={{ borderWidth: 1, borderRadius: 10, height: hp('5%'), width: wp('60%'), fontSize: 16}}
             textAlign={'center'}
-            onChangeText={password => this.setState({password})}/>
+            onChangeText={password => this.setState({password})}
+            secureTextEntry={true}
+            autoCapitalize='none'/>
         </View>
         <View style={{alignItems: 'center'}}>
           <TouchableOpacity

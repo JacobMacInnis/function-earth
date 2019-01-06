@@ -7,24 +7,40 @@ import LoginForm from './../src/components/Login-Form';
 import { DismissKeyboard } from '../src/components/DismissKeyboard';
 import KeyboardShift from '../src/components/KeyboardShift';
 // Import Actions
-import { login } from './../src/actions/auth';
+import { login, authError } from './../src/actions/auth';
 
 class Login extends React.Component {
   static navigationOptions = {
     title: 'Welcome To Function Earth',
   };
   onSubmitLogin(values) {
-    const {username, password} = values;
-    this.props.dispatch(login(username, password))
-      .then(() => {
-        if (this.props.loggedIn) {
-          this.props.navigation.navigate('App');
-        };
-      })
-      .catch(err => {
-        console.log(err)
-      });
-  };
+    if (values.username === null) {
+      let error = {
+        "location": "username",
+        "message": 'username is empty',
+        "status": 400
+      }
+      this.props.dispatch(authError(error));
+    } else if (values.password === null) {
+      let error = {
+        "location": "password",
+        "message": 'password is empty',
+        "status": 400
+      }
+      this.props.dispatch(authError(error));
+    } else {
+      const {username, password} = values;
+      this.props.dispatch(login(username, password))
+        .then(() => {
+          if (this.props.loggedIn) {
+            this.props.navigation.navigate('App');
+          };
+        })
+        .catch(err => {
+          console.log(err)
+        });
+    }
+  }
   render() {
     return (
       <KeyboardShift>

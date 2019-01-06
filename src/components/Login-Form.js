@@ -3,11 +3,6 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { reduxForm, focus } from 'redux-form';
 import { connect } from 'react-redux';
 
-// Import Custsom Input Form
-import Input from './Input';
-// Import Validation functions
-import { required, nonEmpty } from './../validators';
-
 export class LoginForm extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +15,7 @@ export class LoginForm extends React.Component {
     let error;
     if (this.props.loginError) {
       error = (
-        <View title="form-error" aria-live="polite">
+        <View title="form-error" aria-live="polite" style={{alignItems: 'center'}}>
           <Text style={{color:'red'}}>{this.props.loginError.message}</Text>
         </View>
       );

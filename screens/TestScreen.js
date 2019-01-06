@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Dimensions, Image, Button } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, Image, Button, TouchableOpacity  } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import LoginForm from './../src/components/Login-Form';
 class TestScreen extends Component {

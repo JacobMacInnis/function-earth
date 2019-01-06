@@ -1,5 +1,5 @@
 import React from 'react';
-import { View,Text, Button, StyleSheet, Image } from 'react-native';
+import { View,Text, Button, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
 // Import Components
@@ -43,10 +43,15 @@ class Login extends React.Component {
               title="login-form"
               style={styles.loginForm}>
               <LoginForm onSubmit={(values) => this.onSubmitLogin(values)} />
-              <Button 
-                title='Register New Account' 
-                onPress={() => this.props.navigation.navigate('Registration')}
-              />     
+              <View style={{alignItems: 'center'}}>
+                <TouchableOpacity
+                  style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: 60, width: 200, margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: 'blue'}} 
+                  title="Register New Account"
+                  onPress={() => this.props.navigation.navigate('Registration')} 
+                >
+                  <Text style={{fontSize: 25, alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Register</Text>
+                </TouchableOpacity>
+              </View>
             </View> 
           </View>
         </DismissKeyboard>

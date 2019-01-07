@@ -22,6 +22,7 @@ export default function Input(props) {
             <View title="form-warning"><Text style={{color:'red'}}>{meta.warning}</Text></View>
         );
     }
+    console.log(props)
   return (
     <View style={[styles.inputContainer, validationStyles]}>
       <View>{error}{warning}</View>
@@ -31,7 +32,7 @@ export default function Input(props) {
           onBlur={input.onBlur}
           onFocus={input.onFocus}
           value={input.value}
-          style={styles.input}
+          // style={props}
           underlineColorAndroid='transparent'
         />
     </View>
@@ -39,23 +40,23 @@ export default function Input(props) {
 }
 
 const styles = StyleSheet.create({
-  input: {
-    height: 30,
-    padding: 5
-  },
-  inputContainer: {
-    borderBottomWidth: 1,
-    borderColor: 'rgba(0, 0, 0, 0.4)',
-    marginTop: 20
-  },
-  valid: {
-    borderColor: '#53E69D'
-  },
-  invalid: {
-    borderColor: '#F55E64'
-  },
-  form: {
-    flex: 1,
-    justifyContent: 'space-between',
-  },
+  // input: {
+  //   height: 30,
+  //   padding: 5
+  // },
+  // inputContainer: {
+  //   borderBottomWidth: 1,
+  //   borderColor: 'rgba(0, 0, 0, 0.4)',
+  //   marginTop: 20
+  // },
+  // valid: {
+  //   borderColor: '#53E69D'
+  // },
+  // invalid: {
+  //   borderColor: '#F55E64'
+  // },
+  // form: {
+  //   flex: 1,
+  //   justifyContent: 'space-between',
+  // },
 });

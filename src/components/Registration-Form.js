@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import RF from "react-native-responsive-fontsize"
 import { Field, reduxForm, focus } from 'redux-form';
 
-// Import Components
 import Input from './Input';
 
 // Import Validation functions
@@ -12,15 +13,29 @@ const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
 
 export class RegistrationForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            firstName: null,
+            username: null,
+            password: null,
+            password2: null
+        }
+        this.submitRegistration = this.submitRegistration.bind(this);
+    }
+    submitRegistration() {
+        console.log(matchesPassword)
+    }
     render() {
       return (
         <View>
             <View>
                 <View>
-                    <Text style={{ fontWeight: 'bold'}}>First Name</Text>
+                    <Text style={styles.titles}>First Name</Text>
                 </View>
                 <View>
-                    <Field 
+                    <Field
+                        props={styles.inputs}
                         component={Input} 
                         name="firstName" 
                         placeholder={'Name'}
@@ -29,10 +44,11 @@ export class RegistrationForm extends React.Component {
             </View>
             <View> 
                 <View>
-                    <Text style={{ fontWeight: 'bold', marginTop: 20 }}>Username</Text>
+                    <Text style={styles.titles}>Username</Text>
                 </View>
                 <View>
                     <Field
+                        props={styles.inputs}
                         component={Input}
                         name="username"
                         validate={[required, nonEmpty, isTrimmed]}
@@ -42,10 +58,11 @@ export class RegistrationForm extends React.Component {
             </View>
             <View>
                 <View>
-                    <Text style={{ fontWeight: 'bold', marginTop: 20 }}>Password</Text>
+                    <Text style={styles.titles}>Password</Text>
                 </View>
                 <View>
                     <Field
+                        props={styles.inputs}
                         component={Input}
                         name="password"
                         validate={[required, passwordLength, isTrimmed]}
@@ -56,10 +73,11 @@ export class RegistrationForm extends React.Component {
             </View>
             <View>
                 <View>
-                    <Text style={{ fontWeight: 'bold', marginTop: 20 }}>Confirm Password</Text>
+                    <Text style={styles.titles}>Confirm Password</Text>
                 </View>
                 <View>
                     <Field
+                        props={styles.inputs}
                         component={Input}
                         name="passwordConfirm"
                         validate={[required, nonEmpty, matchesPassword]}
@@ -68,34 +86,38 @@ export class RegistrationForm extends React.Component {
                     />
                 </View>
             </View>
-          <Button
-              title='Register'
-              onPress={this.props.handleSubmit}
-              >
-              <Text>Register</Text>
-          </Button>
+            <View style={{alignItems: 'center'}}>
+                <TouchableOpacity
+                    style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('5%'), width: wp('60%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: 'green'}} 
+                    title="login" 
+                    onPress={this.props.handleSubmit} 
+                >
+                    <Text style={{fontSize: 25, alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Register</Text>
+                </TouchableOpacity>
+            </View>
         </View>
       );
     }
 }
 
 const styles = StyleSheet.create({
-  // container: {
-  //   padding: 45
-  // },
-  // formSubmit: {
-  //   alignSelf: 'center',
-  //   fontWeight: 'bold',
-  //   fontSize: 15,
-  //   marginTop: 25,
-  //   padding: 5
-  // },
+    titles: {
+        textAlign: 'center',
+        fontWeight: 'bold', 
+        marginTop: 15
+    },
+    inputs:{ 
+        alignSelf: 'center', 
+        textAlign: 'center',
+        borderWidth: 1, 
+        borderRadius: 10, 
+        height: hp('5%'), 
+        width: wp('60%'), 
+        fontSize: 16
+    }
 });
 
 export default reduxForm({
     form: 'registration',
     
 })(RegistrationForm);
-
-// onSubmitFail: (errors, dispatch) =>
-//         dispatch(focus('registration', Object.keys(errors)[0]))

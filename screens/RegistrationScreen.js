@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, Button, Image, StyleSheet } from 'react-native';
+import { View, Text, Button, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import RF from "react-native-responsive-fontsize"
 import { connect } from 'react-redux';
 
 // Import Components
@@ -49,18 +51,21 @@ class Registration extends React.Component {
             <View style={styles.registrationLogoContainer}>
               <Image source={require('./../src/assets/images/function-earth-logo.png')} 
                 style={{width: 150, height: 150}} />
-              {/* <Text style={styles.loginTitle}>Function Earth</Text> */}
+              <Text style={styles.loginTitle}>Function Earth</Text>
             </View>
             {<Text style={styles.registrationText}>{Registration}</Text>}
             <View style={styles.registrationForm}>
               <RegistrationForm
                 onSubmit={(values) => this.onSubmitRegistration(values)}/>
             </View>
-            <View style={styles.backButton}>
-              <Button
-                title="Already Signed Up? Login"
-                onPress={() => this.props.navigation.goBack()}
-              />
+            <View style={styles.loginForm}>
+              <TouchableOpacity
+                style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('5%'), width: wp('60%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: 'blue'}} 
+                title="Back To Login"
+                onPress={() => this.props.navigation.goBack()} 
+              >
+                <Text style={{fontSize: 25, alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Back To Login</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </DismissKeyboard>
@@ -92,20 +97,19 @@ const styles = StyleSheet.create({
   //   fontSize: 40,
   //   fontWeight: 'bold',
   // },
-  // registrationText: {
-  //   justifyContent: 'flex-end',
-  //   textAlign: 'center',
-  //   fontSize: 25,
-  //   margin: 10,
-  // },
-  // registrationForm: {
-  //   flex: 8,
-  // },
-  // backButton: {
-  //   flex: 1,
-  //   justifyContent: 'center',
-  //   marginBottom: 25,
-  // }
+  registrationText: {
+    justifyContent: 'flex-end',
+    textAlign: 'center',
+    fontSize: 25,
+    margin: 10,
+  },
+  registrationForm: {
+    flex: 5,
+  },
+  loginForm: {
+    flex: 2,
+    alignItems: 'center'
+  }
 });
 
 export default connect(mapStateToProps)(Registration);

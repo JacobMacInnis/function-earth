@@ -13,8 +13,14 @@ import { login, authError } from './../src/actions/auth';
 
 class Login extends React.Component {
   static navigationOptions = {
-    title: 'Welcome To Function Earth',
-  };
+    headerTitle: () => (
+      <View style={{flex: 1}}>
+        <Text
+          style={{fontSize: RF(2.5),textAlign: 'center', alignSelf: 'center'}}>Welcome To Function Earth</Text>
+      </View>
+    ),
+  }
+  
   onSubmitLogin(values) {
     if (values.username === null) {
       let error = {
@@ -49,7 +55,6 @@ class Login extends React.Component {
         {() => (
         <DismissKeyboard>
           <View style={styles.loginContainer}>
-            {/* <View style={styles.aboveLogo}></View> */}
             <View style={styles.loginLogoContainer}>
               <Image source={require('./../src/assets/images/function-earth-logo.png')} 
                 style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
@@ -114,7 +119,6 @@ const styles = StyleSheet.create({
   },
   loginForm: {
     flex: 3,
-    // justifyContent: 'flex-start',
   }
 });
 export default connect(mapStateToProps)(Login);

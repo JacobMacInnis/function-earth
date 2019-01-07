@@ -2,6 +2,8 @@ import React from 'react';
 import { AsyncStorage, Image, Text, Button, View, StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { offMenu } from '../src/actions/hamburgerMenu';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import RF from "react-native-responsive-fontsize"
 
 // Components
 import MyImpact from '../src/components/My-Impact';
@@ -33,17 +35,33 @@ class FunctionEarthHome extends React.Component {
       )
     }
     return (
-      <ScrollView>
-        <View style={styles.container}>
-          <View style={styles.loginLogoContainer}>
-            <Image source={require('./../src/assets/images/function-earth-logo.png')} 
-              style={{alignSelf: 'center', width: 100, height: 100, marginTop: 10}} />
-            <Text style={{fontSize: 40, fontWeight: 'bold'}}>Function Earth</Text>
-          </View>
+      <View style={{flex: 1, backgroundColor: 'white'}}>
+        <View style={{flex: 1}}>
+          <Image source={require('./../src/assets/images/function-earth-logo.png')} 
+            style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} resizeMode="contain"/>
+        </View>
+        <View style={{flex: 3, alignSelf: 'center'}}>
           <MyImpact />
+        </View>
+        <View style={{flex: 5, alignSelf: 'center'}}>
           <NewEntry />
         </View>
-      </ScrollView>
+      </View>
+      // // <ScrollView>
+      //   <View style={{flex: 1, flexDirection: 'column', alignItems: 'center',}}>
+      //     <View style={{flex:3, backgroundColor: 'green'}}>
+      //       {/* <Image source={require('./../src/assets/images/function-earth-logo.png')} 
+      //         style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} resizeMode="contain" /> */}
+      //       {/* <Text style={{fontSize: RF(5), fontWeight: 'bold'}}>Function Earth</Text> */}
+      //     </View>
+      //     <View style={{flex:1, backgroundColor: 'red'}}>
+      //       {/* <MyImpact /> */}
+      //     </View>
+      //     <View style={{flex:3, backgroundColor: 'blue'}}>
+      //       {/* <NewEntry /> */}
+      //     </View>
+      //   </View>
+      // // </ScrollView>
     );
   }
 
@@ -58,11 +76,11 @@ class FunctionEarthHome extends React.Component {
   };
 }
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    alignItems: 'center',
-  },
+  // container: {
+  //   flex: 1,
+  //   backgroundColor: 'white',
+  //   alignItems: 'center',
+  // }
 });
 
 const mapStateToProps = state => ({

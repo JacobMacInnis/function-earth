@@ -1,5 +1,6 @@
 import React from 'react';
 import { TextInput, View, Text, StyleSheet } from 'react-native';
+import RF from "react-native-responsive-fontsize";
 
 /**
  * to be wrapped with redux-form Field component
@@ -13,50 +14,27 @@ export default function Input(props) {
     : null;
     let error;
     if (meta.touched && meta.error) {
-        error = <View title="form-error"><Text style={{color:'red'}}>{meta.error}</Text></View>;
+        error = meta.error;
     }
-
     let warning;
     if (meta.touched && meta.warning) {
-        warning = (
-            <View title="form-warning"><Text style={{color:'red'}}>{meta.warning}</Text></View>
-        );
+        warning = meta.warning;
     }
-    console.log(props)
   return (
     <View style={[styles.inputContainer, validationStyles]}>
-      <View>{error}{warning}</View>
-        <TextInput
-          {...inputProps}
-          onChangeText={input.onChange}
-          onBlur={input.onBlur}
-          onFocus={input.onFocus}
-          value={input.value}
-          // style={props}
-          underlineColorAndroid='transparent'
-        />
+      <View style={{alignSelf: 'center'}}><Text style={{color:'red', fontSize: RF(2)}}>{error}{warning}</Text></View>
+      <View style={{alignSelf: 'center'}}><Text style={{fontSize: RF(2)}}>{props.textTitle}</Text></View>
+      <TextInput
+        {...inputProps}
+        onChangeText={input.onChange}
+        onBlur={input.onBlur}
+        onFocus={input.onFocus}
+        value={input.value}
+        underlineColorAndroid='transparent'
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  // input: {
-  //   height: 30,
-  //   padding: 5
-  // },
-  // inputContainer: {
-  //   borderBottomWidth: 1,
-  //   borderColor: 'rgba(0, 0, 0, 0.4)',
-  //   marginTop: 20
-  // },
-  // valid: {
-  //   borderColor: '#53E69D'
-  // },
-  // invalid: {
-  //   borderColor: '#F55E64'
-  // },
-  // form: {
-  //   flex: 1,
-  //   justifyContent: 'space-between',
-  // },
 });

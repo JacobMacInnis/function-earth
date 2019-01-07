@@ -17,12 +17,13 @@ export class RegistrationForm extends React.Component {
 		return (
 			<View>
 				<View>
-					<View>
+					{/* <View>
 						<Text style={styles.titles}>First Name</Text>
-					</View>
+					</View> */}
 					<View>
 						<Field
 							props={styles.inputs}
+							textTitle={'First Name'}
 							component={Input} 
 							name="firstName" 
 							placeholder={'Name'}
@@ -30,12 +31,13 @@ export class RegistrationForm extends React.Component {
 					</View>
 				</View>
 				<View> 
-					<View>
+					{/* <View>
 						<Text style={styles.titles}>Username</Text>
-					</View>
+					</View> */}
 					<View>
 						<Field
 							props={styles.inputs}
+							textTitle={'Username'}
 							component={Input}
 							name="username"
 							validate={[required, nonEmpty, isTrimmed]}
@@ -44,12 +46,13 @@ export class RegistrationForm extends React.Component {
 					</View >
 				</View>
 				<View>
-					<View>
+					{/* <View>
 						<Text style={styles.titles}>Password</Text>
-					</View>
+					</View> */}
 					<View>
 						<Field
 							props={styles.inputs}
+							textTitle={'Password'}
 							component={Input}
 							name="password"
 							validate={[required, passwordLength, isTrimmed]}
@@ -59,12 +62,13 @@ export class RegistrationForm extends React.Component {
 					</View>
 				</View>
 				<View>
-					<View>
+					{/* <View>
 						<Text style={styles.titles}>Confirm Password</Text>
-					</View>
+					</View> */}
 					<View>
 						<Field
 							props={styles.inputs}
+							textTitle={'Confirm Password'}
 							component={Input}
 							name="passwordConfirm"
 							validate={[required, nonEmpty, matchesPassword]}

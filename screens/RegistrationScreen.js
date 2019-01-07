@@ -38,8 +38,6 @@ class Registration extends React.Component {
       Registration = <Text style={{
         justifyContent: 'flex-end',
         textAlign: 'center',
-        fontSize: 25,
-        margin: 10,
         color: 'red'
       }}>{this.props.registrationError.message}</Text>
     }
@@ -51,9 +49,9 @@ class Registration extends React.Component {
             <View style={styles.registrationLogoContainer}>
               <Image source={require('./../src/assets/images/function-earth-logo.png')} 
                 style={{width: 150, height: 150}} />
-              <Text style={styles.loginTitle}>Function Earth</Text>
+              {/* <Text style={styles.loginTitle}>Function Earth</Text> */}
             </View>
-            {<Text style={styles.registrationText}>{Registration}</Text>}
+            <View style={styles.registrationTitle}>{Registration}</View>
             <View style={styles.registrationForm}>
               <RegistrationForm
                 onSubmit={(values) => this.onSubmitRegistration(values)}/>
@@ -88,24 +86,20 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   registrationLogoContainer: {
-    flex: 3,
+    flex: 5,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
-  // loginTitle: {
-  //   marginTop: 5,
-  //   fontSize: 40,
-  //   fontWeight: 'bold',
-  // },
+  registrationTitle: {
+    flex: 1
+  },
   registrationText: {
-    flex: 1,
     justifyContent: 'flex-end',
     textAlign: 'center',
-    fontSize: 25,
-    margin: 10,
+    fontSize: RF(3.5),
   },
   registrationForm: {
-    flex: 5,
+    flex: 9
   },
   loginForm: {
     flex: 2,

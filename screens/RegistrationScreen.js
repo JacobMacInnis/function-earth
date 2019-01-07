@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
   //   fontWeight: 'bold',
   // },
   registrationText: {
+    flex: 1,
     justifyContent: 'flex-end',
     textAlign: 'center',
     fontSize: 25,

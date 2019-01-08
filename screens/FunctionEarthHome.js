@@ -48,21 +48,6 @@ class FunctionEarthHome extends React.Component {
           <NewEntry />
         </View>
       </View>
-      // // <ScrollView>
-      //   <View style={{flex: 1, flexDirection: 'column', alignItems: 'center',}}>
-      //     <View style={{flex:3, backgroundColor: 'green'}}>
-      //       {/* <Image source={require('./../src/assets/images/function-earth-logo.png')} 
-      //         style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} resizeMode="contain" /> */}
-      //       {/* <Text style={{fontSize: RF(5), fontWeight: 'bold'}}>Function Earth</Text> */}
-      //     </View>
-      //     <View style={{flex:1, backgroundColor: 'red'}}>
-      //       {/* <MyImpact /> */}
-      //     </View>
-      //     <View style={{flex:3, backgroundColor: 'blue'}}>
-      //       {/* <NewEntry /> */}
-      //     </View>
-      //   </View>
-      // // </ScrollView>
     );
   }
 
@@ -77,11 +62,7 @@ class FunctionEarthHome extends React.Component {
   };
 }
 const styles = StyleSheet.create({
-  // container: {
-  //   flex: 1,
-  //   backgroundColor: 'white',
-  //   alignItems: 'center',
-  // }
+  
 });
 
 const mapStateToProps = state => ({

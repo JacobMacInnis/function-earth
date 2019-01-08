@@ -35,15 +35,16 @@ class FunctionEarthHome extends React.Component {
       )
     }
     return (
-      <View style={{flex: 1, backgroundColor: 'white'}}>
-        <View style={{flex: 1}}>
-          <Image source={require('./../src/assets/images/function-earth-logo.png')} 
+      <View style={{flex: 1, backgroundColor: '#f2f2f2'}}>
+        <View style={{flex: 1}}></View>
+        <View style={{flex: 3}}>
+          <Image source={require('./../src/assets/images/function-earth-logo2.png')} 
             style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} resizeMode="contain"/>
         </View>
-        <View style={{flex: 3, alignSelf: 'center'}}>
+        <View style={{flex: 10, alignSelf: 'center'}}>
           <MyImpact />
         </View>
-        <View style={{flex: 5, alignSelf: 'center'}}>
+        <View style={{flex: 19, alignSelf: 'center'}}>
           <NewEntry />
         </View>
       </View>

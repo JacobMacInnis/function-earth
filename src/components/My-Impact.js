@@ -40,7 +40,7 @@ class MyImpact extends React.Component {
     }
     return (
       <View style={{backgroundColor: 'white',borderWidth: 1, borderRadius: 10, padding: 10, width: wp('60%'), marginTop: 5}}>
-        <Text style={{fontSize: 20, fontWeight: 'bold', alignSelf: 'center'}}>My Impact</Text>
+        <Text style={{fontSize: RF(3), fontWeight: 'bold', alignSelf: 'center'}}>My Impact</Text>
         {myStats}
       </View>
     );

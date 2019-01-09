@@ -133,7 +133,6 @@ class EntriesScreen extends React.Component {
   }
 }
 const styles = StyleSheet.create({
-  
 });
 
 const mapStateToProps = state => ({

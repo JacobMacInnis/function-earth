@@ -8,14 +8,15 @@ import Oceans from '../src/components/Oceans';
 import requiresLogin from '../src/components/requires-login';
 // Import Actions
 import { getStats }  from '../src/actions/stats';
-import {leaveEntryScreen, newEntry} from '../src/actions/entries';
+import { leaveEntryScreen, newEntry } from '../src/actions/entries';
 import colorsObj from '../assets/colors/colorsObj';
 
 const examples = {
   Earth: 'eg. built a compost bin in back yard',
   Ocean: 'eg. picked up plastic bottles on the beach',
   Animals: 'eg. adopted a sheltered dog',
-  Humanity: 'eg. volunteered for patients with Parkinsons Disease'};
+  Humanity: 'eg. volunteered for patients with Parkinsons Disease'
+};
 
 class EntriesScreen extends React.Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class EntriesScreen extends React.Component {
     };
   }
   logNewEntry() {
-    if (this.state.entry === examples[this.props.entryType]) {
+    if ( this.state.entry === examples[ this.props.entryType ] ) {
       this.setState({alertType: 'Invalid', alertMessage: 'Entry must be unique'})
     } else {
       let Entry = {

@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, TextInput, StyleSheet, Alert } from 'react-native';
 import { connect } from 'react-redux';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import RF from "react-native-responsive-fontsize"
 // Import Components
 import { DismissKeyboard } from '../src/components/DismissKeyboard';
 import KeyboardShift from '../src/components/KeyboardShift';
@@ -84,7 +86,7 @@ class EntriesScreen extends React.Component {
                 style={{alignSelf: 'center', marginTop: 3, width: 100, height: 100}} />
             </View>
             <View style={{flex: 2, justifyContent: 'center'}}>
-              <Text style={{alignSelf: 'center', fontSize: 40, fontWeight: 'bold'}}>Function Earth</Text>
+              <Text style={{alignSelf: 'center', fontSize: RF(4), fontWeight: 'bold'}}>Function Earth</Text>
             </View>
             <View style={{flex: 1, justifyContent: 'center'}}>
               <Text style={{alignSelf: 'center', fontSize: 25, fontWeight: 'bold'}}>New <Text style={{color: colorsObj[this.props.entryType], borderRadius: 4, borderWidth: 0.5, borderColor: 'black',}}>{this.props.entryType}</Text> Entry</Text>
@@ -109,7 +111,7 @@ class EntriesScreen extends React.Component {
             </View>
             <View style={{flex: 6, alignItems: 'center'}}>
               <TextInput
-                style={{ width: 360, borderWidth: 1, borderRadius: 10, height: 240,   fontSize: 18}}
+                style={{ width: wp('80%'), height: hp('25%'), borderWidth: 1, borderRadius: 10,   fontSize: 18}}
                 multiline={true}
                 textAlign={'center'}
                 onChangeText={entry => this.setState({entry})}

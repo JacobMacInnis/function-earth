@@ -81,33 +81,35 @@ class EntriesScreen extends React.Component {
         {() => (
         <DismissKeyboard>
           <View style={{flex: 2, backgroundColor: 'white'}}>
-            <View style={{flex: 2}}>
+            <View style={{flex: 2, marginTop: 10}}>
               <Image source={require('../src/assets/images/function-earth-logo.png')} 
-                style={{alignSelf: 'center', marginTop: 3, width: 100, height: 100}} />
+              style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
+              resizeMode="contain"/>
+                {/* style={{alignSelf: 'center', marginTop: 3, width: 100, height: 100}} /> */}
             </View>
-            <View style={{flex: 2, justifyContent: 'center'}}>
+            {/* <View style={{flex: 2, justifyContent: 'center'}}>
               <Text style={{alignSelf: 'center', fontSize: RF(4), fontWeight: 'bold'}}>Function Earth</Text>
+            </View> */}
+            <View style={{flex: 2, justifyContent: 'center'}}>
+              <Text style={{alignSelf: 'center', fontSize: RF(5.2), fontWeight: 'bold'}}>New <Text style={{color: colorsObj[this.props.entryType], borderRadius: 4, borderWidth: 0.5, borderColor: 'black',}}>{this.props.entryType}</Text> Entry</Text>
             </View>
-            <View style={{flex: 1, justifyContent: 'center'}}>
-              <Text style={{alignSelf: 'center', fontSize: 25, fontWeight: 'bold'}}>New <Text style={{color: colorsObj[this.props.entryType], borderRadius: 4, borderWidth: 0.5, borderColor: 'black',}}>{this.props.entryType}</Text> Entry</Text>
-            </View>
-            {this.props.entryType === 'Ocean' ? <View style={{flex: 4, alignItems: 'center'}}><Oceans oceanPressed={(ocean) => this.oceanPressed(ocean)}/></View> : <View style={{flex: 2, alignItems: 'center'}}><Text style={{ fontSize: 18}}>Country</Text>
+            {this.props.entryType === 'Ocean' ? <View style={{flex: 4, alignItems: 'center'}}><Oceans oceanPressed={(ocean) => this.oceanPressed(ocean)}/></View> : <View style={{flex: 3, alignItems: 'center'}}><Text style={{ fontSize: RF(3), fontWeight: 'bold'}}>Country</Text>
               <TextInput
                 value={this.state.country}
-                style={{ width: 200, borderWidth: 1, borderRadius: 10, height: 50, fontSize: 16}}
+                style={{ width: wp('20%'), borderWidth: 1, borderRadius: 10, height: 50, fontSize: 16}}
                 textAlign={'center'}
                 onChangeText={country => this.setState({country})}/></View>}
             {this.props.entryType !== 'Ocean' ? <View style={{flex: 2, alignItems: 'center'}}>
-              <Text style={{fontSize: 18}}>State/Region</Text>
+              <Text style={{fontSize: RF(3), fontWeight: 'bold'}}>State/Region</Text>
               <TextInput
-                style={{ width: 200, borderWidth: 1, borderRadius: 10, height: 50,   fontSize: 16}}
+                style={{ width: wp('20%'), borderWidth: 1, borderRadius: 10, height: 50,   fontSize: 16}}
                 textAlign={'center'}
                 onChangeText={stateRegion => this.setState({stateRegion})}
                 value={this.state.stateRegion}
               />
             </View> : <Text></Text>}
-            <View style={{flex: 1, marginLeft: 20, marginRight: 20}}>
-              <Text style={{fontSize: 22}}>Today I helped preserve our {this.props.entryType}. I...</Text>
+            <View style={{flex: 1, alignItems: 'center'}}>
+              <Text style={{fontSize: RF(3)}}>Today I helped preserve our {this.props.entryType}. I...</Text>
             </View>
             <View style={{flex: 6, alignItems: 'center'}}>
               <TextInput

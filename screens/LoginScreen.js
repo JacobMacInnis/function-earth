@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   },
   loginTitle: {
     marginTop: 5,
-    fontSize: 40,
+    fontSize: RF(5.5),
     fontWeight: 'bold'
   },
   loginDescriptionContainer: {

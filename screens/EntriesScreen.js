@@ -113,7 +113,7 @@ class EntriesScreen extends React.Component {
             </View>
             <View style={{flex: 6, alignItems: 'center'}}>
               <TextInput
-                style={{ width: wp('80%'), height: hp('25%'), borderWidth: 1, borderRadius: 10,   fontSize: 18}}
+                style={{ width: wp('80%'), height: hp('25%'), borderWidth: 1, borderRadius: 10,   fontSize: RF(3)}}
                 multiline={true}
                 textAlign={'center'}
                 onChangeText={entry => this.setState({entry})}
@@ -122,11 +122,11 @@ class EntriesScreen extends React.Component {
             </View>
             <View style={{flex: 3, alignItems: 'center'}}>
               <TouchableOpacity
-              style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: 60, width: 200, margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: colorsObj[this.props.entryType]}} 
+              style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('10%'), width: wp('45%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: colorsObj[this.props.entryType]}} 
               onPress={() => this.logNewEntry()}
               accessibilityLabel='log entry button' 
               >
-                <Text style={{fontSize: 25, alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Log My Action</Text>
+                <Text style={{fontSize: RF(3.5), alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Log My Action</Text>
               </TouchableOpacity>
             </View>
             {alert}

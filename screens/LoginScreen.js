@@ -1,7 +1,7 @@
 import React from 'react';
 import { View,Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import RF from "react-native-responsive-fontsize"
+import RF from "react-native-responsive-fontsize";
 import { connect } from 'react-redux';
 
 // Import Components

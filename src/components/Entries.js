@@ -25,7 +25,7 @@ class Entries extends Component {
           <Text style={{fontSize: RF(2.8), fontWeight: '400', color: 'white'}}>{this.props.stateRegion}:{this.props.country}</Text>
         </View>
         <View style={{flex: 3, backgroundColor: secondColor[this.props.type], alignItems: 'center', justifyContent: 'center'}}>
-          <Text style={{fontSize: RF(3.1), padding: 8}}>{this.props.entry}</Text>
+          <Text style={{fontSize: RF(3.4), padding: wp('2%')}}>{this.props.entry}</Text>
         </View>
       </View>
     );

@@ -21,19 +21,19 @@ export class LoginForm extends React.Component {
           <Text style={{color:'red', fontSize: RF(3)}}>{this.props.loginError ? this.props.loginError.message : ''}</Text>
         </View>
         <View style={{ alignItems: 'center'}}>
-          <Text style={{ fontSize: 18}}>Username</Text>
+          <Text style={{ fontSize: RF(2.5)}}>Username</Text>
           <TextInput
             value={this.state.username}
-            style={{ borderWidth: 1, borderRadius: 10, height: hp('5%'), width: wp('60%'), fontSize: 16}}
+            style={{ borderWidth: 1, borderRadius: 10, height: hp('5%'), width: wp('60%'), fontSize: RF(2.5)}}
             textAlign={'center'}
             onChangeText={username => this.setState({username})}
           />
         </View>
         <View style={{alignItems: 'center'}}>
-          <Text style={{ fontSize: 18}}>Password</Text>
+          <Text style={{ fontSize: RF(2.5)}}>Password</Text>
           <TextInput
             value={this.state.password}
-            style={{ borderWidth: 1, borderRadius: 10, height: hp('5%'), width: wp('60%'), fontSize: 16}}
+            style={{ borderWidth: 1, borderRadius: 10, height: hp('5%'), width: wp('60%'), fontSize: RF(2.5)}}
             textAlign={'center'}
             onChangeText={password => this.setState({password})}
             secureTextEntry={true}
@@ -45,7 +45,7 @@ export class LoginForm extends React.Component {
             title="login" 
             onPress={() => this.props.onSubmit(values)} 
           >
-            <Text style={{fontSize: 25, alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Login</Text>
+            <Text style={{fontSize: RF(4), alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Login</Text>
           </TouchableOpacity>
         </View>
       </View>

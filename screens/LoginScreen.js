@@ -100,25 +100,25 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-    marginTop: 10
+    marginTop: hp('4%')
+  },
+  loginDescriptionContainer: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loginForm: {
+    flex: 4,
   },
   loginTitle: {
     marginTop: 5,
     fontSize: RF(5.5),
     fontWeight: 'bold'
   },
-  loginDescriptionContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   loginDescription: {
     textAlign: 'center',
-    fontSize: RF(2.3),
+    fontSize: RF(3.1),
     margin: 10
   },
-  loginForm: {
-    flex: 3,
-  }
 });
 export default connect(mapStateToProps)(Login);

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Button, View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import { toggleMenu } from '../src/actions/hamburgerMenu';
 import { connect } from 'react-redux';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import RF from "react-native-responsive-fontsize";
 
 class LinkScreen extends Component {
   goHome = () => {
@@ -11,7 +13,7 @@ class LinkScreen extends Component {
   render() {
     return (
       <View style={{flex: 1, alignItems: 'center', backgroundColor: 'white'}}>
-        <View style={{width: 250, alignItems: 'flex-start', marginTop: 20}}>
+        <View style={{width: wp('50%'), alignItems: 'flex-start', marginTop: 20}}>
         <TouchableOpacity
           onPress={this.goHome}>
           <Text style={styles.buttons}><Image source={require('../src/assets/images/function-earth-logo.png')}
@@ -48,7 +50,7 @@ class LinkScreen extends Component {
 }
 const styles = StyleSheet.create({
   buttons: {
-    fontSize: 35,
+    fontSize: RF(4.5),
     margin: 10
   },
 });

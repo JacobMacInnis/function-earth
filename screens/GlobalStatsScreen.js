@@ -55,7 +55,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   titles: {
-    fontSize: 30, 
+    fontSize: RF(4), 
+    fontWeight: 'bold',
     alignSelf:'center', 
     marginBottom: 8,
     marginTop: 8

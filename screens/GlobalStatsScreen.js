@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { globalStats } from '../src/actions/globalStats';
 import GlobalScroll from '../src/components/GlobalScroll';
 import GlobalRecent from '../src/components/GlobalRecent';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import RF from "react-native-responsive-fontsize";
 
 class GlobalStatsScreen extends React.Component {
   componentWillMount() {
@@ -13,8 +15,8 @@ class GlobalStatsScreen extends React.Component {
     if (this.props.loading == false && this.props.globalStats !== null) {
       return (
         <View style={styles.container}>
-          <View style={{flex: 7, borderBottomWidth: 1}}>
-            <Text style={{fontSize: 40, alignSelf: 'center', marginTop: 5}}>Global Stats</Text>
+          <View style={{flex: 8, borderBottomWidth: 1}}>
+            <Text style={{fontSize: RF(5), fontWeight: 'bold', alignSelf: 'center', marginTop: 5}}>Global Stats</Text>
             <View style={{flex:1, flexDirection: 'row', alignItems: 'center'}}>
             <GlobalScroll globalStats={this.props.globalStats}/>
             </View>
@@ -31,6 +33,7 @@ class GlobalStatsScreen extends React.Component {
               <GlobalRecent globalStats={this.props.globalStats}/>
               <Text style={styles.titles}>Recent Earth</Text>
               <GlobalRecent globalStats={this.props.globalStats}/>
+              <View style={styles.afterTitles}></View>
             </ScrollView>
           </View>
         </View>
@@ -56,6 +59,9 @@ const styles = StyleSheet.create({
     alignSelf:'center', 
     marginBottom: 8,
     marginTop: 8
+  },
+  afterTitles: {
+    height: 20
   }
 });
 

@@ -16,31 +16,31 @@ class MyImpact extends React.Component {
       let stats = this.props.stats;
       myStats = <View style={{height: hp('20%'), width: wp('55%')}}>
                   <View style={{flex: 1,flexWrap: 'nowrap',flexDirection: 'row', height: hp('2%'), padding: 2}}>
-                  <Text style={{flex: 2, fontSize: RF(2.5)}}>Earth:</Text> 
-                  <Text style={{flex: 1, textAlign: 'right', fontSize: 18}}>{stats.earthPoints}</Text>
+                  <Text style={{flex: 2, fontSize: RF(2.8)}}>Earth:</Text> 
+                  <Text style={{flex: 1, textAlign: 'right', fontSize: RF(2.8)}}>{stats.earthPoints}</Text>
                 </View>
                 <View style={{flex: 1,flexWrap: 'nowrap',flexDirection: 'row', height: hp('2%'), padding: 2}}>
-                  <Text style={{flex: 2, fontSize: RF(2.5)}}>Ocean:</Text> 
-                  <Text style={{flex: 1, textAlign: 'right', fontSize: 18}}>{stats.oceanPoints}</Text>
+                  <Text style={{flex: 2, fontSize: RF(2.8)}}>Ocean:</Text> 
+                  <Text style={{flex: 1, textAlign: 'right', fontSize: RF(2.8)}}>{stats.oceanPoints}</Text>
                 </View>
                 <View style={{flex: 1,flexWrap: 'nowrap',flexDirection: 'row', height: hp('2%'), padding: 2}}>
-                  <Text style={{flex: 2, fontSize: RF(2.5)}}>Animal:</Text> 
-                  <Text style={{flex: 1, textAlign: 'right', fontSize: 18}}>{stats.animalPoints}</Text>
+                  <Text style={{flex: 2, fontSize: RF(2.8)}}>Animal:</Text> 
+                  <Text style={{flex: 1, textAlign: 'right', fontSize: RF(2.8)}}>{stats.animalPoints}</Text>
                 </View>
                 <View style={{flex: 1,flexWrap: 'nowrap',flexDirection: 'row', height: hp('2%'), padding: 2}}>
-                  <Text style={{flex: 2, fontSize: RF(2.5)}}>Humanity:</Text> 
-                  <Text style={{flex: 1, textAlign: 'right', fontSize: 18}}>{stats.humanityPoints}</Text>
+                  <Text style={{flex: 2, fontSize: RF(2.8)}}>Humanity:</Text> 
+                  <Text style={{flex: 1, textAlign: 'right', fontSize: RF(2.8)}}>{stats.humanityPoints}</Text>
                 </View>
                 <View style={{flex: 1,flexWrap: 'nowrap',flexDirection: 'row',  height: hp('3%'), }}>
                 {/* paddingLeft: 10, paddingRight: 10, paddingBottom: 5, borderWidth: 1, borderRadius: 10, */}
                   <Text style={{flex: 2, fontSize: RF(2.8), fontWeight: 'bold'}}>Total Impact:</Text> 
-                  <Text style={{flex: 1, textAlign: 'right', fontSize: 20, fontWeight: 'bold'}}>{stats.totalPoints}</Text>
+                  <Text style={{flex: 1, textAlign: 'right', fontSize: RF(2.8), fontWeight: 'bold'}}>{stats.totalPoints}</Text>
                 </View>
               </View>
     }
     return (
       <View style={{ backgroundColor: 'white', borderWidth: 1, borderRadius: 10, padding: 10, width: wp('60%'), marginTop: 5}}>
-        <Text style={{ fontSize: RF(3), fontWeight: 'bold', alignSelf: 'center'}}>My Impact</Text>
+        <Text style={{ fontSize: RF(3.2), fontWeight: 'bold', alignSelf: 'center'}}>My Impact</Text>
         {myStats}
       </View>
     );

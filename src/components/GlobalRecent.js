@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, StyleSheet } from 'react-native';
+import { ScrollView } from 'react-native';
 import Entries from './Entries';
 const colors = {
   earth: 'green',

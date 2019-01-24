@@ -3,6 +3,7 @@ import { View, ScrollView, StyleSheet } from 'react-native';
 import GlobalImpact from './GlobalImpact';
 import OceanImpact from './Ocean-Impact';
 import TopUserImpact from './Top-User-Impact';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 class GlobalScroll extends Component {
 

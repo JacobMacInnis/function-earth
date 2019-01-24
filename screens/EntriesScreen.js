@@ -93,29 +93,29 @@ class EntriesScreen extends React.Component {
             <View style={{flex: 2, justifyContent: 'center'}}>
               <Text style={{alignSelf: 'center', fontSize: RF(5.2), fontWeight: 'bold'}}>New <Text style={{color: colorsObj[this.props.entryType], borderRadius: 4, borderWidth: 0.5, borderColor: 'black',}}>{this.props.entryType}</Text> Entry</Text>
             </View>
-            {this.props.entryType === 'Ocean' ? <View style={{flex: 4, alignItems: 'center'}}><Oceans oceanPressed={(ocean) => this.oceanPressed(ocean)}/></View> : <View style={{flex: 3, alignItems: 'center'}}><Text style={{ fontSize: RF(3), fontWeight: 'bold'}}>Country</Text>
+            {this.props.entryType === 'Ocean' ? <View style={{flex: 4, alignItems: 'center'}}><Oceans oceanPressed={(ocean) => this.oceanPressed(ocean)}/></View> : <View style={{flex: 3, alignItems: 'center', justifyContent: 'center'}}><Text style={{ fontSize: RF(3), fontWeight: 'bold'}}>Country</Text>
               <TextInput
                 value={this.state.country}
-                style={{ width: wp('20%'), borderWidth: 1, borderRadius: 10, height: 50, fontSize: 16}}
+                style={{ width: wp('40%'), borderWidth: 1, borderRadius: 10, height: 50, fontSize: RF(3)}}
                 textAlign={'center'}
                 onChangeText={country => this.setState({country})}/></View>}
             {this.props.entryType !== 'Ocean' ? <View style={{flex: 2, alignItems: 'center'}}>
               <Text style={{fontSize: RF(3), fontWeight: 'bold'}}>State/Region</Text>
               <TextInput
-                style={{ width: wp('20%'), borderWidth: 1, borderRadius: 10, height: 50,   fontSize: 16}}
+                style={{ width: wp('40%'), borderWidth: 1, borderRadius: 10, height: 50, fontSize: RF(3)}}
                 textAlign={'center'}
                 onChangeText={stateRegion => this.setState({stateRegion})}
                 value={this.state.stateRegion}
               />
             </View> : <Text></Text>}
-            <View style={{flex: 1, alignItems: 'center'}}>
-              <Text style={{fontSize: RF(3)}}>Today I helped preserve our {this.props.entryType}. I...</Text>
+            <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}>
+              <Text style={{fontSize: RF(3), fontWeight: 'bold'}}>Today I helped preserve our {this.props.entryType}. I...</Text>
             </View>
-            <View style={{flex: 6, alignItems: 'center'}}>
+            <View style={{flex: 6, alignItems: 'center', }}>
               <TextInput
-                style={{ width: wp('80%'), height: hp('25%'), borderWidth: 1, borderRadius: 10,   fontSize: RF(3)}}
-                multiline={true}
+                style={{ width: wp('80%'), height: hp('25%'), borderWidth: 1, borderRadius: 10,   fontSize: RF(3), paddingTop: 0, paddingBottom: 0, alignItems: 'center'}}
                 textAlign={'center'}
+                multiline={true}
                 onChangeText={entry => this.setState({entry})}
                 value={this.state.entry}
               />

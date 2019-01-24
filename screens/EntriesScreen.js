@@ -113,7 +113,7 @@ class EntriesScreen extends React.Component {
             </View>
             <View style={{flex: 6, alignItems: 'center', }}>
               <TextInput
-                style={{ width: wp('80%'), height: hp('25%'), borderWidth: 1, borderRadius: 10,   fontSize: RF(3), paddingTop: 0, paddingBottom: 0, alignItems: 'center'}}
+                style={{ width: wp('80%'), height: hp('25%'), borderWidth: 1, borderRadius: 10,   fontSize: RF(3), paddingTop: 5, paddingBottom: 0, alignItems: 'center'}}
                 textAlign={'center'}
                 multiline={true}
                 onChangeText={entry => this.setState({entry})}

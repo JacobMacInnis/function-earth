@@ -74,7 +74,7 @@ class Login extends React.Component {
                   title="Register New Account"
                   onPress={() => this.props.navigation.navigate('Registration')} 
                 >
-                  <Text style={{fontSize: 25, alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Register</Text>
+                  <Text style={{fontSize: RF(4), alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Register</Text>
                 </TouchableOpacity>
               </View>
             </View> 

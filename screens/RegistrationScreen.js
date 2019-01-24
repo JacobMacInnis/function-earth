@@ -48,8 +48,8 @@ class Registration extends React.Component {
           <View style={styles.registrationContainer}>
             <View style={styles.registrationLogoContainer}>
               <Image source={require('./../src/assets/images/function-earth-logo.png')} 
-                style={{width: 150, height: 150}} />
-              {/* <Text style={styles.loginTitle}>Function Earth</Text> */}
+                style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
+                resizeMode="contain"/>
             </View>
             <View style={styles.registrationTitle}>{Registration}</View>
             <View style={styles.registrationForm}>

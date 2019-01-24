@@ -26,7 +26,4 @@ class GlobalRecent extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-});
-
 export default GlobalRecent;

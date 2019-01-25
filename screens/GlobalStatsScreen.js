@@ -13,6 +13,12 @@ class GlobalStatsScreen extends React.Component {
   }
   render() {
     if (this.props.loading == false && this.props.globalStats !== null) {
+      let recent = this.props.globalStats.recentEntries;
+      let earth = this.props.globalStats.earthRecentEntries;
+      let ocean = this.props.globalStats.oceanRecentEntries;
+      let animal = this.props.globalStats.animalRecentEntries;
+      let humanity = this.props.globalStats.humanityRecentEntries;
+      
       return (
         <View style={styles.container}>
           <View style={{flex: 8, borderBottomWidth: 1}}>
@@ -24,15 +30,15 @@ class GlobalStatsScreen extends React.Component {
           <View style={{flex: 9}}>
             <ScrollView>
               <Text style={styles.titles}>Recent Entries</Text>
-              <GlobalRecent globalStats={this.props.globalStats}/>
+              <GlobalRecent globalStats={recent}/>
               <Text style={styles.titles}>Recent Earth</Text>
-              <GlobalRecent globalStats={this.props.globalStats}/>
-              <Text style={styles.titles}>Recent </Text>
-              <GlobalRecent globalStats={this.props.globalStats}/>
-              <Text style={styles.titles}>Recent Earth</Text>
-              <GlobalRecent globalStats={this.props.globalStats}/>
-              <Text style={styles.titles}>Recent Earth</Text>
-              <GlobalRecent globalStats={this.props.globalStats}/>
+              <GlobalRecent globalStats={earth}/>
+              <Text style={styles.titles}>Recent Ocean</Text>
+              <GlobalRecent globalStats={ocean}/>
+              <Text style={styles.titles}>Recent Animals</Text>
+              <GlobalRecent globalStats={animal}/>
+              <Text style={styles.titles}>Recent Humanity</Text>
+              <GlobalRecent globalStats={humanity}/>
               <View style={styles.afterTitles}></View>
             </ScrollView>
           </View>

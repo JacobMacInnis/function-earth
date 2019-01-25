@@ -80,9 +80,14 @@ const styles = StyleSheet.create({
     textAlign: 'right'
   },
   textLeftLast: {
-    flex: 2, fontSize: RF(2.8), fontWeight: 'bold'
+    flex: 2, 
+    fontSize: RF(2.8), 
+    fontWeight: 'bold'
   },
   textRightLast: {
-    flex: 1, textAlign: 'right', fontSize: RF(2.8), fontWeight: 'bold'
+    flex: 1, 
+    textAlign: 'right', 
+    fontSize: RF(2.8), 
+    fontWeight: 'bold'
   }
 });

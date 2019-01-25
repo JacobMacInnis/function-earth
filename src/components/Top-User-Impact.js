@@ -27,31 +27,62 @@ export default class TopUserIMpact extends React.Component {
                   <Text style={styles.textLeft}>{this.props.oneUser}:</Text> 
                   <Text style={styles.textRight}>{this.props.one}</Text>
                 </View>
-                <View style={{flex: 1,flexWrap: 'nowrap',flexDirection: 'row', borderWidth: 1, borderRadius: 10, height: 15, padding: 5}}>
-                  <Text style={{flex: 2, fontSize: 20, fontWeight: 'bold'}}>Total:</Text> 
-                  <Text style={{flex: 1, textAlign: 'right', fontSize: 20, fontWeight: 'bold'}}>{(this.props.five + this.props.four + this.props.three + this.props.two + this.props.one)}</Text>
+                <View style={styles.lineContainerLast}>
+                  <Text style={styles.textLeftLast}>Total:</Text> 
+                  <Text style={styles.textRightLast}>{(this.props.five + this.props.four + this.props.three + this.props.two + this.props.one)}</Text>
                 </View>
               </View>
     return (
-      <View style={{borderWidth: 1, borderRadius: 10, padding: 10, width: 250}}>
-        <Text style={{fontSize: 20, fontWeight: 'bold', alignSelf: 'center'}}>{this.props.title}</Text>
+      <View style={styles.container}>
+        <Text style={styles.header}>{this.props.title}</Text>
         {myStats}
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
+  container: {
+    borderWidth: 1, 
+    borderRadius: 10, 
+    padding: 10, 
+    width: wp('70%')
+  },
+  header: {
+    fontSize: RF(4), 
+    fontWeight: 'bold', 
+    alignSelf: 'center'
+  },
   myStatsContainer: {
     height: hp('26%')
   },
+  lineContainer: {
+    flex: 1,
+    flexWrap: 'nowrap',
+    flexDirection: 'row', 
+    height: 10, 
+    padding: 2
+  },
+  lineContainerLast: {
+    flex: 1,
+    flexWrap: 'nowrap',
+    flexDirection: 'row', 
+    height: 15, 
+    padding: 2
+  },
   textLeft: {
     flex: 2,
-    fontSize: RF(3),
+    fontSize: RF(2.7),
     alignSelf: 'flex-start'
   },
   textRight: {
     flex: 1,
-    fontSize: RF(3),
+    fontSize: RF(2.7),
     textAlign: 'right'
   },
+  textLeftLast: {
+    flex: 2, fontSize: RF(2.8), fontWeight: 'bold'
+  },
+  textRightLast: {
+    flex: 1, textAlign: 'right', fontSize: RF(2.8), fontWeight: 'bold'
+  }
 });

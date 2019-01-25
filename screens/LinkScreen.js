@@ -69,9 +69,4 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = state => {
-  return{
-  }
-};
-
 export default connect(mapStateToProps)(LinkScreen);

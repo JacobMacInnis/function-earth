@@ -1,29 +1,30 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import RF from 'react-native-responsive-fontsize';
 
 export default class TopUserIMpact extends React.Component {
   
   render() {
-    let myStats = <View style={{height: 175}}>
-                  <View style={{flex: 1,flexWrap: 'nowrap',flexDirection: 'row', height: 10, padding: 2}}>
-                  <Text style={{flex: 2, fontSize: 18}}>{this.props.fiveUser}:</Text> 
-                  <Text style={{flex: 1, textAlign: 'right', fontSize: 18}}>{this.props.five}</Text>
+    let myStats = <View style={styles.myStatsContainer}>
+      <View style={styles.lineContainer}>
+        <Text style={styles.textLeft}>{this.props.fiveUser}:</Text> 
+        <Text style={styles.textRight}>{this.props.five}</Text>
+      </View>
+      <View style={styles.lineContainer}>
+        <Text style={styles.textLeft}>{this.props.fourUser}:</Text> 
+        <Text style={styles.textRight}>{this.props.four}</Text>
+      </View>
+      <View style={styles.lineContainer}>
+        <Text style={styles.textLeft}>{this.props.threeUser}:</Text> 
+          <Text style={styles.textRight}>{this.props.three}</Text>
                 </View>
-                  <View style={{flex: 1,flexWrap: 'nowrap',flexDirection: 'row', height: 10, padding: 2}}>
-                  <Text style={{flex: 2, fontSize: 18}}>{this.props.fourUser}:</Text> 
-                  <Text style={{flex: 1, textAlign: 'right', fontSize: 18}}>{this.props.four}</Text>
+                <View style={styles.lineContainer}>
+                  <Text style={styles.textLeft}>{this.props.twoUser}:</Text> 
+                  <Text style={styles.textRight}>{this.props.two}</Text>
                 </View>
-                <View style={{flex: 1,flexWrap: 'nowrap',flexDirection: 'row', height: 10, padding: 2}}>
-                  <Text style={{flex: 2, fontSize: 18}}>{this.props.threeUser}:</Text> 
-                  <Text style={{flex: 1, textAlign: 'right', fontSize: 18}}>{this.props.three}</Text>
-                </View>
-                <View style={{flex: 1,flexWrap: 'nowrap',flexDirection: 'row', height: 10, padding: 2}}>
-                  <Text style={{flex: 2, fontSize: 18}}>{this.props.twoUser}:</Text> 
-                  <Text style={{flex: 1, textAlign: 'right', fontSize: 18}}>{this.props.two}</Text>
-                </View>
-                <View style={{flex: 1,flexWrap: 'nowrap',flexDirection: 'row', height: 10, padding: 2}}>
-                  <Text style={{flex: 2, fontSize: 18}}>{this.props.oneUser}:</Text> 
-                  <Text style={{flex: 1, textAlign: 'right', fontSize: 18}}>{this.props.one}</Text>
+                <View style={styles.lineContainer}>
+                  <Text style={styles.textLeft}>{this.props.oneUser}:</Text> 
+                  <Text style={styles.textRight}>{this.props.one}</Text>
                 </View>
                 <View style={{flex: 1,flexWrap: 'nowrap',flexDirection: 'row', borderWidth: 1, borderRadius: 10, height: 15, padding: 5}}>
                   <Text style={{flex: 2, fontSize: 20, fontWeight: 'bold'}}>Total:</Text> 
@@ -39,14 +40,17 @@ export default class TopUserIMpact extends React.Component {
   }
 }
 const styles = StyleSheet.create({
+  myStatsContainer: {
+    height: hp('26%')
+  },
   textLeft: {
-    flex: 1,
-    fontSize: 16,
+    flex: 2,
+    fontSize: RF(3),
     alignSelf: 'flex-start'
   },
   textRight: {
     flex: 1,
-    fontSize: 16,
-    alignSelf: 'flex-start'
+    fontSize: RF(3),
+    textAlign: 'right'
   },
 });

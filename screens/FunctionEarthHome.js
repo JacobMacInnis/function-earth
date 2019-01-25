@@ -2,8 +2,6 @@ import React from 'react';
 import { AsyncStorage, Image, Text, Button, View, StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { offMenu } from '../src/actions/hamburgerMenu';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import RF from "react-native-responsive-fontsize"
 
 // Components
 import MyImpact from '../src/components/My-Impact';

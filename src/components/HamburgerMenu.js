@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 import { toggleMenu } from '../actions/hamburgerMenu';
 import { connect } from 'react-redux';
 

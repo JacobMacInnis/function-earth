@@ -13,7 +13,7 @@ class LinkScreen extends Component {
   render() {
     return (
       <View style={{flex: 1, alignItems: 'center', backgroundColor: 'white'}}>
-        <View style={{width: wp('50%'), alignItems: 'flex-start', marginTop: 20}}>
+        <View style={{width: wp('80%'), alignItems: 'flex-start', marginTop: 20}}>
         <TouchableOpacity
           onPress={this.goHome}>
           <Text style={styles.buttons}><Image source={require('../src/assets/images/function-earth-logo.png')}

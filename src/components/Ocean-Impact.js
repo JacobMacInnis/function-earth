@@ -41,10 +41,15 @@ export default class OceanImpact extends React.Component {
 }
 const styles = StyleSheet.create({
   container: {
-    borderWidth: 1, borderRadius: 10, padding: 10, width: wp('70%')
+    borderWidth: 1, 
+    borderRadius: 10, 
+    padding: 10, 
+    width: wp('70%')
   },
   header: {
-    fontSize: RF(4), fontWeight: 'bold', alignSelf: 'center'
+    fontSize: RF(4), 
+    fontWeight: 'bold', 
+    alignSelf: 'center'
   },
   statsContainer: {
     height: hp('26%')
@@ -73,9 +78,14 @@ const styles = StyleSheet.create({
     textAlign: 'right'
   },
   textLeftLast: {
-    flex: 2, fontSize: RF(3.2), fontWeight: 'bold'
+    flex: 2, 
+    fontSize: RF(3.2), 
+    fontWeight: 'bold'
   },
   textRightLast: {
-    flex: 1, textAlign: 'right', fontSize: RF(3.2), fontWeight: 'bold'
+    flex: 1, 
+    textAlign: 'right', 
+    fontSize: RF(3.2), 
+    fontWeight: 'bold'
   }
 });

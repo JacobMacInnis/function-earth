@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StatusBar, StyleSheet, ActivityIndicator, AsyncStorage } from 'react-native';
-import { createStackNavigator, createSwitchNavigator, createDrawerNavigator } from 'react-navigation';
+import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 
 // Import Screens
@@ -9,10 +9,9 @@ import RegistrationScreen from './RegistrationScreen';
 import UserLocation from './UserLocation';
 import FunctionEarthHome from './FunctionEarthHome';
 import EntryScreen from './EntriesScreen';
-import GlobalStatsScreen from './GlobalStatsScreen';
-import OtherScreen from './OtherScreen';
 import MyStatsScreen from './MyStatsScreen';
-import TestScreen from './TestScreen';
+import GlobalStatsScreen from './GlobalStatsScreen';
+// import OtherScreen from './OtherScreen';
 
 class AuthLoadingScreen extends React.Component {
   componentDidMount() {
@@ -51,8 +50,8 @@ const AppStack = createStackNavigator({
   EntryScreen: EntryScreen, 
   GlobalStats: GlobalStatsScreen,
   MyStats: MyStatsScreen, 
-  Other: OtherScreen,
-  Test: TestScreen });
+  // Other: OtherScreen
+});
 
 const AuthStack = createStackNavigator({ 
   Login: LoginScreen, 

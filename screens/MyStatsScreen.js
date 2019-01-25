@@ -36,14 +36,18 @@ class MyStatsScreen extends React.Component {
       return (<Entries key={index} index={index} type={this.state.type} entry={entry.entry} country={entry.country} stateRegion={entry.stateRegion} color={colors[this.state.type]} timeStamp={entry.timeStamp}></Entries>);
     });
     return (
-      <View style={styles.container}>
+      <ScrollView 
+        contentContainerStyle={{alignItems: 'center'}}
+        scrollEventThrottle={16}
+        horizontal={false}
+        showsHorizontalScrollIndicator={false}>
         <Text style={{fontSize: RF(5)}}>My Stats</Text>
         <MyStats />
         <View style={{marginTop: 10}}>
           <Text style={{fontSize: RF(4), alignSelf: 'center'}}>Recent Entries</Text>
           <View 
-            style={{ height: 200, alignSelf: "stretch"}}>
-            <View style={{height: 180, marginTop: 10}}>
+            style={{ height: hp('30%'), alignSelf: "stretch"}}>
+            <View style={{height: hp('28%'), marginTop: 10}}>
               <ScrollView
                 scrollEventThrottle={16}
                 horizontal={true}
@@ -57,8 +61,8 @@ class MyStatsScreen extends React.Component {
           <MyStatsButtons pressed={this.state.type} buttonPress={string => this.buttonPress(string)}/>
         </View>
         <View 
-            style={{ height: 200, alignSelf: "stretch"}}>
-            <View style={{height: 180, marginTop: 10}}>
+            style={{ height: hp('30%'), alignSelf: "stretch"}}>
+            <View style={{height: hp('28%'), marginTop: 10}}>
               <ScrollView
                 scrollEventThrottle={16}
                 horizontal={true}
@@ -67,16 +71,11 @@ class MyStatsScreen extends React.Component {
               </ScrollView>
             </View>
           </View>
-      </View>
+      </ScrollView>
     );
   }
 }
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    alignItems: 'center',
-  }
 });
 
 const mapStateToProps = state => {

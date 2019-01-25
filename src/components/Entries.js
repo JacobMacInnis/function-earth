@@ -18,14 +18,14 @@ class Entries extends Component {
 
   render() {
     return (
-      <View style={{height: hp('35%'), width: wp('85%'), marginLeft: (this.props.index === 0 ? wp('7%') : wp('4%')), borderWidth: 1, borderRadius: 6, borderColor: '#34495e', overflow: 'hidden'}}>
+      <View style={{height: hp('26%'), width: wp('85%'), marginLeft: (this.props.index === 0 ? wp('7%') : wp('4%')), borderWidth: 1, borderRadius: 6, borderColor: '#34495e', overflow: 'hidden'}}>
         <View style={{flex: 2, backgroundColor: this.props.color, alignItems: 'center'}}>
-          <Text style={{fontSize: RF(3.5), fontWeight: '700', color: 'white', marginTop: 5}}>{type[this.props.type]}</Text>
-          <Text style={{fontSize: RF(2.8), color: 'white'}}>{this.props.timeStamp}</Text>
-          <Text style={{fontSize: RF(2.8), fontWeight: '400', color: 'white'}}>{this.props.stateRegion}:{this.props.country}</Text>
+          <Text style={{fontSize: RF(2.9), fontWeight: '700', color: 'white', marginTop: 5}}>{type[this.props.type]}</Text>
+          <Text style={{fontSize: RF(2.6), color: 'white'}}>{this.props.timeStamp}</Text>
+          <Text style={{fontSize: RF(2.6), fontWeight: '400', color: 'white'}}>{this.props.stateRegion}:{this.props.country}</Text>
         </View>
         <View style={{flex: 3, backgroundColor: secondColor[this.props.type], alignItems: 'center', justifyContent: 'center'}}>
-          <Text style={{fontSize: RF(3.4), padding: wp('2%')}}>{this.props.entry}</Text>
+          <Text style={{fontSize: RF(3), padding: wp('2%')}}>{this.props.entry}</Text>
         </View>
       </View>
     );

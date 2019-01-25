@@ -1,6 +1,9 @@
 import React from 'react';
-import { Text, Button, View, StyleSheet, StatusBar, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import RF from "react-native-responsive-fontsize";
+
 import MyStats from '../src/components/My-Impact';
 import Entries from '../src/components/Entries';
 import MyStatsButtons from '../src/components/My-Stats-Buttons';
@@ -31,14 +34,13 @@ class MyStatsScreen extends React.Component {
     let entries = this.props.stats[`${this.state.type}Entries`];
     let selected = entries.map((entry, index) => {
       return (<Entries key={index} index={index} type={this.state.type} entry={entry.entry} country={entry.country} stateRegion={entry.stateRegion} color={colors[this.state.type]} timeStamp={entry.timeStamp}></Entries>);
-    })
-    console.log(this.props.stats)
+    });
     return (
       <View style={styles.container}>
-        <Text style={{fontSize: 40}}>My Stats</Text>
+        <Text style={{fontSize: RF(5)}}>My Stats</Text>
         <MyStats />
         <View style={{marginTop: 10}}>
-          <Text style={{fontSize: 30, alignSelf: 'center'}}>Recent Entries</Text>
+          <Text style={{fontSize: RF(4), alignSelf: 'center'}}>Recent Entries</Text>
           <View 
             style={{ height: 200, alignSelf: "stretch"}}>
             <View style={{height: 180, marginTop: 10}}>

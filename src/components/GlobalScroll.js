@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
   statContainerLast: {
     marginLeft: 10,
-    marginRight: 75
+    marginRight: wp('9%')
   },
 });
 

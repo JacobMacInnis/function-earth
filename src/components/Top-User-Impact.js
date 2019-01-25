@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import RF from 'react-native-responsive-fontsize';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { impact } from './styles/impact';
 
 export default class TopUserIMpact extends React.Component {
   
@@ -40,54 +39,4 @@ export default class TopUserIMpact extends React.Component {
     );
   }
 }
-const styles = StyleSheet.create({
-  container: {
-    borderWidth: 1, 
-    borderRadius: 10, 
-    padding: 10, 
-    width: wp('70%')
-  },
-  header: {
-    fontSize: RF(4), 
-    fontWeight: 'bold', 
-    alignSelf: 'center'
-  },
-  myStatsContainer: {
-    height: hp('26%')
-  },
-  lineContainer: {
-    flex: 1,
-    flexWrap: 'nowrap',
-    flexDirection: 'row', 
-    height: 10, 
-    padding: 2
-  },
-  lineContainerLast: {
-    flex: 1,
-    flexWrap: 'nowrap',
-    flexDirection: 'row', 
-    height: 15, 
-    padding: 2
-  },
-  textLeft: {
-    flex: 2,
-    fontSize: RF(2.7),
-    alignSelf: 'flex-start'
-  },
-  textRight: {
-    flex: 1,
-    fontSize: RF(2.7),
-    textAlign: 'right'
-  },
-  textLeftLast: {
-    flex: 2, 
-    fontSize: RF(2.8), 
-    fontWeight: 'bold'
-  },
-  textRightLast: {
-    flex: 1, 
-    textAlign: 'right', 
-    fontSize: RF(2.8), 
-    fontWeight: 'bold'
-  }
-});
+const styles = StyleSheet.create(impact);

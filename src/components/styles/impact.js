@@ -1,16 +1,18 @@
 'use strict';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import RF from "react-native-responsive-fontsize";
+const textSize = RF(2.7);
+const textSizeLast = RF(2.8);
 
 export const impact = {
   container: {
     borderWidth: 1, 
     borderRadius: 10, 
     padding: 10, 
-    width: wp('70%')
+    width: wp('80%')
   },
   header: {
-    fontSize: RF(4), 
+    fontSize: RF(3.8), 
     fontWeight: 'bold', 
     alignSelf: 'center'
   },
@@ -33,22 +35,22 @@ export const impact = {
   },
   textLeft: {
     flex: 2, 
-    fontSize: RF(3)
+    fontSize: textSize
   },
   textRight: {
     flex: 1, 
     textAlign: 'right', 
-    fontSize: RF(3)
+    fontSize: textSize
   },
   textLeftLast: {
     flex: 2, 
-    fontSize: RF(3.2), 
+    fontSize: textSizeLast, 
     fontWeight: 'bold'
   },
   textRightLast: {
     flex: 1, 
     textAlign: 'right', 
-    fontSize: RF(3.2), 
+    fontSize: textSizeLast, 
     fontWeight: 'bold'
   }
 };

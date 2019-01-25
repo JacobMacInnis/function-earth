@@ -12,28 +12,28 @@ class LinkScreen extends Component {
   }
   render() {
     return (
-      <View style={{flex: 1, alignItems: 'center', backgroundColor: 'white'}}>
-        <View style={{width: wp('80%'), alignItems: 'flex-start', marginTop: 20}}>
-        <TouchableOpacity
-          onPress={this.goHome}>
-          <Text style={styles.buttons}><Image source={require('../src/assets/images/function-earth-logo.png')}
-          style={{width: 37, height: 37}}/> Home</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('MyStats')}>
-          <Text style={styles.buttons}>My Stats</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('GlobalStats')}>
-          <Text style={styles.buttons}>Global Stats</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => this._showMoreApp()}>
-          <Text style={styles.buttons}>FE Chat</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('Test')}>
-          <Text style={styles.buttons}>TestScreen</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.props.signOutAsync}>
-          <Text style={styles.buttons}>Log Out</Text>
-        </TouchableOpacity>
+      <View style={styles.container}>
+        <View style={styles.innerContainer}>
+          <TouchableOpacity
+            onPress={this.goHome}>
+            <Text style={styles.buttons}><Image source={require('../src/assets/images/function-earth-logo.png')}
+            style={styles.logo}/> Home</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('MyStats')}>
+            <Text style={styles.buttons}>My Stats</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('GlobalStats')}>
+            <Text style={styles.buttons}>Global Stats</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => this._showMoreApp()}>
+            <Text style={styles.buttons}>FE Chat</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Test')}>
+            <Text style={styles.buttons}>TestScreen</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.props.signOutAsync}>
+            <Text style={styles.buttons}>Log Out</Text>
+          </TouchableOpacity>
         </View>
       </View>
     )
@@ -49,6 +49,20 @@ class LinkScreen extends Component {
   };
 }
 const styles = StyleSheet.create({
+  container: {
+    flex: 1, 
+    alignItems: 'center', 
+    backgroundColor: 'white'
+  },
+  innerContainer: {
+    width: wp('80%'), 
+    alignItems: 'flex-start', 
+    marginTop: 20
+  },
+  logo: {
+    width: 37, 
+    height: 37
+  },
   buttons: {
     fontSize: RF(4.5),
     margin: 10

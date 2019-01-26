@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { Text, View, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import RF from "react-native-responsive-fontsize";
@@ -28,7 +28,6 @@ class MyStatsScreen extends React.Component {
   };
   render() {
     let recentEntries = this.props.stats.recentEntries;
-    // console.log(recentEntries);
     let recent = recentEntries.map((entry, index) => {
       return (<Entries key={index} index={index} type={entry.type} entry={entry.entry} country={entry.country} stateRegion={entry.stateRegion} color={colors[entry.type]} timeStamp={entry.timeStamp} ocean={entry.ocean ? entry.ocean : ''}></Entries>);
     });
@@ -76,8 +75,6 @@ class MyStatsScreen extends React.Component {
     );
   }
 }
-const styles = StyleSheet.create({
-});
 
 const mapStateToProps = state => {
   return{

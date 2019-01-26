@@ -28,6 +28,7 @@ class MyStatsScreen extends React.Component {
   };
   render() {
     let recentEntries = this.props.stats.recentEntries;
+    // console.log(recentEntries);
     let recent = recentEntries.map((entry, index) => {
       return (<Entries key={index} index={index} type={entry.type} entry={entry.entry} country={entry.country} stateRegion={entry.stateRegion} color={colors[entry.type]} timeStamp={entry.timeStamp}></Entries>);
     });

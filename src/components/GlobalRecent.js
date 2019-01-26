@@ -9,8 +9,8 @@ const colors = {
 };
 class GlobalRecent extends Component {
   render() {
-    console.log(this.props);
     const recentEntries = this.props.globalStats;
+    console.log(this.props.globalStats);
     const recent = recentEntries.map((entry, index) => {
       return ( <Entries key={index} index={index} type={entry.type} entry={entry.entry} color={colors[entry.type]} timeStamp={entry.timeStamp} country={entry.country} stateRegion={entry.stateRegion} />);      
     });

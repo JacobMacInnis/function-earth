@@ -67,10 +67,15 @@ const styles = StyleSheet.create({
     flex: 9
   },
   globalStatsHeader: {
-    fontSize: RF(5), fontWeight: 'bold', alignSelf: 'center', marginTop: 5
+    fontSize: RF(5), 
+    fontWeight: 'bold', 
+    alignSelf: 'center', 
+    marginTop: 5
   },
   globalStatsImpactContainer: {
-    flex:1, flexDirection: 'row', alignItems: 'center'
+    flex:1, 
+    flexDirection: 'row', 
+    alignItems: 'center'
   },
   titles: {
     fontSize: RF(4), 

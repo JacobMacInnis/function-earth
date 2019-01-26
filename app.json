@@ -11,7 +11,7 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/functionearth-icon.png",
     "splash": {
       "image": "./assets/images/function-earth-splash.png",
       "resizeMode": "contain",
@@ -27,11 +27,11 @@
     "ios": {
       "bundleIdentifier": "FE.FunctionEarth",
       "supportsTablet": true,
-      "icon": "./assets/images/icon.png"
+      "icon": "./assets/images/functionearth-icon.png"
     },
     "android": {
       "package": "FE.FunctionEarth.FunctionEarth",
-      "icon": "./assets/images/icon.png"
+      "icon": "./assets/images/functionearth-icon.png"
     }
   }
 }

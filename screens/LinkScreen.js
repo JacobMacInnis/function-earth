@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import { connect } from 'react-redux';
 import { toggleMenu } from '../src/actions/hamburgerMenu';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import RF from "react-native-responsive-fontsize";
@@ -14,9 +15,11 @@ class LinkScreen extends Component {
       <View style={styles.container}>
         <View style={styles.innerContainer}>
           <TouchableOpacity
-            onPress={this.goHome}>
-            <Text style={styles.buttons}><Image source={require('../src/assets/images/function-earth-logo.png')}
-            style={styles.logo}/> Home</Text>
+            onPress={this.goHome}
+          >
+            <Text style={styles.buttons}>
+              <Image source={require('../src/assets/images/function-earth-logo.png')}style={styles.logo}/> Home
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('MyStats')}>
             <Text style={styles.buttons}>My Stats</Text>
@@ -68,4 +71,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LinkScreen;
+const mapStateToProps = state => {
+  return{
+  }
+};
+
+export default connect(mapStateToProps)(LinkScreen);

@@ -20,13 +20,13 @@ class GlobalStatsScreen extends React.Component {
       
       return (
         <View style={styles.container}>
-          <View style={{flex: 8, borderBottomWidth: 1}}>
-            <Text style={{fontSize: RF(5), fontWeight: 'bold', alignSelf: 'center', marginTop: 5}}>Global Stats</Text>
-            <View style={{flex:1, flexDirection: 'row', alignItems: 'center'}}>
-            <GlobalScroll globalStats={this.props.globalStats}/>
+          <View style={styles.globalStatsTopContainer}>
+            <Text style={styles.globalStatsHeader}>Global Stats</Text>
+            <View style={styles.globalStatsImpactContainer}>
+              <GlobalScroll globalStats={this.props.globalStats}/>
             </View>
           </View>
-          <View style={{flex: 9}}>
+          <View style={styles.globalStatsBottomContainer}>
             <ScrollView>
               <Text style={styles.titles}>Recent Entries</Text>
               <GlobalRecent globalStats={recent}/>
@@ -58,6 +58,19 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     alignItems: 'center',
+  },
+  globalStatsTopContainer: {
+    flex: 8, 
+    borderBottomWidth: 1
+  },
+  globalStatsBottomContainer: {
+    flex: 9
+  },
+  globalStatsHeader: {
+    fontSize: RF(5), fontWeight: 'bold', alignSelf: 'center', marginTop: 5
+  },
+  globalStatsImpactContainer: {
+    flex:1, flexDirection: 'row', alignItems: 'center'
   },
   titles: {
     fontSize: RF(4), 

@@ -109,7 +109,7 @@ class EntriesScreen extends React.Component {
               />
             </View> : <Text></Text>}
             <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}>
-              <Text style={{fontSize: RF(3), fontWeight: 'bold'}}>Today I helped preserve our {this.props.entryType}. I...</Text>
+              <Text style={{fontSize: RF(3), fontWeight: 'bold', textAlign: 'center'}}>Today I helped preserve our {this.props.entryType}. I...</Text>
             </View>
             <View style={{flex: 6, alignItems: 'center', }}>
               <TextInput
@@ -126,7 +126,7 @@ class EntriesScreen extends React.Component {
               onPress={() => this.logNewEntry()}
               accessibilityLabel='log entry button' 
               >
-                <Text style={{fontSize: RF(3.5), alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Log My Action</Text>
+                <Text style={{fontSize: RF(3.5), alignSelf: 'center', fontWeight: 'bold', color: 'white', textAlign: 'center'}}>Log My Action</Text>
               </TouchableOpacity>
             </View>
             {alert}

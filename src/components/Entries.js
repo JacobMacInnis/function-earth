@@ -18,12 +18,16 @@ const secondColor = {
 class Entries extends Component {
 
   render() {
+    let oceanCapitalized;
+    if (this.props.type === 'ocean') {
+      oceanCapitalized = this.props.ocean.charAt(0).toUpperCase() + this.props.ocean.slice(1);
+    }
     return (
       <View style={[styles.entriesContainer, { marginLeft: (this.props.index === 0 ? wp('7%') : wp('4%')) }]}>
         <View style={[styles.entriesInnerContainer, { backgroundColor: this.props.color }]}>
-          <Text style={styles.entriesTitle}>{type[this.props.type]}</Text>
+          <Text style={styles.entriesLocation}>{this.props.type === 'ocean' ? oceanCapitalized : `${this.props.stateRegion}:${this.props.country}`}</Text>
+          <Text style={styles.entriesType}>{type[this.props.type]}</Text>
           <Text style={styles.entriesTimeStamp}>{this.props.timeStamp}</Text>
-          <Text style={styles.entriesLocation}>{this.props.stateRegion}:{this.props.country}</Text>
         </View>
         <View style={[styles.entriesContentContainer, { backgroundColor: secondColor[this.props.type] }]}>
           <Text style={styles.entriesContent}>{this.props.entry}</Text>
@@ -47,19 +51,19 @@ const styles = StyleSheet.create({
     flex: 2, 
     alignItems: 'center'
   },
-  entriesTitle: {
+  entriesLocation: {
     fontSize: RF(2.9), 
     fontWeight: '700', 
     color: 'white', 
     marginTop: 5
   },
-  entriesTimeStamp: {
-    fontSize: RF(2.5), 
-    color: 'white'
-  },
-  entriesLocation: {
+  entriesType: {
     fontSize: RF(2.3), 
     fontWeight: '400', 
+    color: 'white'
+  },
+  entriesTimeStamp: {
+    fontSize: RF(2.5), 
     color: 'white'
   },
   entriesContentContainer: {

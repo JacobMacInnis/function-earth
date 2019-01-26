@@ -12,7 +12,7 @@ class GlobalRecent extends Component {
     const recentEntries = this.props.globalStats;
     console.log(this.props.globalStats);
     const recent = recentEntries.map((entry, index) => {
-      return ( <Entries key={index} index={index} type={entry.type} entry={entry.entry} color={colors[entry.type]} timeStamp={entry.timeStamp} country={entry.country} stateRegion={entry.stateRegion} />);      
+      return ( <Entries key={index} index={index} type={entry.type} entry={entry.entry} color={colors[entry.type]} timeStamp={entry.timeStamp} country={entry.country} stateRegion={entry.stateRegion} ocean={entry.ocean ? entry.ocean : ''}/>);      
     });
     return (
       <ScrollView 

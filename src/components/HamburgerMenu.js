@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { toggleMenu } from '../actions/hamburgerMenu';
 import { connect } from 'react-redux';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
@@ -12,17 +12,36 @@ class HamburgerMenu extends React.Component {
   render() {
     return (
       <TouchableOpacity
-      style={{height: 25, width: 45, margin: 10, justifyContent: 'center'}} 
-      onPress={() => this.toggleMenu()}
-      accessibilityLabel='hamburger menu' 
+        style={styles.hamburgerContainer} 
+        onPress={() => this.toggleMenu()}
+        accessibilityLabel='hamburger menu' 
       >
-      <Text style={{backgroundColor: 'green', height: 7, width: 45, marginBottom: 3, borderWidth: 1, borderRadius: 5, borderColor: 'white', overflow: 'hidden'}}></Text>
-      <Text style={{backgroundColor: 'green', height: 7, width: 45, marginBottom: 3, borderWidth: 1, borderRadius: 5, borderColor: 'white', overflow: 'hidden'}}></Text>
-      <Text style={{backgroundColor: 'green', height: 7, width: 45, borderWidth: 1, borderRadius: 5, borderColor: 'white', overflow: 'hidden'}}></Text>
+        <Text style={styles.hamburgerLines}></Text>
+        <Text style={styles.hamburgerLines}></Text>
+        <Text style={styles.hamburgerLines}></Text>
       </TouchableOpacity>
     )
     }
 };
+
+const styles = StyleSheet.create({
+  hamburgerContainer: {
+    height: hp('8%'),
+    width: wp('12%'), 
+    margin: 10, 
+    justifyContent: 'center'
+  },
+  hamburgerLines: {
+    backgroundColor: 'blue', 
+    height: hp('1.3%'),
+    width: wp('12%'),
+    marginBottom: 3, 
+    borderWidth: 1, 
+    borderRadius: 5, 
+    borderColor: 'white', 
+    overflow: 'hidden'
+  }
+});
 
 const mapStateToProps = state => {
   return{

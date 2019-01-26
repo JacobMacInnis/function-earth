@@ -48,8 +48,13 @@ const styles = StyleSheet.create({
     marginRight: wp('2%')
   },
   entriesInnerContainer: {
-    flex: 2, 
+    flex: 5, 
     alignItems: 'center'
+  },
+  entriesContentContainer: {
+    flex: 6, 
+    alignItems: 'center', 
+    justifyContent: 'center'
   },
   entriesLocation: {
     fontSize: RF(2.9), 
@@ -58,22 +63,18 @@ const styles = StyleSheet.create({
     marginTop: 5
   },
   entriesType: {
-    fontSize: RF(2.3), 
+    fontSize: RF(2.1), 
     fontWeight: '400', 
     color: 'white'
   },
   entriesTimeStamp: {
-    fontSize: RF(2.5), 
+    fontSize: RF(2.1), 
     color: 'white'
-  },
-  entriesContentContainer: {
-    flex: 3, 
-    alignItems: 'center', 
-    justifyContent: 'center'
   },
   entriesContent: {
     fontSize: RF(3), 
-    padding: wp('2%')
+    padding: wp('2%'),
+    textAlign: 'center'
   }
 });
 

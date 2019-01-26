@@ -23,7 +23,7 @@ class Oceans extends React.Component {
         style={this.state.pressed === ocean ? styles.pressed : styles.unPressed}
         onPress={() => this.buttonPressed(ocean)}
         >
-          <Text style={{alignSelf: 'center', fontSize: RF(3), fontWeight: 'bold', color: 'white'}}>{ocean}</Text>
+          <Text style={{alignSelf: 'center', fontSize: RF(2.8), fontWeight: 'bold', color: 'white'}}>{ocean}</Text>
         </TouchableOpacity>
     });
     return (

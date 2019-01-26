@@ -122,7 +122,7 @@ class EntriesScreen extends React.Component {
             </View>
             <View style={{flex: 3, alignItems: 'center'}}>
               <TouchableOpacity
-              style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('10%'), width: wp('45%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: colorsObj[this.props.entryType]}} 
+              style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('10%'), width: wp('50%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: colorsObj[this.props.entryType]}} 
               onPress={() => this.logNewEntry()}
               accessibilityLabel='log entry button' 
               >

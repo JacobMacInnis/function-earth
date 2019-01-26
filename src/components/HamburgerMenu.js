@@ -2,6 +2,8 @@ import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import { toggleMenu } from '../actions/hamburgerMenu';
 import { connect } from 'react-redux';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import RF from "react-native-responsive-fontsize";
 
 class HamburgerMenu extends React.Component {
   toggleMenu = () => {

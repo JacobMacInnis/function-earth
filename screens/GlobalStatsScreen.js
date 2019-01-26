@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { globalStats } from '../src/actions/globalStats';
 import GlobalScroll from '../src/components/GlobalScroll';
 import GlobalRecent from '../src/components/GlobalRecent';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import RF from "react-native-responsive-fontsize";
 
 class GlobalStatsScreen extends React.Component {

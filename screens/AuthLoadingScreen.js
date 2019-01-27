@@ -11,6 +11,7 @@ import FunctionEarthHome from './FunctionEarthHome';
 import EntryScreen from './EntriesScreen';
 import MyStatsScreen from './MyStatsScreen';
 import GlobalStatsScreen from './GlobalStatsScreen';
+import PrivacyScreen from './PrivacyScreen';
 // import OtherScreen from './OtherScreen';
 
 class AuthLoadingScreen extends React.Component {
@@ -49,7 +50,8 @@ const AppStack = createStackNavigator({
   Home: FunctionEarthHome, 
   EntryScreen: EntryScreen, 
   GlobalStats: GlobalStatsScreen,
-  MyStats: MyStatsScreen, 
+  MyStats: MyStatsScreen,
+  PrivacyScreen: PrivacyScreen
   // Other: OtherScreen
 });
 

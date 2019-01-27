@@ -27,6 +27,9 @@ class LinkScreen extends Component {
           <TouchableOpacity onPress={() => this.props.navigation.navigate('GlobalStats')}>
             <Text style={styles.buttons}>Global Stats</Text>
           </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('PrivacyScreen')}>
+            <Text style={styles.buttons}>Privacy</Text>
+          </TouchableOpacity>
           {/* <TouchableOpacity onPress={() => this._showMoreApp()}>
             <Text style={styles.buttons}>FE Chat</Text>
           </TouchableOpacity>

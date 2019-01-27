@@ -31,7 +31,8 @@
     },
     "android": {
       "package": "FE.FunctionEarth.FunctionEarth",
-      "icon": "./assets/images/functionearth-icon.png"
+      "icon": "./assets/images/functionearth-icon.png",
+      "adaptiveIcon.backgroundColor": "#000000"
     }
   }
 }

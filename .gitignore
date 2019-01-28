@@ -5,4 +5,6 @@ npm-debug.*
 *.p12
 *.key
 *.mobileprovision
+
+# dotenv environments variables file
 .env

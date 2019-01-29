@@ -3,7 +3,8 @@ import { View,Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import RF from "react-native-responsive-fontsize";
 import { connect } from 'react-redux';
-
+import { AsyncStorage } from 'react-native';
+import { setAuthToken, refreshAuthToken } from '../src/actions/auth'
 // Import Components
 import LoginForm from './../src/components/Login-Form';
 import { DismissKeyboard } from '../src/components/DismissKeyboard';
@@ -20,7 +21,30 @@ class Login extends React.Component {
       </View>
     ),
   }
-  
+  async componentWillMount() {
+    try {
+      const authToken = await AsyncStorage.getItem('authToken');
+      if (authToken !== null) {
+        console.log('HERE BUDDY')
+        return this.props.dispatch(setAuthToken(authToken))
+        .then(() => {
+          this.props.dispatch(refreshAuthToken())
+        })
+        .then(() => {
+          if (this.props.loggedIn) {
+            this.props.navigation.navigate('App');
+          };
+        })
+        .catch(err => {
+          console.log(err)
+        });
+      } else {
+        console.log('NO VALUE')
+      }
+    } catch (error) {
+      console.log('AsyncStorage Error: ' + error.message);
+    }
+  }
   onSubmitLogin(values) {
     if (values.username === null) {
       let error = {

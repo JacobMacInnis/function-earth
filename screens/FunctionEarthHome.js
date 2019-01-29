@@ -2,12 +2,13 @@ import React from 'react';
 import { AsyncStorage, Image, Text, Button, View, StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { offMenu } from '../src/actions/hamburgerMenu';
-
+import { loadAuthToken } from '../src/async-storage';
 // Components
 import MyImpact from '../src/components/My-Impact';
 import NewEntry from '../src/components/New-Entry';
 import HamburgerMenu from '../src/components/HamburgerMenu';
 import LinkScreen from './LinkScreen';
+
 class FunctionEarthHome extends React.Component {
   static navigationOptions = {
     headerRight: (
@@ -15,6 +16,18 @@ class FunctionEarthHome extends React.Component {
     ),
     title: 'Function Earth'
   };
+  // async componentWillMount() {
+  //   try {
+  //     const value = await AsyncStorage.getItem('authToken');
+  //     if (value !== null) {
+  //       console.log(value)
+  //     } else {
+  //       console.log('NO VALUE')
+  //     }
+  //   } catch (error) {
+  //     console.log('AsyncStorage Error: ' + error.message);
+  //   }
+  // }
   componentDidUpdate() {
     if (!this.props.loggedIn || this.props.error) {
       this.props.navigation.navigate('Auth');

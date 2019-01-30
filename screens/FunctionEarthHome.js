@@ -52,7 +52,7 @@ class FunctionEarthHome extends React.Component {
   };
 
   _signOutAsync = async () => {
-    // await AsyncStorage.clear();
+    await AsyncStorage.clear();
     this.props.dispatch(offMenu());
     this.props.navigation.navigate('Auth');
   };

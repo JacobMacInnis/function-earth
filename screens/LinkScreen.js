@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { toggleMenu } from '../src/actions/hamburgerMenu';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import RF from "react-native-responsive-fontsize";
+import { clearAuthToken } from '../src/async-storage';
 
 class LinkScreen extends Component {
   goHome = () => {
@@ -48,7 +49,10 @@ class LinkScreen extends Component {
   };
 
   _signOutAsync = async () => {
-    await AsyncStorage.clear();
+    console.log('AT LEAST THIS')
+    // await this.props.clearAuthToken();
+    // // await AsyncStorage.clear();
+    await AsyncStorage.removeItem('authToken');
     this.props.dispatch(toggleMenu());
     this.props.navigation.navigate('Auth');
   };

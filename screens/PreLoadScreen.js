@@ -24,13 +24,12 @@ class PreLoadScreen extends React.Component {
         return this.props.dispatch(setAuthToken(token))
       }
     } catch (error) {
-      console.log("Shutting off checking")
       this.setState({
         userChecking: false,
         loggedIn: false
       });
     }
-      console.log('AsyncStorage Error: ' + error.message);
+    this.props.navigation.navigate('Login'); 
   }
   componentDidUpdate(prevProps) {
     if (prevProps.authToken !== this.props.authToken) {
@@ -41,8 +40,6 @@ class PreLoadScreen extends React.Component {
     if (this.props.loggedIn) {
       this.props.navigation.navigate('App');
     } else if (this.state.userChecking === false && this.state.loggedIn === false) {
-      console.log('PRELOAD STATE')
-      console.log(this.state.userChecking, this.state.loggedIn) 
       this.props.navigation.navigate('Login');
     }
   }

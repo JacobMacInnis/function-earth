@@ -51,56 +51,44 @@ class Login extends React.Component {
     }
   }
   render() {
-    // console.log(this.props.authToken, 'Line 100')
-    // console.log(this.props.loggedIn, 'Logged in')
-    // console.log('THIS.PROPS ==>', this.props,'<=== THIS.PROPS')
-    // if (this.state.userChecking) {
-    //   return (
-    //   <View style={{flex: 1}}>
-    //     <Image source={require('../assets/images/function-earth-splash.png')} 
-    //         style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
-    //         resizeMode="contain"/>
-    //   </View>);
-    // } else {
-      return (
-        <KeyboardShift>
-          {() => (
-          <DismissKeyboard>
-            <View style={styles.loginContainer}>
-              <View style={styles.loginLogoContainer}>
-                <Image source={require('./../src/assets/images/function-earth-logo.png')} 
-                  style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
-                  resizeMode="contain"/>
-                <Text style={styles.loginTitle}>Function Earth</Text>
-              </View>
-              <View style={styles.loginDescriptionContainer}>
-                <Text style={styles.loginDescription}>You already do good things to preserve our planet. Function Earth tracks your efforts to protect our environment and global progress. </Text>
-              </View>
-              <View 
-                title="login-form"
-                style={styles.loginForm}>
-                <LoginForm onSubmit={(values) => this.onSubmitLogin(values)} />
-                <View style={{alignItems: 'center'}}>
-                  <TouchableOpacity
-                    style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('5%'), width: wp('60%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: 'blue'}} 
-                    title="Register New Account"
-                    onPress={() => this.props.navigation.navigate('Registration')} 
-                  >
-                    <Text style={{fontSize: RF(4), alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Register</Text>
-                  </TouchableOpacity>
-                </View>
-              </View> 
+    return (
+      <KeyboardShift>
+        {() => (
+        <DismissKeyboard>
+          <View style={styles.loginContainer}>
+            <View style={styles.loginLogoContainer}>
+              <Image source={require('./../src/assets/images/function-earth-logo.png')} 
+                style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
+                resizeMode="contain"/>
+              <Text style={styles.loginTitle}>Function Earth</Text>
             </View>
-          </DismissKeyboard>
-          )}
-        </KeyboardShift>
-      );
-    }
+            <View style={styles.loginDescriptionContainer}>
+              <Text style={styles.loginDescription}>You already do good things to preserve our planet. Function Earth tracks your efforts to protect our environment and global progress. </Text>
+            </View>
+            <View 
+              title="login-form"
+              style={styles.loginForm}>
+              <LoginForm onSubmit={(values) => this.onSubmitLogin(values)} />
+              <View style={{alignItems: 'center'}}>
+                <TouchableOpacity
+                  style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('5%'), width: wp('60%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: 'blue'}} 
+                  title="Register New Account"
+                  onPress={() => this.props.navigation.navigate('Registration')} 
+                >
+                  <Text style={{fontSize: RF(4), alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Register</Text>
+                </TouchableOpacity>
+              </View>
+            </View> 
+          </View>
+        </DismissKeyboard>
+        )}
+      </KeyboardShift>
+    );
   }
-// }
+}
 const mapStateToProps = state => ({
   loggedIn: state.auth.currentUser !== null,
-  authToken: state.auth.authToken
+  // authToken: state.auth.authToken
 });
 
 const styles = StyleSheet.create({

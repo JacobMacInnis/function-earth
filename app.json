@@ -25,7 +25,7 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "FE.FunctionEarth",
+      "bundleIdentifier": "com.FunctionEarth",
       "supportsTablet": true,
       "icon": "./assets/images/appleicon.png"
     },

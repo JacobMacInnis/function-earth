@@ -4,7 +4,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import RF from "react-native-responsive-fontsize";
 import { connect } from 'react-redux';
 import { AsyncStorage } from 'react-native';
-import { setAuthToken, refreshAuthToken } from '../src/actions/auth'
+import { setAuthToken, authAutoSignIn } from '../src/actions/auth'
 // Import Components
 import LoginForm from './../src/components/Login-Form';
 import { DismissKeyboard } from '../src/components/DismissKeyboard';
@@ -23,26 +23,14 @@ class Login extends React.Component {
   }
   async componentWillMount() {
     try {
-      const authToken = await AsyncStorage.getItem('authToken');
-      if (authToken !== null) {
-        console.log('HERE BUDDY')
-        return this.props.dispatch(setAuthToken(authToken))
-        .then(() => {
-          this.props.dispatch(refreshAuthToken())
-        })
-        .then(() => {
-          if (this.props.loggedIn) {
-            this.props.navigation.navigate('App');
-          };
-        })
-        .catch(err => {
-          console.log(err)
-        });
-      } else {
-        console.log('NO VALUE')
-      }
+      return this.props.dispatch(authAutoSignIn())
+      .then(() => {
+        if (this.props.loggedIn) {
+          this.props.navigation.navigate('App');
+        };
+      })
     } catch (error) {
-      console.log('AsyncStorage Error: ' + error.message);
+      console.log(error);
     }
   }
   onSubmitLogin(values) {

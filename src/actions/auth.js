@@ -33,14 +33,7 @@ export const authError = error => ({
     error
 });
 
-// Stores the auth token in state and localStorage, and decodes and stores
-// the user data stored in the token
-const storeAuthInfo = (authToken, dispatch) => {
-    const decodedToken = jwtDecode(authToken);
-    dispatch(setAuthToken(authToken));
-    dispatch(authSuccess(decodedToken.user));
-    saveAuthToken(authToken);
-};
+
 export const login = (username, password) => dispatch => {
     dispatch(authRequest());
     return (
@@ -79,25 +72,85 @@ export const login = (username, password) => dispatch => {
     );
 };
 
-export const refreshAuthToken = () => (dispatch, getState) => {
-    dispatch(authRequest());
-    const authToken = getState().auth.authToken;
-    return fetch(`${API_BASE_URL}/auth/refresh`, {
-        method: 'POST',
-        headers: {
+export const refreshAuthToken = (token) => (dispatch, getState) => {
+  dispatch(authRequest());
+    // const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/auth/refresh`, {
+    method: 'POST',
+    headers: {
             // Provide our existing token as credentials to get a new one
-            Authorization: `Bearer ${authToken}`
-        }
-    })
-        .then(res => normalizeResponseErrors(res))
-        .then(res => res.json())
-        .then(({authToken}) => storeAuthInfo(authToken, dispatch))
-        .catch(err => {
-            // We couldn't get a refresh token because our current credentials
-            // are invalid or expired, or something else went wrong, so clear
-            // them and sign us out
-            dispatch(authError(err));
-            dispatch(clearAuth());
-            clearAuthToken(authToken);
-        });
+    Authorization: `Bearer ${token}`
+    }
+  })
+	.then(res => normalizeResponseErrors(res))
+	.then(res => res.json())
+	.then(({authToken}) => storeAuthInfo(authToken, dispatch))
+	.catch(err => {
+			// We couldn't get a refresh token because our current credentials
+			// are invalid or expired, or something else went wrong, so clear
+			// them and sign us out
+			dispatch(authError(err));
+			dispatch(clearAuth());
+			clearAuthToken(authToken);
+  });
+};
+
+// Stores the auth token in state and localStorage, and decodes and stores
+// the user data stored in the token
+const storeAuthInfo = (authToken, dispatch) => {
+	const decodedToken = jwtDecode(authToken);
+	dispatch(setAuthToken(authToken));
+	dispatch(authSuccess(decodedToken.user));
+	saveAuthToken(authToken);
+};
+
+export const authGetToken = () => {
+	return (dispatch, getState) => {
+		const promise = new Promise((resolve, reject) => {
+			const token = getState().auth.token;
+			if (!token) {
+				let fetchedToken;
+				AsyncStorage.getItem("authToken")
+					.catch(err => reject())
+					.then(tokenFromStorage => {
+						fetchedToken = tokenFromStorage;
+						if (!tokenFromStorage) {
+							reject();
+							return;
+						}
+					})
+					.then(() => {
+						dispatch(setAuthToken(fetchedToken));
+						resolve(fetchedToken);
+					})
+					.catch(err => reject());
+			} else {
+				resolve(token);
+			}
+		});
+		return promise
+			.catch(err => {
+				return AsyncStorage.getItem("authToken")
+					.then(refreshToken => {
+						return refreshAuthToken(refreshToken)
+					})
+			})
+			.then(token => {
+				if (!token) {
+					throw new Error();
+				} else {
+					return token;
+				}
+			});
+	};
+};
+  
+export const authAutoSignIn = () => {
+  return dispatch => {
+    dispatch(authGetToken())
+      .then(token => {
+        // startMainTabs();	
+      })
+      .catch(err => console.log("Failed to fetch token!"));
+  };
 };

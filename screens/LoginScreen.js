@@ -3,8 +3,6 @@ import { View,Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import RF from "react-native-responsive-fontsize";
 import { connect } from 'react-redux';
-import { AsyncStorage } from 'react-native';
-import { setAuthToken, refreshAuthToken } from '../src/actions/auth'
 // Import Components
 import LoginForm from './../src/components/Login-Form';
 import { DismissKeyboard } from '../src/components/DismissKeyboard';
@@ -88,7 +86,6 @@ class Login extends React.Component {
 }
 const mapStateToProps = state => ({
   loggedIn: state.auth.currentUser !== null,
-  // authToken: state.auth.authToken
 });
 
 const styles = StyleSheet.create({

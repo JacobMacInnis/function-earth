@@ -21,47 +21,6 @@ class Login extends React.Component {
       </View>
     ),
   }
-  constructor(props) {
-    super(props);
-    this.state = {
-      userChecking: true
-    }
-  }
-  // componentWillMount() {
-  //   if (this.props.loggedIn) {
-  //     console.log('This One')
-  //     this.props.navigation.navigate('App');
-  //   }
-  // }
-  // async componentDidMount() {
-  //   try {
-  //     let promise = new Promise((resolve, reject) => {
-  //       const value = AsyncStorage.getItem('authToken');
-  //       resolve(value);
-  //     });
-  //     let token = await promise;
-  //     if (token) {
-  //       return this.props.dispatch(setAuthToken(token))
-  //     }
-  //   } catch (error) {
-  //     this.setState({
-  //       userChecking: false
-  //     });
-  //   }
-  //     console.log('AsyncStorage Error: ' + error.message);
-  // }
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.authToken !== this.props.authToken) {
-  //     console.log('Hello')
-  //     if (this.props.authToken !== null) {
-  //       console.log('Trying to dispatch')
-  //       this.props.dispatch(refreshAuthToken())
-  //     }
-  //   }
-  //   if (this.props.loggedIn) {
-  //     this.props.navigation.navigate('App');
-  //   }
-  // }
 
   onSubmitLogin(values) {
     if (values.username === null) {

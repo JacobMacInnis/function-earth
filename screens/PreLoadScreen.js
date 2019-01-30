@@ -13,12 +13,6 @@ class PreLoadScreen extends React.Component {
       loggedIn: false
     }
   }
-  // componentWillMount() {
-  //   if (this.props.loggedIn) {
-  //     console.log('This One')
-  //     this.props.navigation.navigate('App');
-  //   }
-  // }
   async componentDidMount() {
     try {
       let promise = new Promise((resolve, reject) => {
@@ -53,17 +47,15 @@ class PreLoadScreen extends React.Component {
     }
   }
   render() {
-    // if (this.state.userChecking) {
-      console.log("PRE LOAD SCREEN LOADED")
-      return (
+    return (
       <View style={{flex: 1}}>
         <Image source={require('../assets/images/function-earth-splash.png')} 
             style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
             resizeMode="contain"/>
       </View>);
-    // }
   }
 }
+
 const mapStateToProps = state => ({
   loggedIn: state.auth.currentUser !== null,
   authToken: state.auth.authToken

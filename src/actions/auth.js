@@ -72,14 +72,15 @@ export const login = (username, password) => dispatch => {
     );
 };
 
-export const refreshAuthToken = (token) => (dispatch, getState) => {
+export const refreshAuthToken = () => (dispatch, getState) => {
+	console.log('here????')
   dispatch(authRequest());
-    // const authToken = getState().auth.authToken;
+  const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/auth/refresh`, {
     method: 'POST',
     headers: {
             // Provide our existing token as credentials to get a new one
-    Authorization: `Bearer ${token}`
+    Authorization: `Bearer ${authToken}`
     }
   })
 	.then(res => normalizeResponseErrors(res))
@@ -147,6 +148,7 @@ export const authGetToken = () => {
   
 export const authAutoSignIn = () => {
   return dispatch => {
+		console.log('I"M HERE BUDDY')
     dispatch(authGetToken())
       .then(token => {
         // startMainTabs();	

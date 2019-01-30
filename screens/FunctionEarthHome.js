@@ -16,18 +16,6 @@ class FunctionEarthHome extends React.Component {
     ),
     title: 'Function Earth'
   };
-  // async componentWillMount() {
-  //   try {
-  //     const value = await AsyncStorage.getItem('authToken');
-  //     if (value !== null) {
-  //       console.log(value)
-  //     } else {
-  //       console.log('NO VALUE')
-  //     }
-  //   } catch (error) {
-  //     console.log('AsyncStorage Error: ' + error.message);
-  //   }
-  // }
   componentDidUpdate() {
     if (!this.props.loggedIn || this.props.error) {
       this.props.navigation.navigate('Auth');
@@ -37,9 +25,6 @@ class FunctionEarthHome extends React.Component {
     }
   }
   render() {
-    const loadAuthToken = () => {
-      return AsyncStorage.getItem('authToken');
-    };
     if (this.props.HamburgerMenuActive) {
       return (
         <LinkScreen signOutAsync={this._signOutAsync} navigation={this.props.navigation}/>
@@ -67,7 +52,7 @@ class FunctionEarthHome extends React.Component {
   };
 
   _signOutAsync = async () => {
-    await AsyncStorage.clear();
+    // await AsyncStorage.clear();
     this.props.dispatch(offMenu());
     this.props.navigation.navigate('Auth');
   };

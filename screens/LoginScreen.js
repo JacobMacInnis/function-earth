@@ -4,7 +4,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import RF from "react-native-responsive-fontsize";
 import { connect } from 'react-redux';
 import { AsyncStorage } from 'react-native';
-import { setAuthToken, authAutoSignIn } from '../src/actions/auth'
+import { setAuthToken, refreshAuthToken } from '../src/actions/auth'
 // Import Components
 import LoginForm from './../src/components/Login-Form';
 import { DismissKeyboard } from '../src/components/DismissKeyboard';
@@ -21,18 +21,48 @@ class Login extends React.Component {
       </View>
     ),
   }
-  async componentWillMount() {
-    try {
-      return this.props.dispatch(authAutoSignIn())
-      .then(() => {
-        if (this.props.loggedIn) {
-          this.props.navigation.navigate('App');
-        };
-      })
-    } catch (error) {
-      console.log(error);
+  constructor(props) {
+    super(props);
+    this.state = {
+      userChecking: true
     }
   }
+  // componentWillMount() {
+  //   if (this.props.loggedIn) {
+  //     console.log('This One')
+  //     this.props.navigation.navigate('App');
+  //   }
+  // }
+  // async componentDidMount() {
+  //   try {
+  //     let promise = new Promise((resolve, reject) => {
+  //       const value = AsyncStorage.getItem('authToken');
+  //       resolve(value);
+  //     });
+  //     let token = await promise;
+  //     if (token) {
+  //       return this.props.dispatch(setAuthToken(token))
+  //     }
+  //   } catch (error) {
+  //     this.setState({
+  //       userChecking: false
+  //     });
+  //   }
+  //     console.log('AsyncStorage Error: ' + error.message);
+  // }
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.authToken !== this.props.authToken) {
+  //     console.log('Hello')
+  //     if (this.props.authToken !== null) {
+  //       console.log('Trying to dispatch')
+  //       this.props.dispatch(refreshAuthToken())
+  //     }
+  //   }
+  //   if (this.props.loggedIn) {
+  //     this.props.navigation.navigate('App');
+  //   }
+  // }
+
   onSubmitLogin(values) {
     if (values.username === null) {
       let error = {
@@ -62,43 +92,56 @@ class Login extends React.Component {
     }
   }
   render() {
-    return (
-      <KeyboardShift>
-        {() => (
-        <DismissKeyboard>
-          <View style={styles.loginContainer}>
-            <View style={styles.loginLogoContainer}>
-              <Image source={require('./../src/assets/images/function-earth-logo.png')} 
-                style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
-                resizeMode="contain"/>
-              <Text style={styles.loginTitle}>Function Earth</Text>
-            </View>
-            <View style={styles.loginDescriptionContainer}>
-              <Text style={styles.loginDescription}>You already do good things to preserve our planet. Function Earth tracks your efforts to protect our environment and global progress. </Text>
-            </View>
-            <View 
-              title="login-form"
-              style={styles.loginForm}>
-              <LoginForm onSubmit={(values) => this.onSubmitLogin(values)} />
-              <View style={{alignItems: 'center'}}>
-                <TouchableOpacity
-                  style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('5%'), width: wp('60%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: 'blue'}} 
-                  title="Register New Account"
-                  onPress={() => this.props.navigation.navigate('Registration')} 
-                >
-                  <Text style={{fontSize: RF(4), alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Register</Text>
-                </TouchableOpacity>
+    // console.log(this.props.authToken, 'Line 100')
+    // console.log(this.props.loggedIn, 'Logged in')
+    // console.log('THIS.PROPS ==>', this.props,'<=== THIS.PROPS')
+    // if (this.state.userChecking) {
+    //   return (
+    //   <View style={{flex: 1}}>
+    //     <Image source={require('../assets/images/function-earth-splash.png')} 
+    //         style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
+    //         resizeMode="contain"/>
+    //   </View>);
+    // } else {
+      return (
+        <KeyboardShift>
+          {() => (
+          <DismissKeyboard>
+            <View style={styles.loginContainer}>
+              <View style={styles.loginLogoContainer}>
+                <Image source={require('./../src/assets/images/function-earth-logo.png')} 
+                  style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
+                  resizeMode="contain"/>
+                <Text style={styles.loginTitle}>Function Earth</Text>
               </View>
-            </View> 
-          </View>
-        </DismissKeyboard>
-        )}
-      </KeyboardShift>
-    );
+              <View style={styles.loginDescriptionContainer}>
+                <Text style={styles.loginDescription}>You already do good things to preserve our planet. Function Earth tracks your efforts to protect our environment and global progress. </Text>
+              </View>
+              <View 
+                title="login-form"
+                style={styles.loginForm}>
+                <LoginForm onSubmit={(values) => this.onSubmitLogin(values)} />
+                <View style={{alignItems: 'center'}}>
+                  <TouchableOpacity
+                    style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('5%'), width: wp('60%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: 'blue'}} 
+                    title="Register New Account"
+                    onPress={() => this.props.navigation.navigate('Registration')} 
+                  >
+                    <Text style={{fontSize: RF(4), alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Register</Text>
+                  </TouchableOpacity>
+                </View>
+              </View> 
+            </View>
+          </DismissKeyboard>
+          )}
+        </KeyboardShift>
+      );
+    }
   }
-}
+// }
 const mapStateToProps = state => ({
-  loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser !== null,
+  authToken: state.auth.authToken
 });
 
 const styles = StyleSheet.create({

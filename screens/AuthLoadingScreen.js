@@ -4,6 +4,7 @@ import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 
 // Import Screens
+import PreLoadScreen from './PreLoadScreen';
 import LoginScreen from './LoginScreen';
 import RegistrationScreen from './RegistrationScreen';
 import UserLocation from './UserLocation';
@@ -19,7 +20,7 @@ class AuthLoadingScreen extends React.Component {
     if (this.props.loggedIn) {
       this.props.navigation.navigate('App');
     } else {
-      this.props.navigation.navigate('Auth');
+      this.props.navigation.navigate('PreLoad');
     }
   }
   // Render any loading content that you like here
@@ -58,14 +59,18 @@ const AppStack = createStackNavigator({
 const AuthStack = createStackNavigator({ 
   Login: LoginScreen, 
   Registration: RegistrationScreen, 
-  UserLocation: UserLocation 
+  UserLocation: UserLocation
+});
+const PreLoadStack = createStackNavigator({ 
+  PreLoadScreen
 });
 
 export default connect(mapStateToProps)(createSwitchNavigator(
   {
     AuthLoading: AuthLoadingScreen,
     App: AppStack,
-    Auth: AuthStack
+    Auth: AuthStack,
+    PreLoad: PreLoadStack
   },
   {
     initialRouteName: 'AuthLoading',

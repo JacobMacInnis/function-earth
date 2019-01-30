@@ -26,27 +26,4 @@ const rootReducer = combineReducers({
 });
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
-// // const authToken = loadAuthToken();
-// console.log('I did Try');
-// const authToken = '';
-// async function getToken() {
-//     try {
-//        authToken = await AsyncStorage.getItem('authToken');
-//       if (authToken !== null) {
-//         console.log(authToken)
-//       } else {
-//         console.log('NO VALUE')
-//       }
-//     } catch (error) {
-//       console.log('AsyncStorage Error: ' + error.message);
-//     }
-// }
-// getToken();
-
-// if (authToken) {
-//     const token = authToken;
-//     store.dispatch(setAuthToken(token));
-//     store.dispatch(refreshAuthToken());
-// }
-
 export default store;

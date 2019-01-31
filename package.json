@@ -19,6 +19,7 @@
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
     "react-native-drawer": "^2.5.1",
+    "react-native-is-iphonex": "^1.0.1",
     "react-native-responsive-fontsize": "^0.1.7",
     "react-native-responsive-screen": "^1.2.0",
     "react-navigation": "^2.18.2",

@@ -12,6 +12,7 @@ import requiresLogin from '../src/components/requires-login';
 import { getStats }  from '../src/actions/stats';
 import { leaveEntryScreen, newEntry } from '../src/actions/entries';
 import colorsObj from '../assets/colors/colorsObj';
+import { Entypo } from '@expo/vector-icons';
 
 const examples = {
   Earth: 'eg. built a compost bin in back yard',
@@ -113,16 +114,22 @@ class EntriesScreen extends React.Component {
             </View>
             <View style={{flex: 6, alignItems: 'center', }}>
               <TextInput
-                style={{ width: wp('80%'), height: hp('25%'), borderWidth: 1, borderRadius: 10,   fontSize: RF(3), paddingTop: 5, paddingBottom: 0, alignItems: 'center'}}
+                style={{ width: wp('80%'), height: hp('21%'), borderWidth: 1, borderRadius: 10,   fontSize: RF(3), paddingTop: 5, paddingBottom: 0, alignItems: 'center'}}
                 textAlign={'center'}
                 multiline={true}
                 onChangeText={entry => this.setState({entry})}
                 value={this.state.entry}
               />
+              <TouchableOpacity 
+                  style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: RF(5), width: RF(5), margin: 10, justifyContent: 'center', alignItems: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: colorsObj[this.props.entryType]}} 
+                  onPress={() => this.props.navigation.navigate('CameraScreen')}
+                  accessibilityLabel='add image'>
+                  <Entypo name="camera" size={RF(3)} color={'white'}/>
+              </TouchableOpacity>
             </View>
             <View style={{flex: 3, alignItems: 'center'}}>
               <TouchableOpacity
-              style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('10%'), width: wp('50%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: colorsObj[this.props.entryType]}} 
+              style={{ borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('10%'), width: wp('50%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: colorsObj[this.props.entryType]}} 
               onPress={() => this.logNewEntry()}
               accessibilityLabel='log entry button' 
               >

@@ -48,10 +48,13 @@ class PreLoadScreen extends React.Component {
   }
   render() {
     return (
-      <View style={{flex: 1}}>
-        <Image source={require('../assets/images/function-earth-splash.png')} 
+      <View style={{flex: 1, backgroundColor: 'black'}}>
+        {/* <Image source={require('../assets/images/function-earth-splash.png')} 
             style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
-            resizeMode="contain"/>
+            resizeMode="contain"/> */}
+        <Image source={require('./../src/assets/images/function-earth-logo.png')} 
+          style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
+          resizeMode="contain"/>
       </View>);
   }
 }

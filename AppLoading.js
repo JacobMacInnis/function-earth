@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import { Image, View } from 'react-native';
 import { Asset, AppLoading } from 'expo';
 
 export default class App extends React.Component {
@@ -19,8 +19,8 @@ export default class App extends React.Component {
     }
 
     return (
-      <View style={{ flex: 1 }}>
-        <Image source={require('./assets/images/function-earth-splash.png')} />
+      <View style={{flex: 1 }}>
+          <Image source={require('./assets/images/function-earth-splash.png')}/>
       </View>
     );
   }

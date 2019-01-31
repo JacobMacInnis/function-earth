@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Image, } from 'react-native';
+import { View, Image, Text, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
-import { AsyncStorage } from 'react-native';
 import { setAuthToken, refreshAuthToken } from '../src/actions/auth'
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import RF from "react-native-responsive-fontsize";
 
 
 class PreLoadScreen extends React.Component {
@@ -46,15 +47,18 @@ class PreLoadScreen extends React.Component {
       this.props.navigation.navigate('Login');
     }
   }
+  
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: 'black'}}>
-        {/* <Image source={require('../assets/images/function-earth-splash.png')} 
+      <View style={{flex: 1, backgroundColor: 'black', justifyContent: 'center'}}>
+        <View style={{height: hp('25%')}}>
+          <Image source={require('./../src/assets/images/function-earth-logo2.png')} 
             style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
-            resizeMode="contain"/> */}
-        <Image source={require('./../src/assets/images/function-earth-logo.png')} 
-          style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
-          resizeMode="contain"/>
+            resizeMode="contain"/>
+        </View>
+        <View style={{alignContent: 'center'}}>
+          <Text style={{alignSelf: 'center',color: 'white', fontSize: RF(5)}}>LOADING</Text>
+        </View>
       </View>);
   }
 }

@@ -27,6 +27,12 @@ export const newEntryError = error => ({
     error
 });
 
+export const NEW_ENTRY_IMAGE = 'NEW_ENTRY_IMAGE';
+export const newEntryImage = image => ({
+  type: NEW_ENTRY_IMAGE,
+  image
+});
+
 export const newEntry = entry => (dispatch, getState) => {
   dispatch(newEntryRequest());
   const authToken = getState().auth.authToken;

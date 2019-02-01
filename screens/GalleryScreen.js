@@ -1,17 +1,21 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Text, ScrollView } from 'react-native';
+import { connect } from 'react-redux';
 import { FileSystem, MediaLibrary, Permissions } from 'expo';
 import { MaterialIcons } from '@expo/vector-icons';
 import Photo from './Photo';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import RF from 'react-native-responsive-fontsize';
 
 const PHOTOS_DIR = FileSystem.documentDirectory + 'photos';
 
-export default class GalleryScreen extends React.Component {
+class GalleryScreen extends React.Component {
   state = {
     faces: {},
     images: {},
     photos: [],
     selected: [],
+    anySelected: false
   };
 
   componentDidMount = async () => {
@@ -50,6 +54,7 @@ export default class GalleryScreen extends React.Component {
     }
   };
 
+
   renderPhoto = fileName => 
     <Photo
       key={fileName}
@@ -58,17 +63,20 @@ export default class GalleryScreen extends React.Component {
     />;
 
   render() {
-    console.log(this.state.photos)
     return (
       <View style={styles.container}>
-        <View style={styles.navbar}>
-          <TouchableOpacity style={styles.button} onPress={this.props.onPress}>
-            <MaterialIcons name="arrow-back" size={25} color="white" />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={this.saveToGallery}>
-            <Text style={styles.whiteText}>Save selected to gallery</Text>
-          </TouchableOpacity>
-        </View>
+          <View style={styles.navbar}>
+            <Text style={styles.text}>Choose A Photo</Text>  
+            <View style={styles.bottomNavbar}>
+              <TouchableOpacity style={styles.button} onPress={this.props.onPress}>
+                <MaterialIcons name="arrow-back" size={25} color="white" />
+              </TouchableOpacity>
+              {this.state.selected.length > 0 && <TouchableOpacity style={styles.button}><Text style={styles.text}>Delete</Text></TouchableOpacity>}
+              <TouchableOpacity style={styles.button} onPress={this.saveToGallery}>
+                <Text style={styles.text}>Use Photo</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
         <ScrollView contentComponentStyle={{ flex: 1 }}>
           <View style={styles.pictures}>
             {this.state.photos.map(this.renderPhoto)}
@@ -82,14 +90,17 @@ export default class GalleryScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 20,
+    // paddingTop: 20,
     backgroundColor: 'white',
   },
   navbar: {
+    height: hp('15%'),
+    backgroundColor: 'blue',
+  },
+  bottomNavbar: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#4630EB',
+    justifyContent: 'space-around',
   },
   pictures: {
     flex: 1,
@@ -99,9 +110,18 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   button: {
-    padding: 20,
+    backgroundColor: 'green',
+    borderRadius: 10,
+    height: hp('10%')
   },
-  whiteText: {
+  text: {
     color: 'white',
+    fontSize: RF(3)
   }
 });
+
+const mapStateToProps = state => ({
+  
+});
+
+export default connect(mapStateToProps)(GalleryScreen);

@@ -3,14 +3,15 @@ import {
   LEAVE_ENTRY_SCREEN,
   NEW_ENTRY_REQUEST,
   NEW_ENTRY_SUCCESS,
-  NEW_ENTRY_ERROR
+  NEW_ENTRY_ERROR,
+  NEW_ENTRY_IMAGE
 } from '../actions/entries';
 
 const initialState = {
   type: null,
   openEntryScreen: false,
   loading: false,
-  error: null
+  error: null,
 };
 
 export default function reducer(state = initialState, action) {
@@ -40,6 +41,11 @@ export default function reducer(state = initialState, action) {
           loading: false,
           error: action.error
       });
+	} else if (action.type === NEW_ENTRY_IMAGE) {
+			return Object.assign({}, state, {
+				
+			})
+		} 
   } else {
     return state;
   }

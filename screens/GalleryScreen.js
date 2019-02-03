@@ -15,7 +15,8 @@ class GalleryScreen extends React.Component {
     images: {},
     photos: [],
     selected: [],
-    anySelected: false
+    indSelected: '',
+    uri: null
   };
 
   componentDidMount = async () => {
@@ -23,58 +24,71 @@ class GalleryScreen extends React.Component {
     this.setState({ photos });
   };
 
-  toggleSelection = (uri, isSelected) => {
-    let selected = this.state.selected;
-    if (isSelected) {
-      selected.push(uri);
+  toggleSelection = (uri, isSelected, ind) => {
+    if (this.state.indSelected === ind) {
+      this.setState({ indSelected: '', uri: null })
     } else {
-      selected = selected.filter(item => item !== uri);
-    }
-    this.setState({ selected });
-  };
-
-  saveToGallery = async () => {
-    const photos = this.state.selected;
-
-    if (photos.length > 0) {
-      const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
-
-      if (status !== 'granted') {
-        throw new Error('Denied CAMERA_ROLL permissions!');
-      }
-
-      const promises = photos.map(photoUri => {
-        return MediaLibrary.createAssetAsync(photoUri);
-      });
-
-      await Promise.all(promises);
-      alert('Successfully saved photos to user\'s gallery!');
-    } else {
-      alert('No photos to save!');
+      let indSelected = ind
+      this.setState({ indSelected, uri });
     }
   };
+
+  // saveToGallery = async () => {
+  //   const photos = this.state.selected;
+
+  //   if (photos.length > 0) {
+  //     const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+
+  //     if (status !== 'granted') {
+  //       throw new Error('Denied CAMERA_ROLL permissions!');
+  //     }
+
+  //     const promises = photos.map(photoUri => {
+  //       return MediaLibrary.createAssetAsync(photoUri);
+  //     });
+
+  //     await Promise.all(promises);
+  //     alert('Successfully saved photos to user\'s gallery!');
+  //   } else {
+  //     alert('No photos to save!');
+  //   }
+  // };
+  useImage = async () => {
+    console.log('I want to use this');
+  }
+  deleteImage = async () => {
+    console.log('I want to delete this image');
+  }
 
 
   renderPhoto = fileName => 
     <Photo
       key={fileName}
+      ind={fileName}
+      indSelected={this.state.indSelected}
       uri={`${PHOTOS_DIR}/${fileName}`}
       onSelectionToggle={this.toggleSelection}
     />;
 
   render() {
+    // console.log(this.state.photos)
     return (
       <View style={styles.container}>
           <View style={styles.navbar}>
             <Text style={styles.text}>Choose A Photo</Text>  
             <View style={styles.bottomNavbar}>
-              <TouchableOpacity style={styles.button} onPress={this.props.onPress}>
+              <TouchableOpacity style={styles.backButton} onPress={this.props.onPress}>
                 <MaterialIcons name="arrow-back" size={25} color="white" />
               </TouchableOpacity>
-              {this.state.selected.length > 0 && <TouchableOpacity style={styles.button}><Text style={styles.text}>Delete</Text></TouchableOpacity>}
-              <TouchableOpacity style={styles.button} onPress={this.saveToGallery}>
-                <Text style={styles.text}>Use Photo</Text>
-              </TouchableOpacity>
+              <View style={styles.conditionalButton}>
+                {this.state.indSelected !== '' && <TouchableOpacity style={styles.button} onPress={this.deleteImage}><Text style={styles.text}>Delete</Text></TouchableOpacity>}
+              </View>
+              <View style={styles.conditionalButton}>
+              {/* <TouchableOpacity style={styles.button} onPress={this.saveToGallery}> */}
+                {this.state.indSelected !== '' && <TouchableOpacity style={styles.button} onPress={this.useImage}>
+                  <Text style={styles.text}>Use Photo</Text>
+                </TouchableOpacity>}
+              </View>
             </View>
           </View>
         <ScrollView contentComponentStyle={{ flex: 1 }}>
@@ -99,6 +113,7 @@ const styles = StyleSheet.create({
   },
   bottomNavbar: {
     flexDirection: 'row',
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
   },
@@ -109,10 +124,21 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     paddingVertical: 8,
   },
+  backButton: {
+    // flex: 1,
+    backgroundColor: 'green',
+    borderRadius: 10,
+    padding: 10,
+    justifyContent: 'center'
+  },
+  conditionalButton: {
+    // flex: 1
+  },
   button: {
     backgroundColor: 'green',
     borderRadius: 10,
-    height: hp('10%')
+    padding: 10,
+    justifyContent: 'center'
   },
   text: {
     color: 'white',

@@ -52,9 +52,6 @@ class LinkScreen extends Component {
   };
 
   _signOutAsync = async () => {
-    console.log('AT LEAST THIS')
-    // await this.props.clearAuthToken();
-    // // await AsyncStorage.clear();
     await AsyncStorage.removeItem('authToken');
     this.props.dispatch(toggleMenu());
     this.props.navigation.navigate('Auth');

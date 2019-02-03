@@ -18,12 +18,23 @@ export default class Photo extends React.Component {
   componentWillUnmount() {
     this._mounted = false;
   }
+  componentDidUpdate(prevProps) {
+    if (prevProps.indSelected !== this.props.indSelected) {
+      console.log('updating???', this.props.ind, '===', this.props.indSelected)
+      if (this.props.indSelected === this.props.ind) {
+        this.setState(
+          { selected: !this.state.selected }
+        );
+      } else {
+        this.setState({
+          selected: false
+        });
+      }
+    }
+  }
 
   toggleSelection = () => {
-    this.setState(
-      { selected: !this.state.selected },
-      () => this.props.onSelectionToggle(this.props.uri, this.state.selected)
-    );
+    this.props.onSelectionToggle(this.props.uri, this.state.selected, this.props.ind)
   }
 
   getImageDimensions = ({ width, height }) => {

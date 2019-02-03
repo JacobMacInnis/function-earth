@@ -11,7 +11,8 @@ const initialState = {
   type: null,
   openEntryScreen: false,
   loading: false,
-  error: null,
+	error: null,
+	image: false
 };
 
 export default function reducer(state = initialState, action) {
@@ -43,10 +44,9 @@ export default function reducer(state = initialState, action) {
       });
 	} else if (action.type === NEW_ENTRY_IMAGE) {
 			return Object.assign({}, state, {
-				
-			})
-		} 
-  } else {
+				image: action.image
+			}); 
+	} else {
     return state;
-  }
+	}
 };

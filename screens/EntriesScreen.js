@@ -117,22 +117,22 @@ class EntriesScreen extends React.Component {
             <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}>
               <Text style={{fontSize: RF(3), fontWeight: 'bold', textAlign: 'center'}}>Today I helped preserve our {this.props.entryType}. I...</Text>
             </View>
-            <View style={{flex: 6, alignItems: 'stretch', }}>
+            <View style={{flex: 6, alignItems: 'center', }}>
               {/* <View style={{flex: 1, backgroundColor: 'grey'}}> */}
               <TextInput
-                style={{ width: wp('80%'), height: hp('12%'), borderWidth: 1, borderRadius: 10,   fontSize: RF(3), paddingTop: 5, paddingBottom: 0, alignItems: 'center'}}
+                style={{ width: wp('80%'), height: hp('21%'), borderWidth: 1, borderRadius: 10,   fontSize: RF(3), paddingTop: 5, paddingBottom: 0, alignItems: 'center'}}
                 textAlign={'center'}
                 multiline={true}
                 onChangeText={entry => this.setState({entry})}
                 value={this.state.entry}
               />
               {/* </View> */}
-              <View style={{ flex: 1, alignItems: 'stretch',backgroundColor: 'grey'}}>
-                {/* {image !== undefined && <Image source={{uri: image}} 
+              {/* <View style={{ flex: 1, alignItems: 'stretch',backgroundColor: 'grey'}}>
+                {image !== undefined && <Image source={{uri: image}} 
                 // style={{ borderWidth: 1, borderRadius: 10, alignItems: 'center', resizeMode: 'cover' }} 
                 style={{ height: 100, width: 100}}
-                />} */}
-              </View>
+                />}
+              </View> */}
               
               <TouchableOpacity 
                   style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: RF(5), width: RF(5), margin: 10, justifyContent: 'center', alignItems: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: colorsObj[this.props.entryType]}} 

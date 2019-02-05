@@ -20,7 +20,6 @@ export default class Photo extends React.Component {
   }
   componentDidUpdate(prevProps) {
     if (prevProps.indSelected !== this.props.indSelected) {
-      console.log('updating???', this.props.ind, '===', this.props.indSelected)
       if (this.props.indSelected === this.props.ind) {
         this.setState(
           { selected: !this.state.selected }

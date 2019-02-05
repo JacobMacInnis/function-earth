@@ -1,5 +1,6 @@
 import { Constants, Camera, FileSystem, Permissions } from 'expo';
 import React from 'react';
+import { connect } from 'react-redux';
 import {
   Alert,
   StyleSheet,
@@ -53,8 +54,9 @@ const wbIcons = {
   fluorescent: 'wb-iridescent',
   incandescent: 'wb-incandescent',
 };
+import { removeEntryImage } from '../src/actions/entries';
 
-export default class CameraScreen extends React.Component {
+export class CameraScreen extends React.Component {
   state = {
     flash: 'off',
     zoom: 0,
@@ -81,6 +83,7 @@ export default class CameraScreen extends React.Component {
     FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'photos').catch(e => {
       console.log(e, 'Directory exists');
     });
+    this.props.dispatch(removeEntryImage());
   }
 
   getRatios = async () => {
@@ -153,7 +156,7 @@ export default class CameraScreen extends React.Component {
   }
 
   renderGallery() {
-    return <GalleryScreen onPress={this.toggleView.bind(this)} />;
+    return <GalleryScreen onPress={this.toggleView.bind(this)} navigation={this.props.navigation}/>;
   }
 
   renderNoPermissions = () => 
@@ -260,6 +263,13 @@ export default class CameraScreen extends React.Component {
     return <View style={styles.container}>{content}</View>;
   }
 }
+
+const mapStateToProps = state => ({
+  
+});
+
+export default connect(mapStateToProps)(CameraScreen);
+
 
 const styles = StyleSheet.create({
   container: {

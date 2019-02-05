@@ -6,23 +6,33 @@ import { MaterialIcons } from '@expo/vector-icons';
 import Photo from './Photo';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import RF from 'react-native-responsive-fontsize';
+import { newEntryImage } from '../src/actions/entries';
 
 const PHOTOS_DIR = FileSystem.documentDirectory + 'photos';
 
 class GalleryScreen extends React.Component {
-  state = {
-    faces: {},
-    images: {},
-    photos: [],
-    selected: [],
-    indSelected: '',
-    uri: null
+  constructor(props) {
+    super(props);
+    this.state = {
+      faces: {},
+      images: {},
+      photos: [],
+      selected: [],
+      indSelected: '',
+      uri: null
+    }
+    this.useImage = this.useImage.bind(this);
   };
 
   componentDidMount = async () => {
     const photos = await FileSystem.readDirectoryAsync(PHOTOS_DIR);
     this.setState({ photos });
   };
+  componentDidUpdate(prevProps) {
+    if (prevProps.image !== this.props.image) {
+      this.props.navigation.navigate('EntryScreen');
+    }
+  }
 
   toggleSelection = (uri, isSelected, ind) => {
     if (this.state.indSelected === ind) {
@@ -42,7 +52,6 @@ class GalleryScreen extends React.Component {
   //     if (status !== 'granted') {
   //       throw new Error('Denied CAMERA_ROLL permissions!');
   //     }
-
   //     const promises = photos.map(photoUri => {
   //       return MediaLibrary.createAssetAsync(photoUri);
   //     });
@@ -53,9 +62,19 @@ class GalleryScreen extends React.Component {
   //     alert('No photos to save!');
   //   }
   // };
-  useImage = async () => {
-    console.log('I want to use this');
+  useImage() {
+    this.props.dispatch(newEntryImage(this.state.uri));
   }
+  // async addImage() {
+  //   try{
+  //     await this.props.newEntryImage(this.state.uri);
+  //     return this.props.navigation.navigate('EntryScreen');
+  //   }
+  //   catch(err) {
+  //     console.log(err);
+  //   }
+  // }
+
   deleteImage = async () => {
     console.log('I want to delete this image');
   }
@@ -71,7 +90,6 @@ class GalleryScreen extends React.Component {
     />;
 
   render() {
-    // console.log(this.state.photos)
     return (
       <View style={styles.container}>
           <View style={styles.navbar}>
@@ -147,7 +165,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-  
+  image: state.entries.image !== null
 });
 
 export default connect(mapStateToProps)(GalleryScreen);

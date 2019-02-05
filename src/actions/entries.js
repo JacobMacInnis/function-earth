@@ -33,6 +33,11 @@ export const newEntryImage = image => ({
   image
 });
 
+export const REMOVE_ENTRY_IMAGE = 'REMOVE_ENTRY_IMAGE';
+export const removeEntryImage = () => ({
+  type: REMOVE_ENTRY_IMAGE
+});
+
 export const newEntry = entry => (dispatch, getState) => {
   dispatch(newEntryRequest());
   const authToken = getState().auth.authToken;

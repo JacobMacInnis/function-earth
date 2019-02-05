@@ -4,7 +4,8 @@ import {
   NEW_ENTRY_REQUEST,
   NEW_ENTRY_SUCCESS,
   NEW_ENTRY_ERROR,
-  NEW_ENTRY_IMAGE
+  NEW_ENTRY_IMAGE,
+	REMOVE_ENTRY_IMAGE
 } from '../actions/entries';
 
 const initialState = {
@@ -12,40 +13,44 @@ const initialState = {
   openEntryScreen: false,
   loading: false,
 	error: null,
-	image: false
+	image: null
 };
 
 export default function reducer(state = initialState, action) {
   if (action.type === ENTRIES) {
-      return Object.assign({}, state, {
-          type: action.entry,
-          openEntryScreen: true
-      });
+		return Object.assign({}, state, {
+			type: action.entry,
+			openEntryScreen: true
+		});
   } else if (action.type === LEAVE_ENTRY_SCREEN) {
     return Object.assign({}, state, {
-        type: null,
-        openEntryScreen: false
+			type: null,
+			openEntryScreen: false
     });
   } else if (action.type === NEW_ENTRY_REQUEST) {
-      return Object.assign({}, state, {
-          loading: true,
-          error: null
-      });
+		return Object.assign({}, state, {
+			loading: true,
+			error: null
+    });
   } else if (action.type === NEW_ENTRY_SUCCESS) {
-      return Object.assign({}, state, {
-          stats: action.res,
-          loading: false,
-          error: null
-      });
+    return Object.assign({}, state, {
+      stats: action.res,
+      loading: false,
+      error: null
+    });
   } else if (action.type === NEW_ENTRY_ERROR) {
-      return Object.assign({}, state, {
-          loading: false,
-          error: action.error
-      });
+    return Object.assign({}, state, {
+			loading: false,
+			error: action.error
+		});
 	} else if (action.type === NEW_ENTRY_IMAGE) {
-			return Object.assign({}, state, {
-				image: action.image
-			}); 
+		return Object.assign({}, state, {
+			image: action.image
+		});
+	} else if (action.type === REMOVE_ENTRY_IMAGE) {
+		return Object.assign({}, state, {
+			image: null
+		}); 
 	} else {
     return state;
 	}

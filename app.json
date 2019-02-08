@@ -36,7 +36,7 @@
         "backgroundImage": "./assets/images/FE-background-icon.png"
       },
       "permissions": [
-        "CAMERA"
+        
       ]
     }
   }

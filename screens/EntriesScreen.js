@@ -12,6 +12,7 @@ import requiresLogin from '../src/components/requires-login';
 import { getStats }  from '../src/actions/stats';
 import { leaveEntryScreen, newEntry } from '../src/actions/entries';
 import colorsObj from '../assets/colors/colorsObj';
+
 import { Entypo } from '@expo/vector-icons';
 
 const examples = {
@@ -93,10 +94,10 @@ class EntriesScreen extends React.Component {
               resizeMode="contain"/>
                 {/* style={{alignSelf: 'center', marginTop: 3, width: 100, height: 100}} /> */}
             </View>
-            {/* <View style={{flex: 2, justifyContent: 'center'}}>
+              {/* <View style={{flex: 2, justifyContent: 'center'}}>
               <Text style={{alignSelf: 'center', fontSize: RF(4), fontWeight: 'bold'}}>Function Earth</Text>
-            </View> */}
-            <View style={{flex: 2, justifyContent: 'center'}}>
+              </View> */}
+            <View style={{flex: 1, justifyContent: 'center'}}>
               <Text style={{alignSelf: 'center', fontSize: RF(5.2), fontWeight: 'bold'}}>New <Text style={{color: colorsObj[this.props.entryType], borderRadius: 4, borderWidth: 0.5, borderColor: 'black',}}>{this.props.entryType}</Text> Entry</Text>
             </View>
             {this.props.entryType === 'Ocean' ? <View style={{flex: 4, alignItems: 'center'}}><Oceans oceanPressed={(ocean) => this.oceanPressed(ocean)}/></View> : <View style={{flex: 3, alignItems: 'center', justifyContent: 'center'}}><Text style={{ fontSize: RF(3), fontWeight: 'bold'}}>Country</Text>
@@ -118,32 +119,32 @@ class EntriesScreen extends React.Component {
               <Text style={{fontSize: RF(3), fontWeight: 'bold', textAlign: 'center'}}>Today I helped preserve our {this.props.entryType}. I...</Text>
             </View>
             <View style={{flex: 6, alignItems: 'center', }}>
-              {/* <View style={{flex: 1, backgroundColor: 'grey'}}> */}
-              <TextInput
-                style={{ width: wp('80%'), height: hp('21%'), borderWidth: 1, borderRadius: 10,   fontSize: RF(3), paddingTop: 5, paddingBottom: 0, alignItems: 'center'}}
-                textAlign={'center'}
-                multiline={true}
-                onChangeText={entry => this.setState({entry})}
-                value={this.state.entry}
-              />
-              {/* </View> */}
-              {/* <View style={{ flex: 1, alignItems: 'stretch',backgroundColor: 'grey'}}>
+              <View style={{flex: 2}}>
+                <TextInput
+                  style={{ width: wp('80%'), height: hp('21%'), borderWidth: 1, borderRadius: 10,   fontSize: RF(3), paddingTop: 5, paddingBottom: 0, alignItems: 'center'}}
+                  textAlign={'center'}
+                  multiline={true}
+                  onChangeText={entry => this.setState({entry})}
+                  value={this.state.entry}
+                />
+              </View>
+              <View style={{ flex: 2, alignItems: 'stretch',backgroundColor: 'grey'}}>
                 {image !== undefined && <Image source={{uri: image}} 
-                // style={{ borderWidth: 1, borderRadius: 10, alignItems: 'center', resizeMode: 'cover' }} 
-                style={{ height: 100, width: 100}}
+                style={{ width: 300, height: 300 }}
                 />}
+              </View>
+              {/* <View style={{flex: 1}}>
+                <TouchableOpacity 
+                    style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: RF(5), width: RF(5), margin: 10, justifyContent: 'center', alignItems: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: colorsObj[this.props.entryType]}} 
+                    onPress={() => this.props.navigation.navigate('CameraScreen')}
+                    accessibilityLabel='add image'>
+                    <Entypo name="camera" size={RF(3)} color={'white'}/>
+                </TouchableOpacity>
               </View> */}
-              
-              <TouchableOpacity 
-                  style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: RF(5), width: RF(5), margin: 10, justifyContent: 'center', alignItems: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: colorsObj[this.props.entryType]}} 
-                  onPress={() => this.props.navigation.navigate('CameraScreen')}
-                  accessibilityLabel='add image'>
-                  <Entypo name="camera" size={RF(3)} color={'white'}/>
-              </TouchableOpacity>
             </View>
             <View style={{flex: 3, alignItems: 'center'}}>
               <TouchableOpacity
-              style={{ borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('10%'), width: wp('50%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: colorsObj[this.props.entryType]}} 
+              style={{ borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('8%'), width: wp('50%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: colorsObj[this.props.entryType]}} 
               onPress={() => this.logNewEntry()}
               accessibilityLabel='log entry button' 
               >

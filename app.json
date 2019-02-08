@@ -30,7 +30,7 @@
       "icon": "./assets/images/appleicon.png"
     },
     "android": {
-      "versionCode": 1.1,
+      "versionCode": 1,
       "package": "com.functionearth.FunctionEarth",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/FE-icon.png",

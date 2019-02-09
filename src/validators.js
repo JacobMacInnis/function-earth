@@ -23,3 +23,5 @@ export const matches = field => (value, allValues) =>
         : 'Does not match';
 
 export const email = value => (value.indexOf('@') > -1) && (value.indexOf('.') > -1) ? undefined : 'not valid email';
+
+export const username = value => value.indexOf('@') > -1 ? 'Username may not contain @' : undefined;

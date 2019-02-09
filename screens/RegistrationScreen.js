@@ -17,8 +17,8 @@ class Registration extends React.Component {
     title: 'Function Earth Registration',
   };
   onSubmitRegistration(values) {
-    const { username, password, firstName } = values;
-    const user = { username, password, firstName };
+    const { username, password, email } = values;
+    const user = { username, password, email };
     this.props.dispatch(registerUser(user))
       .then(() => this.props.dispatch(login(username, password)))
       .then(() => {

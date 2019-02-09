@@ -124,6 +124,7 @@ class EntriesScreen extends React.Component {
                   style={{ width: wp('80%'), height: hp('21%'), borderWidth: 1, borderRadius: 10,   fontSize: RF(3), paddingTop: 5, paddingBottom: 0, alignItems: 'center'}}
                   textAlign={'center'}
                   multiline={true}
+                  clearTextOnFocus={true}
                   onChangeText={entry => this.setState({entry})}
                   value={this.state.entry}
                 />

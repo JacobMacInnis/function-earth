@@ -7,7 +7,7 @@ import { Field, reduxForm, focus } from 'redux-form';
 import Input from './Input';
 
 // Import Validation functions
-import { required, nonEmpty, matches, length, isTrimmed } from './../validators';
+import { required, nonEmpty, matches, length, isTrimmed, email } from './../validators';
 
 const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
@@ -27,7 +27,7 @@ export class RegistrationForm extends React.Component {
 							component={Input} 
 							name="email" 
 							placeholder={'Email'}
-							validate={[required, ]}
+							validate={[required, email]}
 						/>
 					</View>
 				</View>

@@ -22,4 +22,4 @@ export const matches = field => (value, allValues) =>
         ? undefined
         : 'Does not match';
 
-export const email = value => value.indexOf('@') > -1 ? undefined : 'not valid email';
+export const email = value => (value.indexOf('@') > -1) && (value.indexOf('.') > -1) ? undefined : 'not valid email';

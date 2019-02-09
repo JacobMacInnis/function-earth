@@ -32,6 +32,7 @@
     "android": {
       "versionCode": 2,
       "package": "com.functionearth.FunctionEarth",
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.functionearth.FunctionEarth&rdid=com.functionearth.FunctionEarth",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/FE-icon.png",
         "backgroundImage": "./assets/images/FE-background-icon.png"

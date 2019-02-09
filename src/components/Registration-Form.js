@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import RF from "react-native-responsive-fontsize";
 import { Field, reduxForm, focus } from 'redux-form';
@@ -17,9 +17,6 @@ export class RegistrationForm extends React.Component {
 		return (
 			<View>
 				<View>
-					{/* <View>
-						<Text style={styles.titles}>First Name</Text>
-					</View> */}
 					<View>
 						<Field
 							props={styles.inputs}
@@ -32,9 +29,6 @@ export class RegistrationForm extends React.Component {
 					</View>
 				</View>
 				<View> 
-					{/* <View>
-						<Text style={styles.titles}>Username</Text>
-					</View> */}
 					<View>
 						<Field
 							props={styles.inputs}
@@ -63,9 +57,6 @@ export class RegistrationForm extends React.Component {
 					</View>
 				</View>
 				<View>
-					{/* <View>
-						<Text style={styles.titles}>Confirm Password</Text>
-					</View> */}
 					<View>
 						<Field
 							props={styles.inputs}

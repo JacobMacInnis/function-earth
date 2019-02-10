@@ -82,7 +82,6 @@ class EntriesScreen extends React.Component {
     if (this.props.image !== null) {
       image = this.props.image;
     }
-    console.log(image)
     return (
       <KeyboardShift>
         {() => (

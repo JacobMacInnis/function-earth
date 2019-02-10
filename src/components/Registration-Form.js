@@ -20,10 +20,10 @@ export class RegistrationForm extends React.Component {
 					<View>
 						<Field
 							props={styles.inputs}
-							textTitle={'email'}
+							textTitle={'Email'}
 							component={Input} 
 							name="email" 
-							placeholder={'Email'}
+							placeholder={'email'}
 							validate={[required, email]}
 						/>
 					</View>

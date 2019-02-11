@@ -125,7 +125,8 @@ class EntriesScreen extends React.Component {
                   multiline={true}
                   clearTextOnFocus={true}
                   onChangeText={entry => this.setState({entry})}
-                  value={this.state.entry}
+                  onFocus= {() => this.setState({entry : ''})}
+                  defaultValue={this.state.entry}
                 />
               </View>
               <View style={{ flex: 2, alignItems: 'stretch',backgroundColor: 'grey'}}>

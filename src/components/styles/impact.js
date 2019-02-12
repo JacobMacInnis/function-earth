@@ -1,7 +1,7 @@
 'use strict';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import RF from "react-native-responsive-fontsize";
-import { lightText } from '../helpers/textColors';
+import { lightText, darkText } from '../helpers/textColors';
 const textSize = RF(2.7);
 const textSizeLast = RF(2.8);
 
@@ -25,7 +25,8 @@ export const impact = {
   header: {
     fontSize: RF(3.8), 
     fontWeight: 'bold', 
-    alignSelf: 'center'
+    textAlign: 'center',
+    color: darkText,
   },
   myStatsContainer: {
     height: hp('26%')

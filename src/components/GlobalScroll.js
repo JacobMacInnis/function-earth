@@ -80,6 +80,7 @@ class GlobalScroll extends Component {
 const styles = StyleSheet.create({
   statContainerFirst: {
     marginLeft: wp('9%'),
+    color: '#161511'
   },
   statContainer: {
     marginLeft: 10

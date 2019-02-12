@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
     flex: 9
   },
   globalStatsHeader: {
+    color: '#161511',
     fontSize: RF(5), 
     fontWeight: 'bold', 
     alignSelf: 'center', 
@@ -78,6 +79,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   titles: {
+    color: '#161511',
     fontSize: RF(4), 
     fontWeight: 'bold',
     alignSelf:'center', 

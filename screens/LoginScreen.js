@@ -9,13 +9,14 @@ import { DismissKeyboard } from '../src/components/DismissKeyboard';
 import KeyboardShift from '../src/components/KeyboardShift';
 // Import Actions
 import { login, authError } from './../src/actions/auth';
+import { darkText } from '../src/components/helpers/textColors';
 
 class Login extends React.Component {
   static navigationOptions = {
     headerTitle: () => (
       <View style={{flex: 1}}>
         <Text
-          style={{fontSize: RF(2.5),textAlign: 'center', alignSelf: 'center'}}>Welcome To Function Earth</Text>
+          style={{fontSize: RF(2.5),textAlign: 'center', alignSelf: 'center', fontWeight: 'bold', color: darkText}}>Welcome To Function Earth</Text>
       </View>
     ),
   }
@@ -112,12 +113,14 @@ const styles = StyleSheet.create({
   loginTitle: {
     marginTop: 5,
     fontSize: RF(5.5),
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: darkText
   },
   loginDescription: {
     textAlign: 'center',
     fontSize: RF(3.1),
-    margin: 10
+    margin: 10,
+    color: darkText
   },
 });
 export default connect(mapStateToProps)(Login);

@@ -8,6 +8,7 @@ import Input from './Input';
 
 // Import Validation functions
 import { required, nonEmpty, matches, length, isTrimmed, email, username } from './../validators';
+import { darkText } from './helpers/textColors';
 
 const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
@@ -85,11 +86,13 @@ export class RegistrationForm extends React.Component {
 
 const styles = StyleSheet.create({
     titles: {
+				color: darkText,
         textAlign: 'center',
         fontWeight: 'bold', 
         marginTop: 15
     },
-    inputs:{ 
+    inputs:{
+				color: darkText,
         alignSelf: 'center', 
         textAlign: 'center',
         borderWidth: 1, 

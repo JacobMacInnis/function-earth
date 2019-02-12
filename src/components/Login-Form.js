@@ -4,6 +4,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import RF from "react-native-responsive-fontsize"
 import { reduxForm, focus } from 'redux-form';
 import { connect } from 'react-redux';
+import { darkText, lightText } from './helpers/textColors';
 
 export class LoginForm extends React.Component {
   constructor(props) {
@@ -21,19 +22,19 @@ export class LoginForm extends React.Component {
           <Text style={{color:'red', fontSize: RF(3)}}>{this.props.loginError ? this.props.loginError.message : ''}</Text>
         </View>
         <View style={{ alignItems: 'center'}}>
-          <Text style={{ fontSize: RF(2.5)}}>Username</Text>
+          <Text style={{ color: darkText, fontSize: RF(2.5)}}>Username</Text>
           <TextInput
             value={this.state.username}
-            style={{ borderWidth: 1, borderRadius: 10, height: hp('5%'), width: wp('60%'), fontSize: RF(2.5)}}
+            style={{ color: darkText, borderWidth: 1, borderRadius: 10, height: hp('5%'), width: wp('60%'), fontSize: RF(2.5)}}
             textAlign={'center'}
             onChangeText={username => this.setState({username})}
           />
         </View>
         <View style={{alignItems: 'center'}}>
-          <Text style={{ fontSize: RF(2.5)}}>Password</Text>
+          <Text style={{color: darkText, fontSize: RF(2.5)}}>Password</Text>
           <TextInput
             value={this.state.password}
-            style={{ borderWidth: 1, borderRadius: 10, height: hp('5%'), width: wp('60%'), fontSize: RF(2.5)}}
+            style={{ color: darkText, borderWidth: 1, borderRadius: 10, height: hp('5%'), width: wp('60%'), fontSize: RF(2.5)}}
             textAlign={'center'}
             onChangeText={password => this.setState({password})}
             secureTextEntry={true}
@@ -45,7 +46,7 @@ export class LoginForm extends React.Component {
             title="login" 
             onPress={() => this.props.onSubmit(values)} 
           >
-            <Text style={{fontSize: RF(4), alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Login</Text>
+            <Text style={{fontSize: RF(4), alignSelf: 'center', fontWeight: 'bold', color: lightText }}>Login</Text>
           </TouchableOpacity>
         </View>
       </View>

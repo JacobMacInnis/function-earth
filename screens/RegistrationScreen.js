@@ -11,6 +11,7 @@ import RegistrationForm from './../src/components/Registration-Form';
 // Import Actions
 import { registerUser }  from './../src/actions/users';
 import { login } from './../src/actions/auth';
+import { lightText } from '../src/components/helpers/textColors';
 
 class Registration extends React.Component {
   static navigationOptions = {
@@ -62,7 +63,7 @@ class Registration extends React.Component {
                 title="Back To Login"
                 onPress={() => this.props.navigation.goBack()} 
               >
-                <Text style={{fontSize: 25, alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Back To Login</Text>
+                <Text style={{fontSize: 25, alignSelf: 'center', fontWeight: 'bold', color: lightText }}>Back To Login</Text>
               </TouchableOpacity>
             </View>
           </View>

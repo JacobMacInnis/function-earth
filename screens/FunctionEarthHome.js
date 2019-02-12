@@ -8,6 +8,7 @@ import MyImpact from '../src/components/My-Impact';
 import NewEntry from '../src/components/New-Entry';
 import HamburgerMenu from '../src/components/HamburgerMenu';
 import LinkScreen from './LinkScreen';
+import { lightText } from '../src/components/helpers/textColors';
 
 class FunctionEarthHome extends React.Component {
   static navigationOptions = {
@@ -31,7 +32,7 @@ class FunctionEarthHome extends React.Component {
       )
     }
     return (
-      <View style={{flex: 1, backgroundColor: '#f2f2f2'}}>
+      <View style={{flex: 1, backgroundColor: 'white' }}>
         <View style={{flex: 1}}></View>
         <View style={{flex: 3}}>
           <Image source={require('./../src/assets/images/function-earth-logo2.png')} 

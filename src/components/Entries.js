@@ -42,11 +42,19 @@ const styles = StyleSheet.create({
   entriesContainer: {
     height: hp('26%'), 
     width: wp('85%'), 
-    borderWidth: 1, 
+    borderWidth: 1.5, 
     borderRadius: 6, 
-    borderColor: '#34495e', 
-    overflow: 'hidden', 
-    marginRight: wp('2%')
+    borderColor: '#a3a3a3', 
+    // overflow: 'hidden', 
+    marginRight: wp('2%'),
+    shadowColor: "#000",
+    shadowOffset: {
+	    width: 0,
+	    height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+    elevation: 8,
   },
   entriesInnerContainer: {
     flex: 5, 

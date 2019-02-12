@@ -6,6 +6,7 @@ import RF from "react-native-responsive-fontsize";
 import requiresLogin from './requires-login';
 import { entries } from '../actions/entries';
 import colorsArray from '../../assets/colors/colorsArray';
+import { darkText, lightText } from './helpers/textColors';
 
 
 class NewEntry extends React.Component {
@@ -28,9 +29,9 @@ class NewEntry extends React.Component {
       );
     });
     return (
-      <View style={{backgroundColor: 'white', width: wp('80%'), borderWidth: 2, borderColor: '#666699', borderRadius: 15, alignItems: 'center', marginTop: hp('2%'), paddingBottom: hp('1%'), paddingTop: hp('1%')}}>
-        <Text style={{fontSize: RF(4.5), fontWeight: 'bold', marginTop: 5}}>New Entry</Text>
-        <Text style={{fontSize: RF(3), marginTop: 3}}>Today I Helped...</Text>
+      <View style={{backgroundColor: lightText, width: wp('80%'), borderWidth: 2, borderColor: '#666699', borderRadius: 15, alignItems: 'center', marginTop: hp('2%'), paddingBottom: hp('1%'), paddingTop: hp('1%'), shadowColor: "#000", shadowOffset: { width: 0, height: 2, }, shadowOpacity: 0.25, shadowRadius: 3.84, elevation: 5,}}>
+        <Text style={{fontSize: RF(4.5), fontWeight: 'bold', marginTop: 5, color: darkText}}>New Entry</Text>
+        <Text style={{fontSize: RF(3), marginTop: 3, color: darkText}}>Today I Helped...</Text>
         {buttons}
       </View>
     );

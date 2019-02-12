@@ -9,10 +9,10 @@ import Entries from '../src/components/Entries';
 import MyStatsButtons from '../src/components/My-Stats-Buttons';
 
 let colors = {
-  earth: 'green',
-  ocean: 'blue',
-  animal: 'orange',
-  humanity: '#ff0066'
+  earth: '#1A7137',
+  ocean: '#0A0256',
+  animal: '#534C3b',
+  humanity: '#B16237'
 };
 class MyStatsScreen extends React.Component {
   constructor(props) {
@@ -40,7 +40,9 @@ class MyStatsScreen extends React.Component {
         contentContainerStyle={{alignItems: 'center'}}
         scrollEventThrottle={16}
         horizontal={false}
-        showsHorizontalScrollIndicator={false}>
+        showsHorizontalScrollIndicator={false}
+        style={{backgroundColor: 'white'}}  
+      >
         <Text style={{fontSize: RF(5)}}>My Stats</Text>
         <MyStats />
         <View style={{marginTop: 10}}>

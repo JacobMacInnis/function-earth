@@ -29,11 +29,11 @@ class MyStatsScreen extends React.Component {
   render() {
     let recentEntries = this.props.stats.recentEntries;
     let recent = recentEntries.map((entry, index) => {
-      return (<Entries key={index} index={index} type={entry.type} entry={entry.entry} country={entry.country} stateRegion={entry.stateRegion} color={colors[entry.type]} timeStamp={entry.timeStamp} ocean={entry.ocean ? entry.ocean : ''}></Entries>);
+      return (<Entries key={index} index={index} type={entry.type} entry={entry.entry} country={entry.country} stateRegion={entry.stateRegion} color={colors[entry.type]} timeStamp={entry.timeStamp} ocean={entry.ocean ? entry.ocean : ''} statsType={'myStats'}></Entries>);
     });
     let entries = this.props.stats[`${this.state.type}Entries`];
     let selected = entries.map((entry, index) => {
-      return (<Entries key={index} index={index} type={this.state.type} entry={entry.entry} country={entry.country} stateRegion={entry.stateRegion} color={colors[this.state.type]} timeStamp={entry.timeStamp} ocean={entry.ocean ? entry.ocean : ''}></Entries>);
+      return (<Entries key={index} index={index} type={this.state.type} entry={entry.entry} country={entry.country} stateRegion={entry.stateRegion} color={colors[this.state.type]} timeStamp={entry.timeStamp} ocean={entry.ocean ? entry.ocean : ''} statsType={'myStats'}></Entries>);
     });
     return (
       <ScrollView 

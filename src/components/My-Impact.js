@@ -12,7 +12,7 @@ class MyImpact extends React.Component {
     this.props.dispatch(getStats());
   }
   render() {
-    let myStats = <View style={{alignSelf: 'center', fontSize: RF(4)}}><Text>Loading</Text></View>;
+    let myStats = <View style={{alignSelf: 'center'}}><Text style={{fontSize: RF(4)}}>Loading</Text></View>;
     if (this.props.statsLoading === false && this.props.statsError === null && this.props.stats !== {}) {
       let stats = this.props.stats;
       myStats = <View style={{height: hp('20%'), width: wp('55%')}}>

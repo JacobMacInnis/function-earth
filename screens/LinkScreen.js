@@ -18,7 +18,7 @@ class LinkScreen extends Component {
         <View style={styles.innerContainer}>
           <TouchableOpacity
             onPress={this.goHome}
-            style={[styles.buttonContainer, {backgroundColor: '#1C7C3C'}]}
+            style={[styles.buttonContainer, {backgroundColor: '#D87743'}]}
           >
             <Text style={styles.buttonText}>
               <Image source={require('../src/assets/images/function-earth-logo2.png')}
@@ -26,13 +26,13 @@ class LinkScreen extends Component {
             </Text>
           </TouchableOpacity>
           <TouchableOpacity 
-            style={[styles.buttonContainer, {backgroundColor: '#221A75'}]}
+            style={[styles.buttonContainer, {backgroundColor: '#1C7C3C'}]}
             onPress={() => this.props.navigation.navigate('MyStats')}
             >
             <Text style={styles.buttonText}>My Stats</Text>
           </TouchableOpacity>
           <TouchableOpacity 
-            style={[styles.buttonContainer, {backgroundColor: '#5B5340'}]}
+            style={[styles.buttonContainer, {backgroundColor: '#221A75'}]}
             onPress={() => this.props.navigation.navigate('GlobalStats')}>
             <Text style={styles.buttonText}>Global Stats</Text>
           </TouchableOpacity>
@@ -40,7 +40,7 @@ class LinkScreen extends Component {
             <Text style={styles.buttonText}>Camera Screen</Text>
           </TouchableOpacity> */}
           <TouchableOpacity 
-            style={[styles.buttonContainer, {backgroundColor: '#D87743'}]}
+            style={[styles.buttonContainer, {backgroundColor: '#5B5340'}]}
             onPress={() => this.props.navigation.navigate('PrivacyScreen')}
           >
             <Text style={styles.buttonText}>Privacy</Text>
@@ -52,7 +52,7 @@ class LinkScreen extends Component {
             <Text style={styles.buttons}>TestScreen</Text>
           </TouchableOpacity> */}
           <TouchableOpacity 
-            style={[styles.buttonContainer, {backgroundColor: '#1C7C3C'}]}
+            style={[styles.buttonContainer, {backgroundColor: '#D87743'}]}
             onPress={this.props.signOutAsync}
           >
             <Text style={styles.buttonText}>Log Out</Text>

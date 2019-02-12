@@ -14,6 +14,7 @@ import { leaveEntryScreen, newEntry } from '../src/actions/entries';
 import colorsObj from '../assets/colors/colorsObj';
 
 import { Entypo } from '@expo/vector-icons';
+import { lightText } from '../src/components/helpers/textColors';
 
 const examples = {
   Earth: 'eg. built a compost bin in back yard',
@@ -86,7 +87,7 @@ class EntriesScreen extends React.Component {
       <KeyboardShift>
         {() => (
         <DismissKeyboard>
-          <View style={{flex: 2, backgroundColor: 'white'}}>
+          <View style={{flex: 2, backgroundColor: lightText}}>
             <View style={{flex: 2, marginTop: 10}}>
               <Image source={require('../src/assets/images/function-earth-logo.png')} 
               style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
@@ -102,13 +103,13 @@ class EntriesScreen extends React.Component {
             {this.props.entryType === 'Ocean' ? <View style={{flex: 4, alignItems: 'center'}}><Oceans oceanPressed={(ocean) => this.oceanPressed(ocean)}/></View> : <View style={{flex: 3, alignItems: 'center', justifyContent: 'center'}}><Text style={{ fontSize: RF(3), fontWeight: 'bold'}}>Country</Text>
               <TextInput
                 value={this.state.country}
-                style={{ width: wp('40%'), borderWidth: 1, borderRadius: 10, height: 50, fontSize: RF(3)}}
+                style={{ width: wp('40%'), borderColor: colorsObj[this.props.entryType], borderWidth: 1, borderRadius: 10, height: 50, fontSize: RF(3), backgroundColor: 'white'}}
                 textAlign={'center'}
                 onChangeText={country => this.setState({country})}/></View>}
             {this.props.entryType !== 'Ocean' ? <View style={{flex: 2, alignItems: 'center'}}>
               <Text style={{fontSize: RF(3), fontWeight: 'bold'}}>State/Region</Text>
               <TextInput
-                style={{ width: wp('40%'), borderWidth: 1, borderRadius: 10, height: 50, fontSize: RF(3)}}
+                style={{ width: wp('40%'), borderColor: colorsObj[this.props.entryType], borderWidth: 1, borderRadius: 10, height: 50, fontSize: RF(3), backgroundColor: 'white'}}
                 textAlign={'center'}
                 onChangeText={stateRegion => this.setState({stateRegion})}
                 value={this.state.stateRegion}
@@ -120,7 +121,7 @@ class EntriesScreen extends React.Component {
             <View style={{flex: 6, alignItems: 'center', }}>
               <View style={{flex: 2}}>
                 <TextInput
-                  style={{ width: wp('80%'), height: hp('21%'), borderWidth: 1, borderRadius: 10,   fontSize: RF(3), paddingTop: 5, paddingBottom: 0, alignItems: 'center'}}
+                  style={{ width: wp('80%'), height: hp('21%'), borderWidth: 2, borderRadius: 10, borderColor: colorsObj[this.props.entryType],   fontSize: RF(3), paddingTop: 5, paddingBottom: 0, alignItems: 'center', backgroundColor: 'white', shadowColor: "#000", shadowOffset: { width: 0, height: 2,}, shadowOpacity: 0.23, shadowRadius: 2.62, elevation: 4}}
                   textAlign={'center'}
                   multiline={true}
                   clearTextOnFocus={true}

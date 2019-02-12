@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import RF from "react-native-responsive-fontsize";
+import { lightText } from './helpers/textColors';
 
 const type = {
   earth: 'Earth Entry',
@@ -23,12 +24,27 @@ class Entries extends Component {
     if (this.props.type === 'ocean') {
       oceanCapitalized = this.props.ocean.charAt(0).toUpperCase() + this.props.ocean.slice(1);
     }
+    let header1;
+    let header2;
+    let header3;
+    if (this.props.statsType === 'myStats') {
+      header1 = (this.props.type === 'ocean' ? oceanCapitalized : `${this.props.stateRegion}, ${this.props.country}`);
+      header2 = this.props.timeStamp;
+      header3 = type[this.props.type];
+    } else if (this.props.statsType === 'globalStats') {
+      header1 = this.props.username;
+      header2 = (this.props.type === 'ocean' ? oceanCapitalized : `${this.props.stateRegion}, ${this.props.country}`);
+      header3 = this.props.timeStamp;
+    }
     return (
       <View style={[styles.entriesContainer, { marginLeft: (this.props.index === 0 ? wp('7%') : wp('4%')) }]}>
         <View style={[styles.entriesInnerContainer, { backgroundColor: this.props.color }]}>
-          <Text style={styles.entriesLocation}>{this.props.type === 'ocean' ? oceanCapitalized : `${this.props.stateRegion}:${this.props.country}`}</Text>
-          <Text style={styles.entriesType}>{type[this.props.type]}</Text>
-          <Text style={styles.entriesTimeStamp}>{this.props.timeStamp}</Text>
+          <View style={styles.entriesInnerContainerFlex}>
+            <Text style={styles.entriesHeader1}>{header1}</Text>
+            <Text style={styles.entriesHeader2}>{header2}</Text>
+            {/* <Text style={styles.entriesType}>{type[this.props.type]}</Text> */}
+            <Text style={styles.entriesHeader3}>{header3}</Text>
+          </View>
         </View>
         <View style={[styles.entriesContentContainer, { backgroundColor: secondColor[this.props.type] }]}>
           <Text style={styles.entriesContent}>{this.props.entry}</Text>
@@ -62,31 +78,48 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: '#F3F3E1',
   },
+  entriesInnerContainerFlex: {
+    flex: 1,
+    justifyContent: 'space-evenly',
+  },
   entriesContentContainer: {
     flex: 6, 
     alignItems: 'center', 
     justifyContent: 'center'
   },
-  entriesLocation: {
-    fontSize: RF(2.9), 
+  entriesHeader1: {
+    flex: 1,
+    fontSize: RF(3.1),
+    textAlign: 'center',
     fontWeight: '700',
-    marginTop: 5,
-    color: '#F9F9F0'
+    marginTop: 3,
+    color: lightText
   },
-  entriesType: {
-    fontSize: RF(2.1), 
-    fontWeight: '400',
-    color: '#F9F9F0'
+  entriesHeader2: {
+    flex: 1,
+    fontSize: RF(2.5), 
+    fontWeight: '700',
+    color: lightText,
+    textAlign: 'center',
   },
-  entriesTimeStamp: {
+  // entriesType: {
+  //   flex: 1,
+  //   textAlign: 'center',
+  //   fontSize: RF(2), 
+  //   fontWeight: '400',
+  //   color: lightText,
+  // },
+  entriesHeader3: {
     fontSize: RF(2.1), 
-    color: 'white'
+    color: lightText,
+    marginBottom: 3,
+    textAlign: 'center',
   },
   entriesContent: {
     fontSize: RF(3), 
     padding: wp('2%'),
     textAlign: 'center',
-    color: '#F9F9F0'
+    color: lightText
   }
 });
 

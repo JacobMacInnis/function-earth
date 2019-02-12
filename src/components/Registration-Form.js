@@ -8,7 +8,7 @@ import Input from './Input';
 
 // Import Validation functions
 import { required, nonEmpty, matches, length, isTrimmed, email, username } from './../validators';
-import { darkText } from './helpers/textColors';
+import { darkText, lightText } from './helpers/textColors';
 
 const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
@@ -42,9 +42,7 @@ export class RegistrationForm extends React.Component {
 					</View >
 				</View>
 				<View>
-					{/* <View>
-						<Text style={styles.titles}>Password</Text>
-					</View> */}
+					
 					<View>
 						<Field
 							props={styles.inputs}
@@ -71,12 +69,12 @@ export class RegistrationForm extends React.Component {
 					</View>
 				</View>
 				<View style={{alignItems: 'center'}}>
-					<TouchableOpacity
+				<TouchableOpacity
 						style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('5%'), width: wp('60%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: '#1C7C3C'}} 
 						title="login" 
 						onPress={this.props.handleSubmit} 
 					>
-						<Text style={{fontSize: 25, alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Register</Text>
+						<Text style={{fontSize: 25, alignSelf: 'center', fontWeight: 'bold', color: lightText}}>Register</Text>
 					</TouchableOpacity>
 				</View>
 			</View>
@@ -86,13 +84,12 @@ export class RegistrationForm extends React.Component {
 
 const styles = StyleSheet.create({
     titles: {
-				color: darkText,
+				color: '#161511',
         textAlign: 'center',
         fontWeight: 'bold', 
         marginTop: 15
     },
     inputs:{
-				color: darkText,
         alignSelf: 'center', 
         textAlign: 'center',
         borderWidth: 1, 

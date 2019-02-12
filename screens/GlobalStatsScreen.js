@@ -21,12 +21,14 @@ class GlobalStatsScreen extends React.Component {
       
       return (
         <View style={styles.container}>
-          <View style={styles.globalStatsTopContainer}>
-            <Text style={styles.globalStatsHeader}>Global Stats</Text>
-            <View style={styles.globalStatsImpactContainer}>
-              <GlobalScroll globalStats={this.props.globalStats}/>
+          <ScrollView>
+            <View style={styles.globalStatsTopContainer}>
+              <Text style={styles.globalStatsHeader}>Global Stats</Text>
+              <View style={styles.globalStatsImpactContainer}>
+                <GlobalScroll globalStats={this.props.globalStats}/>
+              </View>
             </View>
-          </View>
+          
           <View style={styles.globalStatsBottomContainer}>
             <ScrollView>
               <Text style={styles.titles}>Recent Entries</Text>
@@ -42,23 +44,18 @@ class GlobalStatsScreen extends React.Component {
               <View style={styles.afterTitles}></View>
             </ScrollView>
           </View>
+          </ScrollView>
         </View>
       );
     } else {
       return (
-        // <View>
-        //   <Image source={require('../assets/images/function-earth-splash.png')} 
-        //     style={{alignSelf: 'center'}} 
-        //   />
-        // </View>
-
-      <View style={{flex: 1, backgroundColor: 'black', justifyContent: 'center'}}>
-        <View style={{height: hp('25%')}}>
-          <Image source={require('./../src/assets/images/function-earth-logo2.png')} 
-            style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
-            resizeMode="contain"/>
+        <View style={{flex: 1, backgroundColor: 'black', justifyContent: 'center'}}>
+          <View style={{height: hp('25%')}}>
+            <Image source={require('./../src/assets/images/function-earth-logo2.png')} 
+              style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
+              resizeMode="contain"/>
+          </View>
         </View>
-      </View>
       );
     }
   }

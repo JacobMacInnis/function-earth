@@ -17,10 +17,12 @@ export default class App extends React.Component {
         />
       );
     }
-
     return (
       <View style={{flex: 1 }}>
-          <Image source={require('./assets/images/function-earth-splash.png')}/>
+          <Image source={require('./assets/images/function-earth-splash.png')}
+          style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
+          resizeMode="center"/>
+          />
       </View>
     );
   }

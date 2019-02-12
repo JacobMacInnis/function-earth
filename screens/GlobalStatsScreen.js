@@ -5,6 +5,7 @@ import { globalStats } from '../src/actions/globalStats';
 import GlobalScroll from '../src/components/GlobalScroll';
 import GlobalRecent from '../src/components/GlobalRecent';
 import RF from "react-native-responsive-fontsize";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 class GlobalStatsScreen extends React.Component {
   componentWillMount() {
@@ -45,10 +46,19 @@ class GlobalStatsScreen extends React.Component {
       );
     } else {
       return (
-        <View>
-          <Image source={require('../assets/images/function-earth-splash.png')} 
-            style={{alignSelf: 'center'}} />
+        // <View>
+        //   <Image source={require('../assets/images/function-earth-splash.png')} 
+        //     style={{alignSelf: 'center'}} 
+        //   />
+        // </View>
+
+      <View style={{flex: 1, backgroundColor: 'black', justifyContent: 'center'}}>
+        <View style={{height: hp('25%')}}>
+          <Image source={require('./../src/assets/images/function-earth-logo2.png')} 
+            style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
+            resizeMode="contain"/>
         </View>
+      </View>
       );
     }
   }

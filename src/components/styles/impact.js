@@ -1,15 +1,26 @@
 'use strict';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import RF from "react-native-responsive-fontsize";
+import { lightText } from '../helpers/textColors';
 const textSize = RF(2.7);
 const textSizeLast = RF(2.8);
 
 export const impact = {
   container: {
+    borderColor: '#5B5340',
     borderWidth: 1, 
     borderRadius: 10, 
     padding: 10, 
-    width: wp('80%')
+    width: wp('80%'),
+    backgroundColor: lightText,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
   },
   header: {
     fontSize: RF(3.8), 

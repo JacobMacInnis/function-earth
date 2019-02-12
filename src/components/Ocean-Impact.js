@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import RF from "react-native-responsive-fontsize";
+import { lightText } from './helpers/textColors';
 export default class OceanImpact extends React.Component {
   
   render() {
@@ -41,10 +42,20 @@ export default class OceanImpact extends React.Component {
 }
 const styles = StyleSheet.create({
   container: {
+    borderColor: '#5B5340',
     borderWidth: 1, 
     borderRadius: 10, 
     padding: 10, 
-    width: wp('70%')
+    width: wp('70%'),
+    backgroundColor: lightText,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
   },
   header: {
     fontSize: RF(4), 

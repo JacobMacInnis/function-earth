@@ -18,21 +18,23 @@ class LinkScreen extends Component {
           <TouchableOpacity
             onPress={this.goHome}
           >
-            <Text style={styles.buttons}>
+            <Text style={styles.buttonText}>
               <Image source={require('../src/assets/images/function-earth-logo.png')}style={styles.logo}/> Home
             </Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('MyStats')}>
-            <Text style={styles.buttons}>My Stats</Text>
+            <Text style={styles.buttonText}>My Stats</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('GlobalStats')}>
-            <Text style={styles.buttons}>Global Stats</Text>
+          <TouchableOpacity 
+            style={styles.buttonContainer}
+            onPress={() => this.props.navigation.navigate('GlobalStats')}>
+            <Text style={styles.buttonText}>Global Stats</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('CameraScreen')}>
-            <Text style={styles.buttons}>Camera Screen</Text>
+            <Text style={styles.buttonText}>Camera Screen</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('PrivacyScreen')}>
-            <Text style={styles.buttons}>Privacy</Text>
+            <Text style={styles.buttonText}>Privacy</Text>
           </TouchableOpacity>
           {/* <TouchableOpacity onPress={() => this._showMoreApp()}>
             <Text style={styles.buttons}>FE Chat</Text>
@@ -41,7 +43,7 @@ class LinkScreen extends Component {
             <Text style={styles.buttons}>TestScreen</Text>
           </TouchableOpacity> */}
           <TouchableOpacity onPress={this.props.signOutAsync}>
-            <Text style={styles.buttons}>Log Out</Text>
+            <Text style={styles.buttonText}>Log Out</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -72,7 +74,11 @@ const styles = StyleSheet.create({
     width: 37, 
     height: 37
   },
-  buttons: {
+  buttonContainer: {
+    borderColor: 'grey',
+    borderWidth: 1
+  },
+  buttonText: {
     fontSize: RF(4.5),
     margin: 10
   },

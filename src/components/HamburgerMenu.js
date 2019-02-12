@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   hamburgerLines: {
-    backgroundColor: 'blue', 
+    backgroundColor: '#221A75', 
     height: hp('1.3%'),
     width: wp('12%'),
     marginBottom: 3, 
@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
     overflow: 'hidden'
   }
 });
-
 const mapStateToProps = state => {
   return{
       hamburgerMenu: state.hamburgerMenu.active

@@ -10,11 +10,12 @@ const type = {
   humanity: 'Humanity Entry'
 };
 const secondColor = {
-  earth: '#ccffcc',
-  ocean: '#e6e6ff',
-  animal: '#ffedcc',
-  humanity: '#ffe6f0'
+  earth: '#599F71',
+  ocean: '#36307B',
+  animal: '#787262',
+  humanity: '#DB8354'
 };
+
 class Entries extends Component {
 
   render() {
@@ -49,7 +50,9 @@ const styles = StyleSheet.create({
   },
   entriesInnerContainer: {
     flex: 5, 
-    alignItems: 'center'
+    alignItems: 'center',
+    borderBottomWidth: 2,
+    borderBottomColor: '#F3F3E1',
   },
   entriesContentContainer: {
     flex: 6, 
@@ -58,14 +61,14 @@ const styles = StyleSheet.create({
   },
   entriesLocation: {
     fontSize: RF(2.9), 
-    fontWeight: '700', 
-    color: 'white', 
-    marginTop: 5
+    fontWeight: '700',
+    marginTop: 5,
+    color: '#F9F9F0'
   },
   entriesType: {
     fontSize: RF(2.1), 
-    fontWeight: '400', 
-    color: 'white'
+    fontWeight: '400',
+    color: '#F9F9F0'
   },
   entriesTimeStamp: {
     fontSize: RF(2.1), 
@@ -74,7 +77,8 @@ const styles = StyleSheet.create({
   entriesContent: {
     fontSize: RF(3), 
     padding: wp('2%'),
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#F9F9F0'
   }
 });
 

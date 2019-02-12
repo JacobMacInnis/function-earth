@@ -1,6 +1,6 @@
 {
-  "Earth": "green",
-  "Ocean": "blue",
-  "Animals": "orange",
-  "Humanity": "#ff0066"
+  "Earth": "#1C7C3C",
+  "Ocean": "#20196C",
+  "Animals": "#5B5340",
+  "Humanity": "#D87743"
 }

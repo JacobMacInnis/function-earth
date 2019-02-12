@@ -69,7 +69,7 @@ class Login extends React.Component {
               <LoginForm onSubmit={(values) => this.onSubmitLogin(values)} />
               <View style={{alignItems: 'center'}}>
                 <TouchableOpacity
-                  style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('5%'), width: wp('60%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: 'blue'}} 
+                  style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('5%'), width: wp('60%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: '#221A75'}} 
                   title="Register New Account"
                   onPress={() => this.props.navigation.navigate('Registration')} 
                 >

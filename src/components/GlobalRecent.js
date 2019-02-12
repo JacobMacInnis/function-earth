@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import Entries from './Entries';
 const colors = {
-  earth: 'green',
-  ocean: 'blue',
-  animal: 'orange',
-  humanity: '#ff0066'
+  earth: '#1C7C3C',
+  ocean: '#1C1660',
+  animal: '#5B5340',
+  humanity: '#C56D3D'
 };
+
 class GlobalRecent extends Component {
   render() {
     const recentEntries = this.props.globalStats;

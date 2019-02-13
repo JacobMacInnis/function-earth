@@ -5,14 +5,14 @@ import RF from "react-native-responsive-fontsize"
 import { reduxForm, focus } from 'redux-form';
 import { connect } from 'react-redux';
 import { darkText, lightText } from './helpers/textColors';
-import { authInput, authButton, authButtonText } from './styles/authStyles';
+import { authInput, authButton, authButtonText, authLabel } from './styles/authStyles';
 
 export class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: null,
-      password: null
+      username: 'username',
+      password: 'password'
     }
   }
   render() {
@@ -23,22 +23,27 @@ export class LoginForm extends React.Component {
           <Text style={{color:'red', fontSize: RF(3)}}>{this.props.loginError ? this.props.loginError.message : ''}</Text>
         </View>
         <View style={{ alignItems: 'center'}}>
-          <Text style={{ color: lightText, fontSize: RF(2.5)}}>Username</Text>
+          <Text style={authLabel}>Username</Text>
           <TextInput
             value={this.state.username}
             style={authInput}
+            // placeholder={'username'}
+            placeholderTextColor={'white'}
             textAlign={'center'}
             onChangeText={username => this.setState({username})}
+            onFocus={() => this.setState({username : ''})}
           />
         </View>
         <View style={{alignItems: 'center'}}>
-          <Text style={{color: lightText, fontSize: RF(2.5)}}>Password</Text>
+          <Text style={authLabel}>Password</Text>
           <TextInput
             value={this.state.password}
             style={authInput}
+            placeholderTextColor={lightText}
             textAlign={'center'}
             onChangeText={password => this.setState({password})}
-            secureTextEntry={true}
+            secureTextEntry={(this.state.password === 'password') ? false : true}
+            onFocus={() => this.setState({password : ''})}
             autoCapitalize='none'/>
         </View>
         <View style={{alignItems: 'center'}}>

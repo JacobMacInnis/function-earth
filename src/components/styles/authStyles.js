@@ -3,7 +3,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import RF from "react-native-responsive-fontsize";
 import { lightText } from '../helpers/textColors';
 
-export const authInput = { color: lightText, backgroundColor: '#424039', borderColor: lightText, borderWidth: 1, borderRadius: 10, height: hp('5%'), width: wp('60%'), fontSize: RF(2.5)}
+export const authInput = { color: lightText, color: lightText, backgroundColor: '#424039', borderColor: lightText, borderWidth: 1, borderRadius: 10, height: hp('5%'), width: wp('60%'), fontSize: RF(2.5)}
 
 export const authLabel = { color: lightText, fontSize: RF(2.5), alignSelf: 'center', }
 // export const authLabel = () => {

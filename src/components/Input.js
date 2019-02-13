@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextInput, View, Text, StyleSheet } from 'react-native';
 import RF from "react-native-responsive-fontsize";
+import { darkText } from './helpers/textColors';
 
 /**
  * to be wrapped with redux-form Field component
@@ -31,6 +32,7 @@ export default function Input(props) {
         onFocus={input.onFocus}
         value={input.value}
         underlineColorAndroid='transparent'
+        placeholderTextColor={props.placeholderStyle ? props.placeholderStyle : darkText }
       />
     </View>
   );

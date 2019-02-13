@@ -33,6 +33,8 @@ export default function Input(props) {
         value={input.value}
         underlineColorAndroid='transparent'
         placeholderTextColor={props.placeholderStyle ? props.placeholderStyle : darkText }
+        allowFontScaling={true}
+        fontSize={RF(2.5)}
       />
     </View>
   );

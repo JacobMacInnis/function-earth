@@ -12,7 +12,7 @@ export class LoginForm extends React.Component {
     super(props);
     this.state = {
       username: 'username',
-      password: 'password'
+      password: null
     }
   }
   render() {
@@ -27,7 +27,6 @@ export class LoginForm extends React.Component {
           <TextInput
             value={this.state.username}
             style={authInput}
-            // placeholder={'username'}
             placeholderTextColor={inputLightText}
             textAlign={'center'}
             onChangeText={username => this.setState({username})}
@@ -42,7 +41,7 @@ export class LoginForm extends React.Component {
             placeholderTextColor={inputLightText}
             textAlign={'center'}
             onChangeText={password => this.setState({password})}
-            secureTextEntry={(this.state.password === 'password') ? false : true}
+            secureTextEntry={true}
             onFocus={() => this.setState({password : ''})}
             autoCapitalize='none'/>
         </View>

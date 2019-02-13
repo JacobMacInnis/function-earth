@@ -36,8 +36,11 @@ class EntriesScreen extends React.Component {
     };
   }
   logNewEntry() {
+    let validate = this.state.entry;
     if ( this.state.entry === examples[ this.props.entryType ] ) {
       this.setState({alertType: 'Invalid', alertMessage: 'Entry must be unique'})
+    } else if (!validate.replace(/\s/g, '').length || validate === '') {
+      this.setState({alertType: 'Invalid', alertMessage: 'Entry must not be blank'});
     } else {
       let Entry = {
         entryType: this.props.entryType,
@@ -54,6 +57,9 @@ class EntriesScreen extends React.Component {
         this.props.dispatch(getStats());
       })
       .then(() => {
+        this.props.dispatch(leaveEntryScreen());
+      })
+      .then(() => {
         this.props.navigation.navigate('Home');
       })
     };
@@ -62,9 +68,6 @@ class EntriesScreen extends React.Component {
     this.setState({
       ocean: ocean
     });
-  };
-  componentWillUnmount() {
-    this.props.dispatch(leaveEntryScreen());
   };
   render() {
     let alert = false;

@@ -28,6 +28,7 @@ class FunctionEarthHome extends React.Component {
     this.props.navigation.navigate('UserLocation');
   }
   render() {
+    console.log(this.props.newEntry);
     if (this.props.HamburgerMenuActive) {
       return (
         <LinkScreen signOutAsync={this._signOutAsync} navigation={this.props.navigation}/>

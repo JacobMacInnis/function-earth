@@ -4,7 +4,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import RF from "react-native-responsive-fontsize"
 import { reduxForm, focus } from 'redux-form';
 import { connect } from 'react-redux';
-import { darkText, lightText } from './helpers/textColors';
+import { darkText, lightText, inputLightText } from './helpers/textColors';
 import { authInput, authButton, authButtonText, authLabel } from './styles/authStyles';
 
 export class LoginForm extends React.Component {
@@ -28,7 +28,7 @@ export class LoginForm extends React.Component {
             value={this.state.username}
             style={authInput}
             // placeholder={'username'}
-            placeholderTextColor={'white'}
+            placeholderTextColor={inputLightText}
             textAlign={'center'}
             onChangeText={username => this.setState({username})}
             onFocus={() => this.setState({username : ''})}
@@ -39,7 +39,7 @@ export class LoginForm extends React.Component {
           <TextInput
             value={this.state.password}
             style={authInput}
-            placeholderTextColor={lightText}
+            placeholderTextColor={inputLightText}
             textAlign={'center'}
             onChangeText={password => this.setState({password})}
             secureTextEntry={(this.state.password === 'password') ? false : true}

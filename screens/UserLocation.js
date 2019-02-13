@@ -12,7 +12,7 @@ import { darkText, lightText } from '../src/components/helpers/textColors';
 
 class UserCreation extends React.Component {
   static navigationOptions = { header: null }
-  
+
   createUserStats(values) {
     this.props.dispatch(userLocation(values))
       .then(() => {
@@ -43,11 +43,13 @@ class UserCreation extends React.Component {
         <DismissKeyboard>
           <View style={styles.locationContainer}>
             <View>
-              <Image source={require('./../src/assets/images/function-earth-logo.png')} 
-                style={{width: 150, height: 150}} />
+              <Image source={require('./../src/assets/images/function-earth-logo2.png')} 
+                style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
+                resizeMode="contain"
+              />
             </View>
             <View>
-              <Text style={styles.loginTitle}>Function Earth</Text>
+              <Text style={styles.locationText}>Function Earth</Text>
             </View>
             <Text style={styles.locationText}>{Location}</Text>
             <View style={styles.locationForm}>
@@ -77,6 +79,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  
   locationText: {
     color: lightText,
     fontWeight: 'bold',

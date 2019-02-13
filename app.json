@@ -30,7 +30,7 @@
       "icon": "./assets/images/appleicon.png"
     },
     "android": {
-      "versionCode": 4,
+      "versionCode": 5,
       "package": "com.functionearth.FunctionEarth",
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.functionearth.FunctionEarth&rdid=com.functionearth.FunctionEarth",
       "adaptiveIcon": {

@@ -39,7 +39,7 @@ class FunctionEarthHome extends React.Component {
             style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} resizeMode="contain"/>
         </View>
         <View style={{flex: 10, alignSelf: 'center'}}>
-          <MyImpact />
+          {/* <MyImpact /> */}
         </View>
         <View style={{flex: 19, alignSelf: 'center'}}>
           <NewEntry />

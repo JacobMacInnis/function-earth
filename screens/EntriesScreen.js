@@ -64,6 +64,9 @@ class EntriesScreen extends React.Component {
       })
     };
   };
+  componentWillUnmount() {
+    this.props.dispatch(leaveEntryScreen());
+  }
   oceanPressed(ocean) {
     this.setState({
       ocean: ocean
@@ -86,6 +89,11 @@ class EntriesScreen extends React.Component {
     if (this.props.image !== null) {
       image = this.props.image;
     }
+    let conditonalText1 = '';
+    if (this.props.entryType === 'Ocean' || this.props.entryType === 'Earth') {
+      conditonalText1 = 'our';
+    }
+
     return (
       <KeyboardShift>
         {() => (
@@ -100,8 +108,9 @@ class EntriesScreen extends React.Component {
               {/* <View style={{flex: 2, justifyContent: 'center'}}>
               <Text style={{alignSelf: 'center', fontSize: RF(4), fontWeight: 'bold'}}>Function Earth</Text>
               </View> */}
-            <View style={{flex: 1, justifyContent: 'center'}}>
-              <Text style={{alignSelf: 'center', fontSize: RF(5.2), fontWeight: 'bold'}}>New <Text style={{color: colorsObj[this.props.entryType], borderRadius: 4, borderWidth: 0.5, borderColor: 'black',}}>{this.props.entryType}</Text> Entry</Text>
+            <View style={{flex: 2, justifyContent: 'center'}}>
+              <Text style={{alignSelf: 'center', fontSize: RF(5.2), fontWeight: 'bold'}}>New <Text style={{color: colorsObj[this.props.entryType], borderRadius: 4, borderWidth: 0.5, borderColor: 'black',
+  }}>{this.props.entryType}</Text> Entry</Text>
             </View>
             {this.props.entryType === 'Ocean' ? <View style={{flex: 4, alignItems: 'center'}}><Oceans oceanPressed={(ocean) => this.oceanPressed(ocean)}/></View> : <View style={{flex: 3, alignItems: 'center', justifyContent: 'center'}}><Text style={{ fontSize: RF(3), fontWeight: 'bold'}}>Country</Text>
               <TextInput
@@ -119,7 +128,7 @@ class EntriesScreen extends React.Component {
               />
             </View> : <Text></Text>}
             <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}>
-              <Text style={{fontSize: RF(3), fontWeight: 'bold', textAlign: 'center'}}>Today I helped preserve our {this.props.entryType}. I...</Text>
+              <Text style={{fontSize: RF(3), fontWeight: 'bold', textAlign: 'center'}}>I helped preserve {conditonalText1} {this.props.entryType}{this.props.entryType === 'Ocean' ? 's' : ''}.  &nbsp; &nbsp;I...</Text>
             </View>
             <View style={{flex: 6, alignItems: 'center', }}>
               <View style={{flex: 2}}>

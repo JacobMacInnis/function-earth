@@ -23,7 +23,7 @@ export default function Input(props) {
   return (
     <View style={[styles.inputContainer, validationStyles]}>
       <View style={{alignSelf: 'center'}}><Text style={{color:'red', fontSize: RF(2)}}>{error}{warning}</Text></View>
-      <View style={{alignSelf: 'center'}}><Text style={{fontSize: RF(2)}}>{props.textTitle}</Text></View>
+      <View style={{alignSelf: 'center'}}><Text style={props.labelStyle}>{props.textTitle}</Text></View>
       <TextInput
         {...inputProps}
         onChangeText={input.onChange}

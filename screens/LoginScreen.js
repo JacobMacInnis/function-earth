@@ -10,7 +10,7 @@ import KeyboardShift from '../src/components/KeyboardShift';
 // Import Actions
 import { login, authError } from './../src/actions/auth';
 import { darkText, lightText } from '../src/components/helpers/textColors';
-
+import { authButton, authButtonText } from '../src/components/styles/authStyles';
 class Login extends React.Component {
   static navigationOptions = { header: null }
 
@@ -64,11 +64,11 @@ class Login extends React.Component {
               <LoginForm onSubmit={(values) => this.onSubmitLogin(values)} />
               <View style={{alignItems: 'center'}}>
                 <TouchableOpacity
-                  style={{borderWidth: 1, borderRadius: 10, borderColor: 'white', height: hp('5%'), width: wp('60%'), margin: 10, justifyContent: 'center',  shadowColor: 'white', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: '#221A75'}} 
+                  style={[authButton, { backgroundColor: '#221A75' }]} 
                   title="Register New Account"
                   onPress={() => this.props.navigation.navigate('Registration')} 
                 >
-                  <Text style={{fontSize: RF(4), alignSelf: 'center', fontWeight: 'bold', color: lightText}}>Register</Text>
+                  <Text style={ authButtonText }>Register</Text>
                 </TouchableOpacity>
               </View>
             </View> 

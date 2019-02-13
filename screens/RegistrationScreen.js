@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import RF from "react-native-responsive-fontsize"
 import { connect } from 'react-redux';
@@ -11,12 +11,11 @@ import RegistrationForm from './../src/components/Registration-Form';
 // Import Actions
 import { registerUser }  from './../src/actions/users';
 import { login } from './../src/actions/auth';
-import { lightText } from '../src/components/helpers/textColors';
+import { lightText, darkText } from '../src/components/helpers/textColors';
+import { authButton, authButtonText } from '../src/components/styles/authStyles';
 
 class Registration extends React.Component {
-  static navigationOptions = {
-    title: 'Function Earth Registration',
-  };
+  static navigationOptions = { header: null }
   onSubmitRegistration(values) {
     const { username, password, email } = values;
     const user = { username, password, email };
@@ -48,7 +47,7 @@ class Registration extends React.Component {
         <DismissKeyboard>
           <View style={styles.registrationContainer}>
             <View style={styles.registrationLogoContainer}>
-              <Image source={require('./../src/assets/images/function-earth-logo.png')} 
+              <Image source={require('./../src/assets/images/function-earth-logo2.png')} 
                 style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
                 resizeMode="contain"/>
             </View>
@@ -59,11 +58,11 @@ class Registration extends React.Component {
             </View>
             <View style={styles.loginForm}>
               <TouchableOpacity
-                style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('5%'), width: wp('60%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: '#221A75'}} 
+                style={[ authButton, { backgroundColor: '#221A75' }]} 
                 title="Back To Login"
                 onPress={() => this.props.navigation.goBack()} 
               >
-                <Text style={{fontSize: 25, alignSelf: 'center', fontWeight: 'bold', color: lightText }}>Back To Login</Text>
+                <Text style={authButtonText}>Back To Login</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -84,20 +83,23 @@ const styles = StyleSheet.create({
   registrationContainer: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: 'white'
+    backgroundColor: darkText
   },
   registrationLogoContainer: {
     flex: 5,
+    marginTop: hp('5%'),
     justifyContent: 'center',
     alignItems: 'center',
   },
   registrationTitle: {
-    flex: 1
+    flex: 1,
   },
   registrationText: {
+    color: lightText,
+    fontWeight: 'bold',
     justifyContent: 'flex-end',
     textAlign: 'center',
-    fontSize: RF(3.5),
+    fontSize: RF(4),
   },
   registrationForm: {
     flex: 9

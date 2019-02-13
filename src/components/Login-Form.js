@@ -22,19 +22,19 @@ export class LoginForm extends React.Component {
           <Text style={{color:'red', fontSize: RF(3)}}>{this.props.loginError ? this.props.loginError.message : ''}</Text>
         </View>
         <View style={{ alignItems: 'center'}}>
-          <Text style={{ color: darkText, fontSize: RF(2.5)}}>Username</Text>
+          <Text style={{ color: lightText, fontSize: RF(2.5)}}>Username</Text>
           <TextInput
             value={this.state.username}
-            style={{ color: darkText, borderWidth: 1, borderRadius: 10, height: hp('5%'), width: wp('60%'), fontSize: RF(2.5)}}
+            style={{ color: lightText, backgroundColor: '#424039', borderColor: lightText, borderWidth: 1, borderRadius: 10, height: hp('5%'), width: wp('60%'), fontSize: RF(2.5)}}
             textAlign={'center'}
             onChangeText={username => this.setState({username})}
           />
         </View>
         <View style={{alignItems: 'center'}}>
-          <Text style={{color: darkText, fontSize: RF(2.5)}}>Password</Text>
+          <Text style={{color: lightText, fontSize: RF(2.5)}}>Password</Text>
           <TextInput
             value={this.state.password}
-            style={{ color: darkText, borderWidth: 1, borderRadius: 10, height: hp('5%'), width: wp('60%'), fontSize: RF(2.5)}}
+            style={{ color: lightText, backgroundColor: '#424039', borderColor: lightText, borderWidth: 1, borderRadius: 10, height: hp('5%'), width: wp('60%'), fontSize: RF(2.5)}}
             textAlign={'center'}
             onChangeText={password => this.setState({password})}
             secureTextEntry={true}
@@ -42,7 +42,7 @@ export class LoginForm extends React.Component {
         </View>
         <View style={{alignItems: 'center'}}>
           <TouchableOpacity
-            style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('5%'), width: wp('60%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: '#1C7C3C'}} 
+            style={{borderWidth: 1, borderRadius: 10, borderColor: 'white', height: hp('5%'), width: wp('60%'), margin: 10, justifyContent: 'center',  shadowColor: 'white', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: '#1C7C3C'}} 
             title="login" 
             onPress={() => this.props.onSubmit(values)} 
           >

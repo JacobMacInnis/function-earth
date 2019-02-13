@@ -9,17 +9,10 @@ import { DismissKeyboard } from '../src/components/DismissKeyboard';
 import KeyboardShift from '../src/components/KeyboardShift';
 // Import Actions
 import { login, authError } from './../src/actions/auth';
-import { darkText } from '../src/components/helpers/textColors';
+import { darkText, lightText } from '../src/components/helpers/textColors';
 
 class Login extends React.Component {
-  static navigationOptions = {
-    headerTitle: () => (
-      <View style={{flex: 1}}>
-        <Text
-          style={{fontSize: RF(2.5),textAlign: 'center', alignSelf: 'center', fontWeight: 'bold', color: darkText}}>Welcome To Function Earth</Text>
-      </View>
-    ),
-  }
+  static navigationOptions = { header: null }
 
   onSubmitLogin(values) {
     if (values.username === null) {
@@ -56,10 +49,11 @@ class Login extends React.Component {
         <DismissKeyboard>
           <View style={styles.loginContainer}>
             <View style={styles.loginLogoContainer}>
-              <Image source={require('./../src/assets/images/function-earth-logo.png')} 
-                style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
+            <Text style={styles.loginTitle}>Function Earth</Text>
+              <Image source={require('./../src/assets/images/function-earth-logo2.png')} 
+                style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch', marginTop: hp('2%')}} 
                 resizeMode="contain"/>
-              <Text style={styles.loginTitle}>Function Earth</Text>
+              
             </View>
             <View style={styles.loginDescriptionContainer}>
               <Text style={styles.loginDescription}>You already do good things to preserve our planet. Function Earth tracks your efforts to protect our environment and global progress. </Text>
@@ -70,11 +64,11 @@ class Login extends React.Component {
               <LoginForm onSubmit={(values) => this.onSubmitLogin(values)} />
               <View style={{alignItems: 'center'}}>
                 <TouchableOpacity
-                  style={{borderWidth: 1, borderRadius: 10, borderColor: '#666699', height: hp('5%'), width: wp('60%'), margin: 10, justifyContent: 'center',  shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: '#221A75'}} 
+                  style={{borderWidth: 1, borderRadius: 10, borderColor: 'white', height: hp('5%'), width: wp('60%'), margin: 10, justifyContent: 'center',  shadowColor: 'white', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, elevation: 1, backgroundColor: '#221A75'}} 
                   title="Register New Account"
                   onPress={() => this.props.navigation.navigate('Registration')} 
                 >
-                  <Text style={{fontSize: RF(4), alignSelf: 'center', fontWeight: 'bold', color: 'white'}}>Register</Text>
+                  <Text style={{fontSize: RF(4), alignSelf: 'center', fontWeight: 'bold', color: lightText}}>Register</Text>
                 </TouchableOpacity>
               </View>
             </View> 
@@ -93,19 +87,21 @@ const styles = StyleSheet.create({
   loginContainer: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: 'white',
+    backgroundColor: darkText,
   },
   loginLogoContainer: {
     flex: 3,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
-    marginTop: hp('4%')
+    backgroundColor: darkText,
+    marginTop: hp('8%')
   },
   loginDescriptionContainer: {
     flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
+    alignSelf: 'center',
+    maxWidth: wp('90%')
   },
   loginForm: {
     flex: 4,
@@ -114,13 +110,13 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontSize: RF(5.5),
     fontWeight: 'bold',
-    color: darkText
+    color: lightText
   },
   loginDescription: {
     textAlign: 'center',
     fontSize: RF(3.1),
     margin: 10,
-    color: darkText
+    color: lightText
   },
 });
 export default connect(mapStateToProps)(Login);

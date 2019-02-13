@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "561611551845",
+    "firebase_url": "https://functionearth-69a90.firebaseio.com",
+    "project_id": "functionearth-69a90",
+    "storage_bucket": "functionearth-69a90.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561611551845:android:8e5c65b257876b91",
+        "android_client_info": {
+          "package_name": "com.functionearth.FunctionEarth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561611551845-tmd8gkherht39813aphgm32ilaanmsuk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.functionearth.FunctionEarth",
+            "certificate_hash": "27b14c18d79fa9431ea9117bad8f8bc9abfa6647"
+          }
+        },
+        {
+          "client_id": "561611551845-ql93q8vp6pmscboql9bb9ihk3pko2vkl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZCxQIY0bJ7tGHT6CIDJwrke1GZ1HYm5Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561611551845-ql93q8vp6pmscboql9bb9ihk3pko2vkl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -13,7 +13,7 @@ import { darkText, lightText } from '../src/components/helpers/textColors';
 import { authButton, authButtonText } from '../src/components/styles/authStyles';
 
 
-import { GOOGLE_CLIENT_ID, API_V1_AUTH_GOOGLE} from '../src/config';
+// import { GOOGLE_CLIENT_ID, API_V1_AUTH_GOOGLE} from '../src/config';
 
 class Login extends React.Component {
 
@@ -78,14 +78,14 @@ class Login extends React.Component {
                 </TouchableOpacity>
               </View>
             </View> 
-            <View>
+            {/* <View>
               <View>
                 <Text>Login With Google</Text>
                 <View style={{backgroundColor: 'red'}}>
   
                 </View>
               </View>
-            </View>
+            </View> */}
           </View>
         </DismissKeyboard>
         )}

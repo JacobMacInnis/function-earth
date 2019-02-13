@@ -53,6 +53,7 @@ class UserCreation extends React.Component {
               <LocationForm
                 onSubmit={(values) => this.createUserStats(values)}/>
             </View>
+            <View style={styles.bottomContainer}></View>
           </View>
         </DismissKeyboard>
         )}
@@ -74,20 +75,24 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: 'white',
     backgroundColor: darkText,
-    // justifyContent: 'center',
-    // alignItems: 'center'
   },
   locationLogoContainer: {
-    flex: 2,
+    flex: 5,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: darkText,
+    marginTop: hp('5%'),
   },
   locationHeader: {
-    flex: 1,
+    flex: 2,
+    justifyContent: 'flex-end'
   },
   locationForm: {
-    flex: 2,
+    flex: 8,
+    justifyContent: 'center'
+  },
+  bottomContainer: {
+    flex: 2
   },
   locationText: {
     flex: 1,

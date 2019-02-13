@@ -2,13 +2,11 @@ import React from 'react';
 import { AsyncStorage, Image, Text, Button, View, StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { offMenu } from '../src/actions/hamburgerMenu';
-import { loadAuthToken } from '../src/async-storage';
 // Components
 import MyImpact from '../src/components/My-Impact';
 import NewEntry from '../src/components/New-Entry';
 import HamburgerMenu from '../src/components/HamburgerMenu';
 import LinkScreen from './LinkScreen';
-import { lightText } from '../src/components/helpers/textColors';
 
 class FunctionEarthHome extends React.Component {
   static navigationOptions = {
@@ -17,6 +15,7 @@ class FunctionEarthHome extends React.Component {
     ),
     title: 'Function Earth'
   };
+
   componentDidUpdate() {
     if (!this.props.loggedIn || this.props.error) {
       this.props.navigation.navigate('Auth');
@@ -24,6 +23,9 @@ class FunctionEarthHome extends React.Component {
     if (this.props.entryType !== null && this.props.newEntry) {
       this.props.navigation.navigate('EntryScreen');
     }
+  }
+  sendToLocationScreen = () => {
+    this.props.navigation.navigate('UserLocation');
   }
   render() {
     if (this.props.HamburgerMenuActive) {
@@ -39,7 +41,7 @@ class FunctionEarthHome extends React.Component {
             style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} resizeMode="contain"/>
         </View>
         <View style={{flex: 10, alignSelf: 'center'}}>
-          {/* <MyImpact /> */}
+          <MyImpact locationScreen={this.sendToLocationScreen}/>
         </View>
         <View style={{flex: 19, alignSelf: 'center'}}>
           <NewEntry />
@@ -59,7 +61,6 @@ class FunctionEarthHome extends React.Component {
   };
 }
 const styles = StyleSheet.create({
-  
 });
 
 const mapStateToProps = state => ({
@@ -68,7 +69,8 @@ const mapStateToProps = state => ({
   authState: state.auth,
   entryType: state.entries.type,
   newEntry: state.entries.openEntryScreen,
-  HamburgerMenuActive: state.hamburgerMenu.active
+  HamburgerMenuActive: state.hamburgerMenu.active,
+  stats: state.stats.stats,
 });
 
 export default connect(mapStateToProps)(FunctionEarthHome);

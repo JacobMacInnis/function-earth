@@ -11,7 +11,13 @@ class MyImpact extends React.Component {
   componentDidMount() {
     this.props.dispatch(getStats());
   }
+  componentDidUpdate() {
+    if (this.props.noStats === true) {
+      this.props.locationScreen()
+    }
+  }
   render() {
+
     let myStats = <View style={{alignSelf: 'center'}}><Text style={{fontSize: RF(4)}}>Loading</Text></View>;
     if (this.props.statsLoading === false && this.props.statsError === null && this.props.stats !== {}) {
       let stats = this.props.stats;
@@ -61,6 +67,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
+  noStats: state.stats.noStats,
   stats: state.stats.stats,
   statsError: state.stats.error,
   statsLoading: state.stats.loading

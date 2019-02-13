@@ -1,13 +1,15 @@
 import {
   STATS_REQUEST,
   STATS_SUCCESS,
-  STATS_ERROR
+  STATS_ERROR,
+  SWITCH_OFF_NO_STATS
 } from './../actions/stats';
 
 const initialState = {
   stats: {},
   loading: false,
-  error: null
+  error: null,
+  noStats: null
 };
 
 export default function reducer(state = initialState, action) {
@@ -22,11 +24,21 @@ export default function reducer(state = initialState, action) {
           loading: false,
           error: null
       });
-  } else if (action.type === STATS_ERROR) {
+  } else if (action.type === SWITCH_OFF_NO_STATS) {
+      return Object.assign({}, state, {
+        noStats: null
+      })
+  } else if (action.type === STATS_ERROR && action.error.message === 'no user stats object in db') {
       return Object.assign({}, state, {
           loading: false,
-          error: action.error
+          error: action.error,
+          noStats: true
       });
-  }
+  } else if (action.type === STATS_ERROR && action .error.message !== 'no user stats object in db') {
+    return Object.assign({}, state, {
+        loading: false,
+        error: action.error
+    });
+}
   return state;
 };

@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   },
   globalStatsTopContainer: {
     flex: 8, 
-    borderBottomWidth: 1
+    // borderBottomWidth: 1
   },
   globalStatsBottomContainer: {
     flex: 9

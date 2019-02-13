@@ -2,6 +2,7 @@ import { SubmissionError } from 'redux-form';
 
 import { API_BASE_URL } from './../config';
 import { normalizeResponseErrors } from './utils';
+import { switchOffNoStats } from './stats';
 
 export const REGISTRATION_REQUEST = 'REGISTRATION_REQUEST';
 export const registrationRequest = () => ({
@@ -77,9 +78,11 @@ export const userLocation = values => (dispatch, getState) => {
       body: JSON.stringify(values)
   })
   .then(res => normalizeResponseErrors(res))
-      .then(res => res.json())
-      .then(() => {
-        dispatch(locationSuccess())})
+    .then(res => res.json())
+    .then(() => {
+			dispatch(switchOffNoStats());
+			dispatch(locationSuccess());
+    })
       .catch(err => {
         dispatch(locationError(err));
           const {reason, message, location} = err;

@@ -1,4 +1,5 @@
 import { API_BASE_URL } from './../config';
+import { normalizeResponseErrors } from './utils';
 
 export const STATS_REQUEST = 'STATS_REQUEST';
 export const statsRequest = () => ({
@@ -16,6 +17,10 @@ export const statsError = error => ({
     type: STATS_ERROR,
     error
 });
+export const SWITCH_OFF_NO_STATS = 'SWITCH_OFF_NO_STATS';
+export const switchOffNoStats = () => ({
+    type: SWITCH_OFF_NO_STATS
+});
 
 export const getStats = () => (dispatch, getState) => {
   dispatch(statsRequest());
@@ -27,12 +32,12 @@ export const getStats = () => (dispatch, getState) => {
             Authorization: `Bearer ${authToken}`
           },
       })
+      .then(res => normalizeResponseErrors(res))
       .then(res => res.json())
       .then((stats) => {
         dispatch(statsSuccess(stats))
       })
       .catch(err => {
         dispatch(statsError(err));
-              
       })
 };

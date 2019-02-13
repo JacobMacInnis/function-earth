@@ -16,6 +16,7 @@ import { authButton, authButtonText } from '../src/components/styles/authStyles'
 
 class Registration extends React.Component {
   static navigationOptions = { header: null }
+  
   onSubmitRegistration(values) {
     const { username, password, email } = values;
     const user = { username, password, email };

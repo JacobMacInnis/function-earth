@@ -1,17 +1,18 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
+import RF from "react-native-responsive-fontsize";
 // Import Components
 import LocationForm from './../src/components/Location-Form';
 import { DismissKeyboard } from '../src/components/DismissKeyboard';
 import KeyboardShift from '../src/components/KeyboardShift';
 // Import Actions
 import { userLocation }  from '../src/actions/users';
+import { darkText, lightText } from '../src/components/helpers/textColors';
 
 class UserCreation extends React.Component {
-  static navigationOptions = {
-    title: 'Creating Function Earth Account',
-  };
+  static navigationOptions = { header: null }
+  
   createUserStats(values) {
     this.props.dispatch(userLocation(values))
       .then(() => {
@@ -72,14 +73,16 @@ const styles = StyleSheet.create({
   locationContainer: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: 'white',
+    backgroundColor: darkText,
     justifyContent: 'center',
     alignItems: 'center'
   },
   locationText: {
+    color: lightText,
+    fontWeight: 'bold',
     justifyContent: 'flex-end',
     textAlign: 'center',
-    fontSize: 25,
+    fontSize: RF(4),
     margin: 10,
   },
   locationForm: {

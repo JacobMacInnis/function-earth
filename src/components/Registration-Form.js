@@ -7,7 +7,7 @@ import Input from './Input';
 
 // Import Validation functions
 import { required, nonEmpty, matches, length, isTrimmed, email, username } from './../validators';
-import { lightText } from './helpers/textColors';
+import { lightText, inputLightText } from './helpers/textColors';
 
 const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
@@ -27,7 +27,7 @@ export class RegistrationForm extends React.Component {
 							placeholder={'email'}
 							validate={[required, email]}
 							style={authInput}
-							placeholderStyle={lightText}
+							placeholderStyle={inputLightText}
 						/>
 					</View>
 				</View>
@@ -42,7 +42,7 @@ export class RegistrationForm extends React.Component {
 							validate={[required, nonEmpty, isTrimmed, username]}
 							placeholder={'username'}
 							style={authInput}	
-							placeholderStyle={lightText}
+							placeholderStyle={inputLightText}
 						/>
 					</View >
 				</View>
@@ -59,7 +59,7 @@ export class RegistrationForm extends React.Component {
 							placeholder={'password'}
 							secureTextEntry={true}
 							style={authInput}
-							placeholderStyle={lightText}	
+							placeholderStyle={inputLightText}	
 						/>
 					</View>
 				</View>
@@ -75,7 +75,7 @@ export class RegistrationForm extends React.Component {
 							placeholder={'password'}
 							secureTextEntry={true}
 							style={authInput}
-							placeholderStyle={lightText}
+							placeholderStyle={inputLightText}
 						/>
 					</View>
 				</View>

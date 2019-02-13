@@ -49,7 +49,7 @@ class Login extends React.Component {
         <DismissKeyboard>
           <View style={styles.loginContainer}>
             <View style={styles.loginLogoContainer}>
-            <Text style={styles.loginTitle}>Function Earth</Text>
+              <Text style={styles.loginTitle}>Function Earth</Text>
               <Image source={require('./../src/assets/images/function-earth-logo2.png')} 
                 style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch', marginTop: hp('2%')}} 
                 resizeMode="contain"/>

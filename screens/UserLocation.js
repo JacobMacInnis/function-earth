@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import RF from "react-native-responsive-fontsize";
 // Import Components
 import LocationForm from './../src/components/Location-Form';
@@ -42,16 +43,12 @@ class UserCreation extends React.Component {
         {() => (
         <DismissKeyboard>
           <View style={styles.locationContainer}>
-            <View>
+            <View style={styles.locationLogoContainer}>
               <Image source={require('./../src/assets/images/function-earth-logo2.png')} 
                 style={{flex: 1, width: undefined, height: undefined, alignSelf: 'stretch'}} 
-                resizeMode="contain"
-              />
+                resizeMode="contain"/>
             </View>
-            <View>
-              <Text style={styles.locationText}>Function Earth</Text>
-            </View>
-            <Text style={styles.locationText}>{Location}</Text>
+            <View style={styles.locationHeader}>{Location}</View>
             <View style={styles.locationForm}>
               <LocationForm
                 onSubmit={(values) => this.createUserStats(values)}/>
@@ -75,12 +72,26 @@ const styles = StyleSheet.create({
   locationContainer: {
     flex: 1,
     flexDirection: 'column',
+    backgroundColor: 'white',
     backgroundColor: darkText,
-    justifyContent: 'center',
-    alignItems: 'center'
+    // justifyContent: 'center',
+    // alignItems: 'center'
   },
-  
+  locationLogoContainer: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: darkText,
+  },
+  locationHeader: {
+    flex: 1,
+  },
+  locationForm: {
+    flex: 2,
+  },
   locationText: {
+    flex: 1,
+    color: 'black',
     color: lightText,
     fontWeight: 'bold',
     justifyContent: 'flex-end',
@@ -88,9 +99,6 @@ const styles = StyleSheet.create({
     fontSize: RF(4),
     margin: 10,
   },
-  locationForm: {
-    flex: 8,
-  }
 });
 
 export default connect(mapStateToProps)(UserCreation);

@@ -26,7 +26,7 @@
     ],
     "ios": {
       "bundleIdentifier": "com.FunctionEarth",
-      "supportsTablet": true,
+      "supportsTablet": true
     },
     "android": {
       "versionCode": 5,

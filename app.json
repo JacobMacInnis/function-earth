@@ -5,6 +5,7 @@
     "slug": "function-earth",
     "privacy": "public",
     "sdkVersion": "31.0.0",
+    "icon": "./",
     "platforms": [
       "ios",
       "android"
